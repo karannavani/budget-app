@@ -8,3 +8,7 @@ function personB () {
 function personA() {
   // Does nothing
 }
+
+function personC() {
+  // Does nothing
+}
