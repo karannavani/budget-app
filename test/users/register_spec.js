@@ -21,6 +21,7 @@ describe('POST /register', () => {
       .end((err, res) => {
         User.create(userData);
         expect(res.status).to.eq(200);
+        User.deleteMany({}, (err) => console.log(err));
         done();
       });
   });
@@ -41,10 +42,6 @@ describe('POST /register', () => {
         expect(users.length).to.eq(1);
         done();
       });
-  //   .then(users => {
-  //
-  //   })
-  //     });
   });
 
 
