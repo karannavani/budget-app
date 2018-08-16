@@ -1,12 +1,10 @@
-<<<<<<< HEAD
 // REQUIRE SOFTWARE HERE
 const express = ('express');
 const router = express.Router();
-
-// REQUIRE CONTROLLERS HERE
+const secureRoute = require('../lib/secureRoute');
+const authController = require('../controllers/authController');
+const goalController = require('../controllers/goalController');
 const expenseController = require('../controllers/expenseController');
-
-// REQUIRE SECURE ROUTE HERE
 
 //ROUTES
 
@@ -18,14 +16,6 @@ router.route('/expenses/:id')
   .get(expenseController.show)
   .put(expenseController.update)
   .delete(expenseController.delete);
-
-module.exports = router;
-=======
-
-const secureRoute = require('../lib/secureRoute');
-const authController = require('../controllers/authController');
-const goalController = require('../controllers/goalController');
-
 
 router.route('/goals')
   .get(goalController.index)
@@ -40,4 +30,5 @@ router.route('/register')
 
 router.route('/login')
   .post(authController.login);
->>>>>>> 29f3a1a0ede2748cb5c8b837a069d0614dc0305e
+
+module.exports = router;
