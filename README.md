@@ -1,1 +1,1 @@
-# budget-app
+## Welcome to Thrifty
