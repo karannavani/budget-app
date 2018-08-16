@@ -15,6 +15,32 @@ const userData = [
   { username: 'karan', firstName: 'Karan', lastName: 'Navani', email: 'kn@hotmail.com', password: 'pass', passwordConfirmation: 'pass' }
 ];
 
+
+
+const expenseData = [{
+  type: 'pizza',
+  cost: 15,
+  repeat: false,
+  merchant: 'Pizza Pilgrim',
+  location: '11 Old Street',
+  vital: false
+}, {
+  type: 'snack',
+  cost: 1,
+  repeat: false,
+  merchant: 'Birdys Fruit and Wine',
+  location: '9 Alie Street',
+  vital: true
+}, {
+  type: 'tobacco',
+  cost: 13,
+  repeat: true,
+  merchant: 'Tesco',
+  location: 'Commercial Stret',
+  vital: true
+}];
+
+
 const goalData = [{
   name: 'Vespa SS 180',
   cost: 1200,
