@@ -9,4 +9,4 @@ const expenseSchema = mongoose.schema({
   vital: Boolean
 }, {timestamps: true});
 
-module.exports = mongoose.model('expense', expenseSchema);
+module.exports = mongoose.model('Expense', expenseSchema);
