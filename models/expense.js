@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const expenseSchema = mongoose.schema({
+const expenseSchema = mongoose.Schema({
   type: { type: String, required: true },
   cost: { type: Number, required: true },
   repeat: Boolean,

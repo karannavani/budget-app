@@ -11,7 +11,7 @@ function register(req, res, next) {
 function login(req, res, next) {
   User
     .findOne({ email: req.body.email })
-    .them(user => {
+    .then(user => {
       // If the password is incorrect – show error
       if(!user || !user.validatePassword(req.body.password)) {
         return res.status(401).json({ message: 'Unauthorised' });

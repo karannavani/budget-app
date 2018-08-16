@@ -10,9 +10,9 @@ Goal.collection.drop();
 User.collection.drop();
 
 const userData = [
-  { firstName: 'Louis', lastName: 'Glick', email: 'lg@hotmail.com', password: 'pass', passwordConfirmation: 'pass' },
-  { firstName: 'Tristan', lastName: 'Hall', email: 'th@hotmail.com', password: 'pass', passwordConfirmation: 'pass' },
-  { firstName: 'Karan', lastName: 'Navani', email: 'kn@hotmail.com', password: 'pass', passwordConfirmation: 'pass' }
+  { username: 'louis', firstName: 'Louis', lastName: 'Glick', email: 'lg@hotmail.com', password: 'pass', passwordConfirmation: 'pass' },
+  { username: 'tristan', firstName: 'Tristan', lastName: 'Hall', email: 'th@hotmail.com', password: 'pass', passwordConfirmation: 'pass' },
+  { username: 'karan', firstName: 'Karan', lastName: 'Navani', email: 'kn@hotmail.com', password: 'pass', passwordConfirmation: 'pass' }
 ];
 
 const goalData = [{
@@ -37,21 +37,10 @@ const goalData = [{
   websiteUrl: 'http://www.minresco.com/fulgurites/fulgurites.htm'
 }];
 
-
-// // TODO: In need of equilvalent.
-//     |
-//     |
-//     V
-// User
-//   .create(userData)
-//   .then(users => {
-//     console.log(`Created ${users.length} users.`);
-//     whiskeyData[0].createdBy = users[0].id;
-//     whiskeyData[1].createdBy = users[0].id;
-//     return Whiskey.create(whiskeyData);
-//   })
-//   .then(whiskeys => {
-//     console.log(`Created ${whiskeys.length} whiskeys.`);
-//   })
-//   .catch(err => console.log(err))
-//   .finally(() => mongoose.connection.close());
+User
+  .create(userData)
+  .then(users => {
+    console.log(`created ${users.length} users`);
+  })
+  .catch(err => console.log(err))
+  .finally(() => mongoose.connection.close());

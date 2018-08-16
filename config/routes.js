@@ -1,5 +1,5 @@
 // REQUIRE SOFTWARE HERE
-const express = ('express');
+const express = require('express');
 const router = express.Router();
 const secureRoute = require('../lib/secureRoute');
 const authController = require('../controllers/authController');
