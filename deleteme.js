@@ -3,5 +3,8 @@ function doNothing() {
 }
 
 function personB () {
-  //does nothing 
+  //does nothing
+
+function personA() {
+  // Does nothing
 }
