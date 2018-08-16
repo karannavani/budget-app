@@ -1,10 +1,13 @@
 /* global describe  it expect api*/
 
-let userData = {
+const User = require('../../models/user');
+
+const userData = {
   username: 'louis',
   firstName: 'Louis',
   lastName: 'Glick',
   email: `${Math.random()}@hotmail.com`,
+  // email: 'karan@hotmail.com',
   password: 'pass',
   passwordConfirmation: 'pass'
 };
@@ -12,26 +15,36 @@ let userData = {
 describe('POST /register', () => {
 
   it('should return a 200 when validation criteria is met', done => {
-    console.log('user is', userData);
+    User.deleteMany({}, (err) => console.log(err));
     api.post('/api/register')
-      .send(userData, console.log('I am sending', userData))
+      .send(userData)
       .end((err, res) => {
-        console.log('sending =>', userData);
+        User.create(userData);
         expect(res.status).to.eq(200);
-        userData = {};
         done();
       });
   });
 
   it('should return a 422 when validation criteria is not met', done => {
-    console.log('user is', userData);
     api.post('/api/register')
       .end((err, res) => {
-        console.log('sending =>', userData);
         expect(res.status).to.eq(422);
-        userData = {};
         done();
       });
+  });
+
+  it('should increase the number of users', done => {
+    // User.remove({});
+    User.find()
+      .then(users => {
+        console.log(users.length);
+        expect(users.length).to.eq(1);
+        done();
+      });
+  //   .then(users => {
+  //
+  //   })
+  //     });
   });
 
 
