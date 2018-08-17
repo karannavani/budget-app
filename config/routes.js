@@ -23,8 +23,8 @@ router.route('/goals')
   .post(goalController.create);
 
 router.route('/goals/:id')
-  .put(goalController.update)
-  .delete(goalController.delete);
+  .put(secureRoute, goalController.update)
+  .delete(secureRoute, goalController.delete);
 
 router.route('/register')
   .post(authController.register);
