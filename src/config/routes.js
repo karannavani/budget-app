@@ -11,8 +11,8 @@ function Router($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('login', {
       templateUrl: './views/auth/login.html',
-      url: '/login'
-      // controller: 'AuthLoginCtrl' //ADD THIS IN
+      url: '/login',
+      controller: 'AuthLoginCtrl' //ADD THIS IN
     });
 
   $urlRouterProvider.otherwise('/');
