@@ -14,8 +14,8 @@ router.route('/expenses')
 
 router.route('/expenses/:id')
   .get(expenseController.show)
-  .put(expenseController.update)
-  .delete(expenseController.delete);
+  .put(secureRoute, expenseController.update)
+  .delete(secureRoute, expenseController.delete);
 
 router.route('/goals')
   .get(goalController.index)
