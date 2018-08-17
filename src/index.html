@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css">
+  <script src="external.js" charset="utf-8"></script>
   <title>Thrifty</title>
 </head>
 <body>
@@ -23,8 +24,10 @@
 
     <div class="navbar-menu">
       <div class="navbar-end">
-        <a class="navbar-item" href="/registrations/new">Sign up</a>
-        <a class="navbar-item" href="/sessions/new">Log in</a>
+        <a class="navbar-item" ui-sref="register">Sign up</a>
+        <a class="navbar-item" ui-sref="login">Log in</a>
+        <a class="navbar-item" ui-sref="profileShow">Profile</a>
+        <a class="navbar-item" ui-sref="expensesIndex">History</a>
       </div>
     </div>
   </nav>
