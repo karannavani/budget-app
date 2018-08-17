@@ -30,7 +30,7 @@ function expensesUpdate(req, res, next) { // edit an expense in the DB
     .catch(next);
 }
 
-function expensesDelete(req, res, next) { // delete an expense in the DB 
+function expensesDelete(req, res, next) { // delete an expense in the DB
   Expense
     .findById(req.params.id)
     .then(expense => expense.remove())
