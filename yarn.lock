@@ -82,6 +82,21 @@
     lodash "^4.17.5"
     to-fast-properties "^2.0.0"
 
+"@uirouter/angular@ui-router/angular":
+  version "2.0.2"
+  resolved "https://codeload.github.com/ui-router/angular/tar.gz/1367e839aeab4ec9d2a3dabae166d59a956775c7"
+  dependencies:
+    "@uirouter/core" "5.0.21"
+    "@uirouter/rx" "0.5.0"
+
+"@uirouter/core@5.0.21":
+  version "5.0.21"
+  resolved "https://registry.yarnpkg.com/@uirouter/core/-/core-5.0.21.tgz#b6c4c311e9416a1e8ce76b072e042a60224d1b3a"
+
+"@uirouter/rx@0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@uirouter/rx/-/rx-0.5.0.tgz#a0577408488e9523732ef5985a631f7b607fed5b"
+
 abbrev@1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
@@ -145,9 +160,9 @@ amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
 
-angular@^1.7.1:
+angular-messages@^1.7.3:
   version "1.7.3"
-  resolved "https://registry.yarnpkg.com/angular/-/angular-1.7.3.tgz#0f25a661d079fc84d5ccc877a2ef9d7178575ddb"
+  resolved "https://registry.yarnpkg.com/angular-messages/-/angular-messages-1.7.3.tgz#e12adcb2bd26f1b2447caa84606c051bcbebb3c8"
 
 ansi-html@0.0.7:
   version "0.0.7"
