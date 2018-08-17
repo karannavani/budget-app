@@ -14,12 +14,6 @@ function Router($stateProvider, $urlRouterProvider) {
 
   $stateProvider
 
-    .state('login', {
-      templateUrl: './views/auth/login.html',
-<<<<<<< HEAD
-      url: '/login'
-      // controller: 'AuthLoginCtrl' //ADD THIS IN
-    })
     .state('goalsIndex', {
       templateUrl: './views/goals/index.html',
       url: '/goals',
@@ -59,14 +53,16 @@ function Router($stateProvider, $urlRouterProvider) {
       templateUrl: './views/expenses/edit.html',
       url: './expenses/:id',
       controller: 'ExpensesEditCtrl'
-=======
-      url: '/login',
-      controller: 'AuthLoginCtrl' //ADD THIS IN
     })
     .state('register', {
       templateUrl: './views/auth/register.html',
       url: '/register',
       controller: 'AuthRegisterCtrl'
+    })
+    .state('login', {
+      templateUrl: './views/auth/login.html',
+      url: '/login',
+      controller: 'AuthLoginCtrl' //ADD THIS IN
     })
     .state('profileShow', {
       templateUrl: './views/profile/show.html',
@@ -77,7 +73,6 @@ function Router($stateProvider, $urlRouterProvider) {
       templateUrl: './views/profile/edit.html',
       url: '/profile/:id/edit',
       controller: 'ProfileEditCtrl'
->>>>>>> user-flows
     });
 
   $urlRouterProvider.otherwise('/');
