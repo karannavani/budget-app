@@ -48,6 +48,11 @@ function Router($stateProvider, $urlRouterProvider) {
       templateUrl: './views/expenses/new.html',
       url: '/expenses',
       controller: 'ExpensesNewCtrl'
+    })
+    .state('expensesEdit', {
+      templateUrl: './views/expenses/edit.html',
+      url: './expenses/:id',
+      controller: 'ExpensesEditCtrl'
     });
 
   $urlRouterProvider.otherwise('/');
