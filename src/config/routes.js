@@ -17,7 +17,7 @@ function Router($stateProvider, $urlRouterProvider) {
     .state('goalsIndex', {
       templateUrl: './views/goals/index.html',
       url: '/goals',
-      controller: 'GoalsIndexCtrl'          
+      controller: 'GoalsIndexCtrl'
     })
     .state('goalsShow', {
       templateUrl: './views/goals/show.html',
@@ -33,7 +33,21 @@ function Router($stateProvider, $urlRouterProvider) {
       templateUrl: './views/goals/edit.html',
       url: '/goals/:id/edit',
       controller: 'GoalsEditCtrl'
-
+    })
+    .state('expensesIndex', {
+      templateUrl: './views/expenses/index.html',
+      url: '/expenses',
+      controller: 'ExpensesIndexCtrl'
+    })
+    .state('expensesShow', {
+      templateUrl: './views/expenses/show.html',
+      url: '/expenses/:id',
+      controller: 'ExpensesShowCtrl'
+    })
+    .state('expensesNew', {
+      templateUrl: './views/expenses/new.html',
+      url: '/expenses',
+      controller: 'ExpensesNewCtrl'
     });
 
   $urlRouterProvider.otherwise('/');
