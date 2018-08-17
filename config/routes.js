@@ -20,7 +20,7 @@ router.route('/expenses/:id')
 
 router.route('/goals')
   .get(goalController.index)
-  .post(goalController.create);
+  .post(secureRoute, goalController.create);
 
 router.route('/goals/:id')
   .put(secureRoute, goalController.update)
