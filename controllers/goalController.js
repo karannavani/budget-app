@@ -23,6 +23,12 @@ function goalUpdate(req,res, next) {
     .catch(next);
 }
 
+function goalShow(req, res, next) {
+  Goal
+    .findById(req.params.id)
+    .then(goal => res.json(goal))
+    .catch(next);
+}
 
 function goalDelete(req, res, next) {
   Goal
@@ -37,6 +43,7 @@ module.exports = {
   index: goalsIndex,
   create: goalCreate,
   update: goalUpdate,
-  delete: goalDelete
+  delete: goalDelete,
+  show: goalShow
 
 };
