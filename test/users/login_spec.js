@@ -29,10 +29,10 @@ const loginFail = {
 describe('POST /login', () => {
   beforeEach(done => {
     User.deleteMany({}, (err) => console.log(err));
+    // User.remove({})
     api.post('/api/register')
       .send(user2Data)
       .end((err, res) => {
-        User.create(user2Data);
         expect(res.status).to.eq(200);
         done();
       });
