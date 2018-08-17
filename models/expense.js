@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const expenseSchema = mongoose.Schema({
-  type: { type: String, required: true },
-  cost: { type: Number, required: true },
+  type: String,
+  cost: Number,
   repeat: Boolean,
   merchant: String,
   location: String,
