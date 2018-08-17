@@ -13,6 +13,27 @@ function Router($stateProvider, $urlRouterProvider) {
       templateUrl: './views/auth/login.html',
       url: '/login'
       // controller: 'AuthLoginCtrl' //ADD THIS IN
+    })
+    .state('goalsIndex', {
+      templateUrl: './views/goals/index.html',
+      url: '/goals',
+      controller: 'GoalsIndexCtrl'          
+    })
+    .state('goalsShow', {
+      templateUrl: './views/goals/show.html',
+      url: '/goals/:id',
+      controller: 'GoalsShowCtrl'
+    })
+    .state('goalsNew', {
+      templateUrl: './views/goals/new.html',
+      url: '/goals/new',
+      controller: 'GoalsCreateCtrl'
+    })
+    .state('goalsEdit', {
+      templateUrl: './views/goals/edit.html',
+      url: '/goals/:id/edit',
+      controller: 'GoalsEditCtrl'
+
     });
 
   $urlRouterProvider.otherwise('/');
