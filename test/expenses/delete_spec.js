@@ -51,8 +51,25 @@ describe('DELETE /expenses/:id', () => {
   });
 
 
+  it('should return a 204 without a token', done => {
+    api.delete(`/api/expenses/${expenseId}`)
+      .set('Authorization', `Bearer ${token}`) // Create an authorization
+      .end((err, res) => {
+        expect(res.status).to.eq(204);
+        done();
+      });
+  });
 
 
+  it('should delete the whiskey', done => {
+    api.delete(`/api/expenses/${expenseId}`)
+      .set('Authorization', `Bearer ${token}`) // Create an authorization
+      .then(() => Expense.find())
+      .then(expenses => {
+        expect(expenses.length).to.eq(0);
+        done();
+      });
+  });
 
 
 });
