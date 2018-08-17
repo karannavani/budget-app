@@ -78,3 +78,11 @@ Expense
   })
   .catch(err => console.log(err))
   .finally(() => mongoose.connection.close());
+
+Goal
+  .create(goalData)
+  .then(goals => {
+    console.log(`created ${goals.length} goals`);
+  })
+  .catch(err => console.log(err))
+  .finally(() => mongoose.connection.close());
