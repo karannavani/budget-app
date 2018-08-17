@@ -10,12 +10,16 @@ import Router from './config/routes';
 // Controllers
 import AuthLoginCtrl from './controllers/auth/login';
 import AuthRegisterCtrl from './controllers/auth/register';
+import ProfileShowCtrl from './controllers/profile/show';
+import ProfileEditCtrl from './controllers/profile/edit';
 
 angular.module('Thrifty',
   [ 'ui.router', 'satellizer', 'ngMessages' ]
 )
   .controller('AuthLoginCtrl', AuthLoginCtrl)
   .controller('AuthRegisterCtrl', AuthRegisterCtrl)
+  .controller('ProfileShowCtrl', ProfileShowCtrl)
+  .controller('ProfileEditCtrl', ProfileEditCtrl)
   .config(Router)
   .config(function($authProvider) {
     $authProvider.loginUrl = '/api/login';

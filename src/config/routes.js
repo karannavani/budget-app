@@ -23,6 +23,16 @@ function Router($stateProvider, $urlRouterProvider) {
       templateUrl: './views/auth/register.html',
       url: '/register',
       controller: 'AuthRegisterCtrl'
+    })
+    .state('profileShow', {
+      templateUrl: './views/profile/show.html',
+      url: '/profile/:id',
+      controller: 'ProfileShowCtrl'
+    })
+    .state('profileEdit', {
+      templateUrl: './views/profile/edit.html',
+      url: '/profile/:id/edit',
+      controller: 'ProfileEditCtrl'
     });
 
   $urlRouterProvider.otherwise('/');
