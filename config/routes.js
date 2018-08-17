@@ -13,6 +13,7 @@ router.route('/expenses')
   .post(secureRoute, expenseController.create);
 
 router.route('/expenses/:id')
+  .all(secureRoute)
   .get(expenseController.show)
   .put(secureRoute, expenseController.update)
   .delete(secureRoute, expenseController.delete);
