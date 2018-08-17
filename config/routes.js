@@ -10,16 +10,16 @@ const expenseController = require('../controllers/expenseController');
 
 router.route('/expenses')
   .get(expenseController.index)
-  .post(expenseController.create);
+  .post(secureRoute, expenseController.create);
 
 router.route('/expenses/:id')
   .get(expenseController.show)
-  .put(expenseController.update)
-  .delete(expenseController.delete);
+  .put(secureRoute, expenseController.update)
+  .delete(secureRoute, expenseController.delete);
 
 router.route('/goals')
   .get(goalController.index)
-  .post(secureRoute, goalController.create);
+  .post(goalController.create);
 
 router.route('/goals/:id')
   .put(goalController.update)
