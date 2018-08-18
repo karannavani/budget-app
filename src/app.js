@@ -23,7 +23,7 @@ import GoalsShowCtrl from './controllers/goals/show';
 import GoalsEditCtrl from './controllers/goals/edit';
 import GoalsNewCtrl from './controllers/goals/new';
 
-
+import DashboardCtrl from './controllers/dashboard';
 
 angular.module('Thrifty',
   [ 'ui.router', 'satellizer', 'ngMessages' ]
@@ -32,7 +32,7 @@ angular.module('Thrifty',
   .controller('AuthRegisterCtrl', AuthRegisterCtrl)
   .controller('ProfileShowCtrl', ProfileShowCtrl)
   .controller('ProfileEditCtrl', ProfileEditCtrl)
-  
+
   .controller('ExpensesIndexCtrl', ExpensesIndexCtrl)
   .controller('ExpensesShowCtrl', ExpensesShowCtrl)
   .controller('ExpensesEditCtrl', ExpensesEditCtrl)
@@ -42,6 +42,8 @@ angular.module('Thrifty',
   .controller('GoalsShowCtrl', GoalsShowCtrl)
   .controller('GoalsEditCtrl', GoalsEditCtrl)
   .controller('GoalsNewCtrl', GoalsNewCtrl)
+
+  .controller('DashboardCtrl', DashboardCtrl)
 
   .config(Router)
   .config(function($authProvider) {

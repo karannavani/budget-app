@@ -5,6 +5,7 @@ const secureRoute = require('../lib/secureRoute');
 const authController = require('../controllers/authController');
 const goalController = require('../controllers/goalController');
 const expenseController = require('../controllers/expenseController');
+const userController = require('../controllers/userController');
 
 //ROUTES
 
@@ -28,11 +29,13 @@ router.route('/goals/:id')
   .put(secureRoute, goalController.update)
   .delete(secureRoute, goalController.delete);
 
-
 router.route('/register')
   .post(authController.register);
 
 router.route('/login')
   .post(authController.login);
+
+router.route('/users')
+  .get(userController.index);
 
 module.exports = router;
