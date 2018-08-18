@@ -62,7 +62,7 @@ function Router($stateProvider, $urlRouterProvider) {
     .state('login', {
       templateUrl: './views/auth/login.html',
       url: '/login',
-      controller: 'AuthLoginCtrl' //ADD THIS IN
+      controller: 'AuthLoginCtrl' 
     })
     .state('profileShow', {
       templateUrl: './views/profile/show.html',

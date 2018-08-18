@@ -51,7 +51,7 @@ describe('DELETE /expenses/:id', () => {
   });
 
 
-  it('should return a 204 without a token', done => {
+  it('should return a 204 with a token', done => {
     api.delete(`/api/expenses/${expenseId}`)
       .set('Authorization', `Bearer ${token}`) // Create an authorization
       .end((err, res) => {
@@ -61,7 +61,7 @@ describe('DELETE /expenses/:id', () => {
   });
 
 
-  it('should delete the whiskey', done => {
+  it('should delete the expense', done => {
     api.delete(`/api/expenses/${expenseId}`)
       .set('Authorization', `Bearer ${token}`) // Create an authorization
       .then(() => Expense.find())

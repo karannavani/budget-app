@@ -1,11 +1,11 @@
-function ExpensesIndexCtrl($scope, $http, expenses) {
+function ExpensesIndexCtrl($scope, $http) {
   $http({
     method: 'GET',
     url: '/api/expenses'
   })
     .then(res => {
-      console.log('expenses are', res.data);
-      $scope.expenses = expenses;
+      console.log('Expenses are:', res.data);
+      $scope.expenses = res.data;
     });
 }
 

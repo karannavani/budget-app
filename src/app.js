@@ -32,7 +32,7 @@ angular.module('Thrifty',
   .controller('AuthRegisterCtrl', AuthRegisterCtrl)
   .controller('ProfileShowCtrl', ProfileShowCtrl)
   .controller('ProfileEditCtrl', ProfileEditCtrl)
-  
+
   .controller('ExpensesIndexCtrl', ExpensesIndexCtrl)
   .controller('ExpensesShowCtrl', ExpensesShowCtrl)
   .controller('ExpensesEditCtrl', ExpensesEditCtrl)
