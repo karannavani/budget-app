@@ -7,7 +7,7 @@
   <script src="external.js" charset="utf-8"></script>
   <title>Thrifty</title>
 </head>
-<body>
+<body ng-controller="MainCtrl">
   <nav class="navbar is-light" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <a class="navbar-item" ui-sref="dashboard">
@@ -24,10 +24,11 @@
 
     <div class="navbar-menu">
       <div class="navbar-end">
-        <a class="navbar-item" ui-sref="register">Sign up</a>
-        <a class="navbar-item" ui-sref="login">Log in</a>
-        <a class="navbar-item" ui-sref="profileShow">Profile</a>
-        <a class="navbar-item" ui-sref="expensesIndex">History</a>
+        <a class="navbar-item" ui-sref-active="is-active" ui-sref="register" ng-if="!isAuthenticated()">Sign up</a>
+        <a class="navbar-item" ui-sref-active="is-active" ui-sref="login" ng-if="!isAuthenticated()">Log in</a>
+        <a class="navbar-item" ui-sref-active="is-active" ui-sref="profileShow">Profile</a>
+        <a class="navbar-item" ui-sref-active="is-active" ui-sref="expensesIndex">History</a>
+        <a class="navbar-item" ui-sref-active="is-active" ng-click="logout()" ng-if="isAuthenticated()">Log out</a>
       </div>
     </div>
   </nav>
