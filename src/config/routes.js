@@ -54,6 +54,11 @@ function Router($stateProvider, $urlRouterProvider) {
       url: './expenses/:id',
       controller: 'ExpensesEditCtrl'
     })
+    .state('dashboard', {
+      templateUrl: './views/dashboard.html',
+      url: '/dashboard',
+      controller: 'DashboardCtrl'
+    })
     .state('register', {
       templateUrl: './views/auth/register.html',
       url: '/register',

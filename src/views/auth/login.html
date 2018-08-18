@@ -1,1 +1,25 @@
-<h1 class="title is-1">Log in page</h1>
+<h2 class="title is-2">Welcome to Thrifty!</h2>
+<h5 class="title is-5">A place to plan your daily spend, look for money saving suggestions
+and keep track of your financial goals.</h5>
+<h6 class="title is-6">Log in to continue or sign up</h6>
+<form ng-submit="login()">
+  <div class="field">
+    <label class="label" for="email">Email</label>
+    <input ng-model="user.email" class="input" type="email" name="email" placeholder="e.g. john.smith@gmail.com">
+  </div>
+
+  <div class="field">
+    <label class="label" for="password">Password</label>
+    <input ng-model="user.password" class="input" type="password" name="password" placeholder="">
+  </div>
+
+<div class="columns is-multiline is-mobile">
+ <div class="column">
+   <button class="button">Log in</button>
+ </div>
+</form>
+<div class="column">
+  <button class="button is-pulled-right" ui-sref="register">Sign up</button>
+</div>
+
+</div>
