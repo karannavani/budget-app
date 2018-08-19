@@ -2,6 +2,14 @@
 <h4 class="title is-4">Your budget is</h4>
 <h1 class="title is-1">£{{ user.dailyBudget }}</h1>
 
-<button type="button" class="button">Plan my journey</button>
-<button type="button" class="button">Find me food</button>
-<button type="button" class="button">Other expenses</button>
+<div class="columns is-centered">
+  <div class="column has-text-centered">
+    <button type="button" class="button is-fullwidth is-rounded is-link">Plan my journey</button>
+  </div>
+  <div class="column has-text-centered">
+    <button type="button" class="button is-fullwidth is-rounded is-link">Find me food</button>
+  </div>
+  <div class="column has-text-centered">
+    <button type="button" ui-sref = "expensesNew" class="button is-fullwidth is-rounded is-link">Other expenses</button>
+  </div>
+</div>
