@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const expenseSchema = mongoose.Schema({
   type: String,
   cost: Number,
-  repeat: String,
+  repeat: Boolean,
   merchant: String,
   location: String,
   vital: Boolean,

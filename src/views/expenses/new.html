@@ -23,11 +23,11 @@
         <label for="repeat">Is this a regular cost?</label>
         <div class="control">
           <label class="radio">
-            <input checked={myBoolValue === 'true' || myBoolValue === true} ng-model="expense.repeat" type="radio" name="repeat">
+            <input ng-model="expense.repeat" type="radio" name="repeat" value=true>
             Yes
           </label>
           <label class="radio">
-            <input checked={myBoolValue === 'true' || myBoolValue === true} ng-model="expense.repeat" type="radio" name="repeat">
+            <input ng-model="expense.repeat" type="radio" name="repeat" value=false>
             No
           </label>
         </div>
@@ -37,11 +37,11 @@
         <label for="vital">Did you really need it?</label>
         <div class="control">
           <label class="radio">
-            <input checked={myBoolValue === 'true' || myBoolValue === true} ng-model="expense.vital" type="radio" name="vital">
+            <input ng-model="expense.vital" type="radio" name="vital" value=true>
             Yes
           </label>
           <label class="radio">
-            <input checked={myBoolValue === 'true' || myBoolValue === true} ng-model="expense.vital" type="radio" name="vital">
+            <input ng-model="expense.vital" type="radio" name="vital" value=false>
             No
           </label>
         </div>
