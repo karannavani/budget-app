@@ -12,6 +12,8 @@ function Router($stateProvider, $urlRouterProvider) {
   //   });
   // }
 
+
+
   $stateProvider
 
     .state('goalsIndex', {
@@ -27,7 +29,7 @@ function Router($stateProvider, $urlRouterProvider) {
     .state('goalsNew', {
       templateUrl: './views/goals/new.html',
       url: '/goals/new',
-      controller: 'GoalsCreateCtrl'
+      controller: 'GoalsNewCtrl'
     })
     .state('goalsEdit', {
       templateUrl: './views/goals/edit.html',
