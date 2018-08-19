@@ -67,17 +67,24 @@ User
   .create(userData)
   .then(users => {
     console.log(`created ${users.length} users`);
+    expenseData[0].createdBy = users[0].id;
+    expenseData[1].createdBy = users[1].id;
+    expenseData[2].createdBy = users[2].id;
+    return Expense.create(expenseData);
   })
-  .catch(err => console.log(err))
-  .finally(() => mongoose.connection.close());
-
-Expense
-  .create(expenseData)
-  .then(expenses => {
+  .then( expenses => {
     console.log(`created ${expenses.length} expenses`);
   })
   .catch(err => console.log(err))
   .finally(() => mongoose.connection.close());
+
+// Expense
+//   .create(expenseData)
+//   .then(expenses => {
+//     console.log(`created ${expenses.length} expenses`);
+//   })
+//   .catch(err => console.log(err))
+//   .finally(() => mongoose.connection.close());
 
 Goal
   .create(goalData)

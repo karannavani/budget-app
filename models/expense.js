@@ -6,7 +6,8 @@ const expenseSchema = mongoose.Schema({
   repeat: Boolean,
   merchant: String,
   location: String,
-  vital: Boolean
+  vital: Boolean,
+  createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' }
 }, {timestamps: true});
 
 module.exports = mongoose.model('Expense', expenseSchema);
