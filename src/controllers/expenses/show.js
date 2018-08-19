@@ -4,7 +4,7 @@ function ExpensesShowCtrl($scope, $http, $state) {
       method: 'DELETE',
       url: `/api/expenses/${$state.params.id}`
     })
-      .then(() => $state.go('expensesIndex'));
+      .then(() => $state.go('expensesHistory'));
   };
   $http({
     method: 'GET',
