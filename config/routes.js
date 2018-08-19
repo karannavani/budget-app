@@ -38,4 +38,7 @@ router.route('/login')
 router.route('/users')
   .get(userController.index);
 
+router.route('/users/:id')
+  .get(userController.show);
+
 module.exports = router;

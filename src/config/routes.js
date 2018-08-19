@@ -71,7 +71,7 @@ function Router($stateProvider, $urlRouterProvider) {
     })
     .state('profileShow', {
       templateUrl: './views/profile/show.html',
-      url: '/profile/:id',
+      url: '/users/:id',
       controller: 'ProfileShowCtrl'
     })
     .state('profileEdit', {
