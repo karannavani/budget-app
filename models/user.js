@@ -7,7 +7,9 @@ const userSchema = mongoose.Schema({
   lastName: { type: String },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  profilePicUrl: String
+  profilePicUrl: String,
+  dailyBudget: { type: Number, required: true },
+  weeklyBudget: Number
 }, { timestamps: true });
 
 userSchema
