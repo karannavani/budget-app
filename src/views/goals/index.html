@@ -1,16 +1,17 @@
 
-  <div class="column">
-    <h1 class="has-text-centered title is-1">You have '{{ goals.length }}' active Goals: </h1>
-  </div>
-  <div class="columns is-multiline">
-    <div class="column is-6 has-text-centered" ng-repeat="goal in goals">
-      <h2 class="title is-4">{{ goal.name }}</h2>
-        <img style="max-height: 300px" ng-src="{{ goal.imageUrl }}" alt="{{ goal.name }}">
-      <p>Cost: £{{goal.cost}}</p>
-      <p>Saved: £{{goal.alreadySaved}}</p>
-      <p>Deadline: {{goal.deadline}}</p>
-  <a class="button" ui-sref="goalsEdit">Edit</a>
+<div class="column">
+  <h1 class="has-text-centered title is-1">You have '{{ goals.length }}' active Goals: </h1>
+</div>
+<div class="columns is-multiline">
+  <div class="column is-6 has-text-centered" ng-repeat="goal in goals">
+    <h2 class="title is-4">{{ goal.name }}</h2>
+    <img style="max-height: 300px" ng-src="{{ goal.imageUrl }}" alt="{{ goal.name }}">
+    <p>Cost: £{{goal.cost}}</p>
+    <p>Saved: £{{goal.alreadySaved}}</p>
+    <p>Deadline: {{goal.deadline}}</p>
+    <a class="button is-info" ui-sref="goalsEdit({ id: goal._id })">Edit</a>
+
     <a class="button" ui-sref="goalsDelete">Delete</a>
-    </div>
-      <a class="button" ui-sref="goalsNew"> + New Goal </a>
   </div>
+  <a class="button" ui-sref="goalsNew"> + New Goal </a>
+</div>
