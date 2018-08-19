@@ -10,7 +10,7 @@ const expenseController = require('../controllers/expenseController');
 
 router.route('/expenses')
   .get(expenseController.index)
-  .post(secureRoute, expenseController.create);
+  .post(expenseController.create);
 
 router.route('/expenses/:id')
   .all(secureRoute)
