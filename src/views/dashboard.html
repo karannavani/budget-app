@@ -1,3 +1,7 @@
 <h2 class="title is-2">Welcome {{ user.firstName }}</h2>
 <h4 class="title is-4">Your budget is</h4>
-<h1 class="title is-1">£15</h1>
+<h1 class="title is-1">£{{ user.dailyBudget }}</h1>
+
+<button type="button" class="button">Plan my journey</button>
+<button type="button" class="button">Find me food</button>
+<button type="button" class="button">Other expenses</button>
