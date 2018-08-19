@@ -12,7 +12,7 @@ User.collection.drop();
 const userData = [
   { username: 'louis', firstName: 'Louis', lastName: 'Glick', email: 'lg@hotmail.com', password: 'pass', passwordConfirmation: 'pass', dailyBudget: 15, weeklyBudget: 75, profilePicUrl: 'https://media.licdn.com/media-proxy/ext?w=800&h=800&hash=o6u9Tq%2FiOJm8OxArAcTdAq%2Fy5Lk%3D&ora=1%2CaFBCTXdkRmpGL2lvQUFBPQ%2CxAVta5g-0R69hAxU0Rks6bmIpkb-50hKCoTTEHX8RHTuvoTTOCq8J4OcZuH--hlDJmgewUB2LrzwHWW_VtCjKoPteN0lipPtLJHjNVBROlE8gG9JodY6NRUropW_SPj5bCdN3eIVbj24Mq3gaFwsRy8n-g' },
   { username: 'tristan', firstName: 'Tristan', lastName: 'Hall', email: 'th@hotmail.com', password: 'pass', passwordConfirmation: 'pass', dailyBudget: 20, weeklyBudget: 100, profilePicUrl: 'https://media.licdn.com/dms/image/C4E03AQGhmKKaHugyWA/profile-displayphoto-shrink_200_200/0?e=1538006400&v=beta&t=SVPZtWmBzrIxR22frm3xxxZwtX4frtTns09EHUBU4n4' },
-  { username: 'karan', firstName: 'Karan', lastName: 'Navani', email: 'kn@hotmail.com', password: 'pass', passwordConfirmation: 'pass', dailyBudget: 10, weeklyBudget: 80, profilePicUrl: 'http://horticulture.oregonstate.edu/system/files/profile/Tim%20Stock%20Profile%20Photo.jpg' }
+  { username: 'karan', firstName: 'Karan', lastName: 'Navani', email: 'kn@hotmail.com', password: 'pass', passwordConfirmation: 'pass', dailyBudget: 10, weeklyBudget: 80, profilePicUrl: 'https://amp.businessinsider.com/images/5899ffcf6e09a897008b5c04-750-750.jpg' }
 ];
 
 
