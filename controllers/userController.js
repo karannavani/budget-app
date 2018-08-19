@@ -13,7 +13,17 @@ function usersShow(req, res, next) { // show a single expense (from user history
     .catch(next);
 }
 
+function usersUpdate(req,res, next) {
+  User
+    .findById(req.params.id)
+    .then(user => user.set(req.body))
+    .then(user => user.save())
+    .then(user => res.json(user))
+    .catch(next);
+}
+
 module.exports = {
   index: usersIndex,
-  show: usersShow
+  show: usersShow,
+  update: usersUpdate
 };

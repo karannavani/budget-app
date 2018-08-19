@@ -39,6 +39,7 @@ router.route('/users')
   .get(userController.index);
 
 router.route('/users/:id')
-  .get(userController.show);
+  .get(userController.show)
+  .put(userController.update);
 
 module.exports = router;
