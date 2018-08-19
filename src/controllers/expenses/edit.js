@@ -1,10 +1,20 @@
-function ExpensesEditCtrl($scope, $http, $rootScope) {
+function ExpensesEditCtrl($scope, $http, $rootScope, $state) {
+  $scope.updateExpense = function() {
+    $http({
+      method: 'PUT',
+      url: '/api/expenses/:id',
+      data: $scope.expense
+    })
+      .then(() => $rootScope.$broadcast('flashMessage',
+        { type: 'success',
+          content: 'Update successful'
+        }));
+  };
   $http({
-    method: 'PUT',
-    url: '/api/expenses/:id',
-    data: $scope.expense
+    method: 'GET',
+    url: `/api/expenses/${$state.params.id}`
   })
-    .then(() => $rootScope.broadcast({ message: 'Expense has been updated'}));
+    .then(res => $scope.expense = res.data);
 }
 
 export default ExpensesEditCtrl;

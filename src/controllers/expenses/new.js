@@ -1,12 +1,10 @@
 function ExpensesNewCtrl($scope, $http, $rootScope, $state) {
-
   $scope.convertString = function() {
     $scope.expense.repeat === 'true' ?  $scope.expense.repeat = true :  $scope.expense.repeat = false;
     $scope.expense.vital === 'true' ?  $scope.expense.vital = true :  $scope.expense.vital = false;
   };
 
   $scope.createExpense = function() {
-    console.log('CreateExpense function fired');
     console.log($scope.expense);
     $scope.convertString();
     $http({
@@ -18,7 +16,6 @@ function ExpensesNewCtrl($scope, $http, $rootScope, $state) {
         { type: 'success',
           content: 'You created a new expense'
         }))
-
       .then(() => $state.go('dashboard'));
   };
 }
