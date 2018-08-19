@@ -34,7 +34,7 @@ function Router($stateProvider, $urlRouterProvider) {
       url: '/goals/:id/edit',
       controller: 'GoalsEditCtrl'
     })
-    .state('expensesIndex', {
+    .state('expensesHistory', {
       templateUrl: './views/expenses/history.html',
       url: '/expenses',
       controller: 'ExpensesIndexCtrl'

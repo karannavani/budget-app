@@ -2,13 +2,14 @@ function ExpensesEditCtrl($scope, $http, $rootScope, $state) {
   $scope.updateExpense = function() {
     $http({
       method: 'PUT',
-      url: '/api/expenses/:id',
+      url: `/api/expenses/${$state.params.id}`,
       data: $scope.expense
     })
       .then(() => $rootScope.$broadcast('flashMessage',
         { type: 'success',
           content: 'Update successful'
-        }));
+        }))
+      .then(() => $state.go('expensesShow', { id: $state.params.id }));
   };
   $http({
     method: 'GET',

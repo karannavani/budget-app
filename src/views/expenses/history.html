@@ -1,7 +1,7 @@
 <div class="column">
-  <h1 class="has-text-centered title is-1">You have {{ expenses.length }} logged expenses </h1>
+  <h1 class="has-text-centered title is-2">All {{ expenses.length }} expenses </h1>
 </div>
-<div class="columns is-multiline">
+<div class="columns is-multiline is-mobile">
   <div class="column is-6 has-text-centered" ng-repeat="expense in expenses">
     <a ui-sref="expensesShow({ id: expense._id })">
       <h2 class="title is-4">{{ expense.type }}</h2>
