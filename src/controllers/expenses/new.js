@@ -1,6 +1,12 @@
 function ExpensesNewCtrl($scope, $http, $rootScope, $state) {
+  $scope.convertString = function() {
+    $scope.expense.repeat === 'true' ?  $scope.expense.repeat = true :  $scope.expense.repeat = false;
+    $scope.expense.vital === 'true' ?  $scope.expense.vital = true :  $scope.expense.vital = false;
+  };
+
   $scope.createExpense = function() {
     console.log($scope.expense);
+    $scope.convertString();
     $http({
       method: 'POST',
       url: '/api/expenses',
