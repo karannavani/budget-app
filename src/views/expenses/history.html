@@ -1,0 +1,9 @@
+<div class="column">
+  <h1 class="has-text-centered title is-1">You have {{ expenses.length }} logged expenses </h1>
+</div>
+<div class="columns is-multiline">
+  <div class="column is-6 has-text-centered" ng-repeat="expense in expenses">
+    <h2 class="title is-4">{{ expense.type }}</h2>
+    <p>£{{ expense.cost}} at {{ expense.merchant}} {{ expense.location}}</p>
+  </div>
+</div>

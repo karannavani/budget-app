@@ -1,4 +1,4 @@
-function ExpensesNewCtrl($scope, $http, $rootscope) {
+function ExpensesNewCtrl($scope, $http, $rootScope) {
 
   $scope.sayHello = function() {
     console.log('Hello there, Im in the ExpensesNewCtrl');
@@ -12,7 +12,7 @@ function ExpensesNewCtrl($scope, $http, $rootscope) {
       url: '/api/expenses',
       data: $scope.expense
     })
-      .then(() => $rootscope.broadcast({ message: 'You created a new expense'}));
+      .then(() => $rootScope.broadcast({ message: 'You created a new expense'}));
   };
 }
 
