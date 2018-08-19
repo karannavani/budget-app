@@ -16,7 +16,6 @@ function AuthRegisterCtrl($scope, $auth, $state, $http, $rootScope) {
           return user.email === $scope.user.email;
         });
         $rootScope.user = user;
-        // $scope.user = $rootScope.user;
       })
       .then(() => $state.go('dashboard'));
   };
