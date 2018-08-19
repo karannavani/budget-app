@@ -15,7 +15,7 @@ function AuthLoginCtrl($http, $rootScope, $scope, $auth, $state) {
           return user.email === $scope.user.email;
         });
         $rootScope.user = user;
-        // $scope.user = $rootScope.user;
+        $scope.user = $rootScope.user;
       })
       // .find($scope.user.email)
       .then(console.log('user is', $rootScope.user))
