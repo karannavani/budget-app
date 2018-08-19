@@ -3,9 +3,9 @@ const mongoose = require('mongoose');
 const expenseSchema = mongoose.Schema({
   type: String,
   cost: Number,
-  repeat: Boolean,
+  repeat: String,
   merchant: String,
-  location: String,
+  location: Boolean,
   vital: Boolean
 }, {timestamps: true});
 
