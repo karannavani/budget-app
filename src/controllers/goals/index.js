@@ -2,7 +2,7 @@ function GoalsIndexCtrl($scope, $http) {
 
   $http({
     method: 'GET',
-    url: '/api/goal'
+    url: '/api/goals'
   })
     .then(res => {
       console.log('Your goal', res.data);
