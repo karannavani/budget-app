@@ -2,7 +2,7 @@ function ProfileEditCtrl($scope, $http, $state) {
   $scope.updateProfile = function() {
     $http({
       method: 'PUT',
-      url: `api/users/${$state.params.id}`,
+      url: `/api/users/${$state.params.id}`,
       data: $scope.user
     })
       .then(() => $state.go('profileShow'), { id: $state.params.id });
