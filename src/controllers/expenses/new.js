@@ -1,11 +1,5 @@
 function ExpensesNewCtrl($scope, $http, $rootScope, $state) {
-
-  $scope.sayHello = function() {
-    console.log('Hello there, Im in the ExpensesNewCtrl');
-  };
-
   $scope.createExpense = function() {
-    console.log('CreateExpense function fired');
     console.log($scope.expense);
     $http({
       method: 'POST',
@@ -16,7 +10,6 @@ function ExpensesNewCtrl($scope, $http, $rootScope, $state) {
         { type: 'success',
           content: 'You created a new expense'
         }))
-
       .then(() => $state.go('dashboard'));
   };
 }

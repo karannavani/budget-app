@@ -1,1 +1,48 @@
-<h1 class="title is-1">This is the expenses edit page</h1>
+<h1 class="title is-1 has-text-centered">Edit Expense</h1>
+<div class="container">
+  <div class="column">
+    <form ng-submit="updateExpense()">
+      <div class="field">
+        <label for="type">Type</label>
+        <input ng-model="expense.type" type="text" name="type" class="input">
+      </div>
+      <div class="field">
+        <label for="cost">Price</label>
+        <input ng-model="expense.cost" type="text" name="cost" class="input">
+      </div>
+      <div class="field">
+        <label for="merchant">Vendor</label>
+        <input ng-model="expense.merchant" type="text" name="merchant" class="input">
+      </div>
+      <div class="field">
+        <label for="location">Location</label>
+        <input ng-model="expense.location" type="text" name="location" class="input">
+      </div>
+ <!-- Radio Buttons -->
+        <label for="repeat">Is this a regular cost?</label>
+        <div class="control">
+          <label class="radio">
+            <input ng-model="expense.repeat" type="radio" name="repeat" value=true>
+            Yes
+          </label>
+          <label class="radio">
+            <input ng-model="expense.repeat" type="radio" name="repeat" value=false>
+            No
+          </label>
+        </div>
+        <label for="vital">Did you really need it?</label>
+        <div class="control">
+          <label class="radio">
+            <input ng-model="expense.vital" type="radio" name="vital" value=true>
+            Yes
+          </label>
+          <label class="radio">
+            <input ng-model="expense.vital" type="radio" name="vital" value=false>
+            No
+          </label>
+        </div>
+      <button class="buttons-l button is-info is-large">Save change</button>
+    </form>
+  </div>
+</div>
+{{ expenses.length }}

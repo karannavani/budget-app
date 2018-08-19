@@ -3,7 +3,9 @@
 </div>
 <div class="columns is-multiline">
   <div class="column is-6 has-text-centered" ng-repeat="expense in expenses">
-    <h2 class="title is-4">{{ expense.type }}</h2>
-    <p>£{{ expense.cost}} at {{ expense.merchant}} {{ expense.location}}</p>
+    <a ui-sref="expensesShow({ id: expense._id })">
+      <h2 class="title is-4">{{ expense.type }}</h2>
+      <p>£{{ expense.cost}} at {{ expense.merchant}} {{ expense.location}}</p>
+    </a>
   </div>
 </div>

@@ -51,7 +51,7 @@ function Router($stateProvider, $urlRouterProvider) {
     })
     .state('expensesEdit', {
       templateUrl: './views/expenses/edit.html',
-      url: './expenses/:id',
+      url: '/expenses/:id/edit',
       controller: 'ExpensesEditCtrl'
     })
     .state('dashboard', {
