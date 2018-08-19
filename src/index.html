@@ -1,12 +1,37 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" ng-app="Thrifty">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css">
-    <title>Thrifty</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    <div ui-view></div>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css">
+  <script src="external.js" charset="utf-8"></script>
+  <title>Thrifty</title>
+</head>
+<body ng-controller="MainCtrl">
+  <nav class="navbar is-light" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" ui-sref="dashboard">
+        <img class="logo image" src="/assets/logo.png" alt="Thrifty">
+      </a>
+      <a class="navbar-item" ui-sref="dashboard">THRIFTY</a>
+
+      <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </a>
+    </div>
+
+    <div class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" ui-sref-active="is-active" ui-sref="register" ng-if="!isAuthenticated()">Sign up</a>
+        <a class="navbar-item" ui-sref-active="is-active" ui-sref="login" ng-if="!isAuthenticated()">Log in</a>
+        <a class="navbar-item" ui-sref-active="is-active" ui-sref="profileShow">Profile</a>
+        <a class="navbar-item" ui-sref-active="is-active" ui-sref="expensesIndex">History</a>
+        <a class="navbar-item" ui-sref-active="is-active" ng-click="logout()" ng-if="isAuthenticated()">Log out</a>
+      </div>
+    </div>
+  </nav>
+    <div ui-view class="container content-body"></div>
   </body>
-</html>
+  </html>

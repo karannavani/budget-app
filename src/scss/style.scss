@@ -1,3 +1,9 @@
 .buttons-l {
   margin-top: 20px;
+@media screen and (max-width: 768px) {
+  .content-body{
+    margin-left: 30px;
+    margin-top: 15px;
+    margin-right: 30px;
+  }
 }
