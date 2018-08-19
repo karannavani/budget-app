@@ -32,6 +32,9 @@
       </div>
     </div>
   </nav>
+  <div class="notification is-{{ flashMessage.type }}" ng-class="{ 'is-hidden': !flashMessage }" ng-style="{ marginTop: 3 }">
+    {{ flashMessage.content }}
+  </div>
     <div ui-view class="container content-body"></div>
   </body>
   </html>
