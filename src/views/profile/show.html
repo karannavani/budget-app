@@ -1,2 +1,14 @@
-<h1 class="title is-1">{{ user.firstName }}</h1>
-<h1 class="title is-1">User since {{ user.createdAt }}</h1>
+<div class="profile-details">
+  <img class="image is-128x128 profilePic"src="{{ user.profilePicUrl }}" alt="">
+  <h1 class="title is-1">{{ user.firstName }} {{ user.lastName }}</h1>
+  <h6 class="subtitle is-6">User since {{ user.createdAt.slice(8,10) }}/{{ user.createdAt.slice(5,7) }}/{{ user.createdAt.slice(0,4) }}</h6>
+  <button class="button is-warning is-small" name="button">Edit Profile</button>
+</div>
+<div class="columns">
+<div class="column">
+  <button class="button is-fullwidth is-rounded is-link" name="button" ui-sref="expensesIndex">Your Goals 🎯</button>
+</div>
+<div class="column">
+  <button class="button is-fullwidth is-rounded is-link" name="button" ui-sref="expensesIndex">View spending history</button>
+</div>
+</div>
