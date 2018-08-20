@@ -110,14 +110,14 @@ function DashboardCtrl($rootScope, $scope, $http) {
         'series': [
           {
             'values': [$scope.spendData[0]],
-            'background-color': '#FDFD47',
+            'background-color': '#10f785',
             'border-color': '#282E3D',
             'border-width': '0px',
             'shadow': 0
           },
           {
             'values': [$scope.spendData[1]],
-            'background-color': '#35D884',
+            'background-color': '#f10000',
             'border-color': '#282E3D',
             'border-width': '0px',
             'shadow': 0
