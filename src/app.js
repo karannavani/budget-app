@@ -5,6 +5,9 @@ import 'angular-messages';
 import './scss/style.scss';
 import 'zingchart-angularjs';
 
+// Custome Javascript
+import './external';
+
 // Router
 import Router from './config/routes';
 
