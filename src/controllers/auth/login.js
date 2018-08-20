@@ -37,6 +37,7 @@ function AuthLoginCtrl($http, $rootScope, $scope, $auth, $state) {
     today = today.toLocaleString().slice(0,10);
 
     if ($rootScope.user.loginArray.length === 0 || $rootScope.user.loginArray[0] !== today) {
+      $rootScope.user.loginArray.pop();
       $rootScope.user.loginArray.push(today);
       console.log('pushing to login array', $rootScope.user.loginArray);
 
