@@ -8,6 +8,7 @@ const Expense = require('../models/expense');
 mongoose.connect(dbURI);
 Goal.collection.drop();
 User.collection.drop();
+Expense.collection.drop();
 
 const userData = [
   { username: 'louis', firstName: 'Louis', lastName: 'Glick', email: 'lg@hotmail.com', password: 'pass', passwordConfirmation: 'pass', dailyBudget: 15, weeklyBudget: 75, profilePicUrl: 'https://media.licdn.com/media-proxy/ext?w=800&h=800&hash=o6u9Tq%2FiOJm8OxArAcTdAq%2Fy5Lk%3D&ora=1%2CaFBCTXdkRmpGL2lvQUFBPQ%2CxAVta5g-0R69hAxU0Rks6bmIpkb-50hKCoTTEHX8RHTuvoTTOCq8J4OcZuH--hlDJmgewUB2LrzwHWW_VtCjKoPteN0lipPtLJHjNVBROlE8gG9JodY6NRUropW_SPj5bCdN3eIVbj24Mq3gaFwsRy8n-g' },

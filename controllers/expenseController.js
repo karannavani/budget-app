@@ -3,6 +3,7 @@ const Expense = require('../models/expense');
 function expensesIndex(req, res, next) { // shows all a users expenses (from user history)
   Expense
     .find()
+    .populate('createdBy')
     .then(expenses => res.json(expenses))
     .catch(next);
 }

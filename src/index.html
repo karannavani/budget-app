@@ -28,9 +28,9 @@
         <a class="navbar-item" ui-sref-active="is-active" ui-sref="register" ng-if="!isAuthenticated()">Sign up</a>
         <a class="navbar-item" ui-sref-active="is-active" ui-sref="login" ng-if="!isAuthenticated()">Log in</a>
         <a class="navbar-item" ui-sref-active="is-active" ui-sref="dashboard" ng-if="isAuthenticated()">Home</a>
-        <a class="navbar-item" ui-sref-active="is-active" ui-sref="profileShow({ id: user._id })">Profile</a>
-        <a class="navbar-item" ui-sref-active="is-active" ui-sref="expensesHistory">Expenses</a>
-        <a class="navbar-item" ui-sref-active="is-active" ui-sref="goalsIndex">Goals</a>
+        <a class="navbar-item" ui-sref-active="is-active" ui-sref="profileShow({ id: user._id })" ng-if="isAuthenticated()">Profile</a>
+        <a class="navbar-item" ui-sref-active="is-active" ui-sref="expensesHistory" ng-if="isAuthenticated()">Expenses</a>
+        <a class="navbar-item" ui-sref-active="is-active" ui-sref="goalsIndex" ng-if="isAuthenticated()">Goals</a>
         <a class="navbar-item" ui-sref-active="is-active" ng-click="logout()" ng-if="isAuthenticated()">Log out</a>
       </div>
     </div>
