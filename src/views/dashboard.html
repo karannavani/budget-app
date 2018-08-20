@@ -1,5 +1,5 @@
 <h2 class="title is-2">Welcome {{ user.firstName }}</h2>
-<h4 class="title is-4">Your budget is</h4>
+<h4 class="title is-4">Your budget today is</h4>
 <!-- <h1 class="title is-1" ng-switch-default id="user.dailyBudget">£{{ user.dailyBudget }}</h1> -->
 
 <div class="columns is-multiline is-mobile">
@@ -7,8 +7,6 @@
   <div ng-switch="mode">
     <input class="budget-title" ng-switch-when="edit" id="edit" ng-model="user.dailyBudget" placeholder="£">
     <h1 class="budget-title" ng-switch-default id="user.dailyBudget"><span class="budget-title">£</span>{{ user.dailyBudget }}</h1>
-    <input type="hidden" class="budget-title" ng-switch-default id="user.password">
-    <input type="hidden" class="budget-title" ng-switch-default id="user.passwordConfirmation">
   </div>
 </div>
 <div class="column">

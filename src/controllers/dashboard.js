@@ -1,5 +1,6 @@
 function DashboardCtrl($rootScope, $scope, $http) {
   console.log('user is', $rootScope.user);
+  $scope.user = $rootScope.user;
   $scope.mode = 'notEdit';
 
   $scope.editBudget = function(name){

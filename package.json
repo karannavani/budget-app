@@ -15,6 +15,7 @@
     "@uirouter/angular": "ui-router/angular",
     "@uirouter/angularjs": "^1.0.18",
     "angular": "^1.7.1",
+    "angular-locker": "^2.0.5",
     "angular-messages": "^1.7.3",
     "bcrypt": "^3.0.0",
     "body-parser": "^1.18.3",
