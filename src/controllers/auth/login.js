@@ -15,13 +15,8 @@ function AuthLoginCtrl($http, $rootScope, $scope, $auth, $state) {
         $rootScope.user = user;
         $scope.user = user;
 
-        $scope.$watch(user, () => {
-          if($rootScope.user === user) {
-            $scope.user.password = $rootScope.user.password;
-            $scope.user.passwordConfirmation = $rootScope.user.password;
-            newDay();
-          }
-        });
+
+
       })
       // .find($scope.user.email)
 
@@ -31,23 +26,6 @@ function AuthLoginCtrl($http, $rootScope, $scope, $auth, $state) {
 
 
 
-
-  function newDay() {
-    let today = new Date;
-    today = today.toLocaleString().slice(0,10);
-
-    if ($rootScope.user.loginArray.length === 0 || $rootScope.user.loginArray[0] !== today) {
-      $rootScope.user.loginArray.pop();
-      $rootScope.user.loginArray.push(today);
-      console.log('pushing to login array', $rootScope.user.loginArray);
-
-      $http({
-        method: 'PUT',
-        url: `/api/users/${$rootScope.user._id}`,
-        data: $rootScope.user
-      });
-    }
-  }
 }
 
 export default AuthLoginCtrl;

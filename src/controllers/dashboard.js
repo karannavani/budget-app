@@ -57,6 +57,51 @@ function DashboardCtrl($rootScope, $scope, $http) {
     });
 
 
+  $rootScope.$watch('remainder', () => {
+    if(($rootScope.remainder = $rootScope.user.dailyBudget - $rootScope.displayTotal)) {
+      console.log('remainder is', $rootScope.remainder);
+      $scope.user.password = $rootScope.user.password;
+      $scope.user.passwordConfirmation = $rootScope.user.password;
+      newDay();
+    }
+  });
+
+  // Favorite piece of code – Karan
+  function newDay() {
+    let today = new Date;
+    today = today.toLocaleString().slice(0,10);
+
+    if ($rootScope.user.loginArray.length === 0 || $rootScope.user.loginArray[0] !== today) {
+      addSavings();
+      $rootScope.user.loginArray.pop();
+      $rootScope.user.loginArray.push(today);
+      console.log('pushing to login array', $rootScope.user.loginArray);
+
+      $http({
+        method: 'PUT',
+        url: `/api/users/${$rootScope.user._id}`,
+        data: $rootScope.user
+      });
+    }
+  }
+
+  function addSavings() {
+    // console.log('remainder is', $rootScope.remainder);
+    console.log('pushing to savings array');
+    $rootScope.user.savingsArray.push($rootScope.remainder);
+    // 
+    // $http({
+    //   method: 'PUT',
+    //   url: `/api/users/${$rootScope.user._id}`,
+    //   data: $rootScope.user
+    // });
+  }
+
+  // $scope.$watch('user', () => {
+  //   if($rootScope.user === user) {
+  //
+  //   }
+  // });
 
 
   // Graph logic
