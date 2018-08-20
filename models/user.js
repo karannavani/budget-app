@@ -37,3 +37,7 @@ userSchema.methods.validatePassword = function validatePassword(password) {
 };
 
 module.exports = mongoose.model('User', userSchema);
+
+
+/// day by day budgets
+///dail
