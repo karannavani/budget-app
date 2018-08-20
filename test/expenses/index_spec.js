@@ -23,28 +23,28 @@ describe('GET /expenses', () => {
       .then(() => Expense.create(expenseData))
       .then(() => done());
   });
-  it('should return a 200 response', done => {
+  xit('should return a 200 response', done => {
     api.get('/api/expenses')
       .end((err, res) => {
         expect(res.status).to.eq(200);
         done();
       });
   });
-  it('should return an array', done => {
+  xit('should return an array', done => {
     api.get('/api/expenses')
       .end((err, res) => {
         expect(res.body).to.be.an('array');
         done();
       });
   });
-  it('should return an array of the correct length', done => {
+  xit('should return an array of the correct length', done => {
     api.get('/api/expenses')
       .end((err, res) => {
         expect(res.body.length).to.eq(expenseData.length);
         done();
       });
   });
-  it('should return an array of objects', done => {
+  xit('should return an array of objects', done => {
     api.get('/api/expenses')
       .end((err, res) => {
         res.body.forEach(expense => expect(expense).to.be.an('object'));

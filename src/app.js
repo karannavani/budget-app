@@ -1,3 +1,5 @@
+/* global $scope */
+
 import angular from 'angular';
 import '@uirouter/angularjs';
 import 'satellizer';
@@ -46,6 +48,12 @@ angular.module('Thrifty',
 
   .controller('DashboardCtrl', DashboardCtrl)
   .controller('MainCtrl', MainCtrl)
+
+  // experimental code for adding a global function through a service
+  // .factory('stringConverter', function() {
+  //   $scope.expense.repeat === 'true' ?  $scope.expense.repeat = true :  $scope.expense.repeat = false;
+  //   $scope.expense.vital === 'true' ?  $scope.expense.vital = true :  $scope.expense.vital = false;
+  // })
 
   .config(Router)
   .config(function($authProvider) {

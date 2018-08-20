@@ -1,4 +1,4 @@
-<h1 class="title is-1 has-text-centered">Other Expenses</h1>
+<h1 class="title is-4 has-text-centered">Enter spend details</h1>
 <div class="container">
   <div class="column">
     <form ng-submit="createExpense()">
@@ -20,7 +20,7 @@
       </div>
 
       <!-- <div class="field"> -->
-        <label for="repeat">Is this a regular cost?</label>
+        <label for="repeat">Is this a regular purchase?</label>
         <div class="control">
           <label class="radio">
             <input ng-model="expense.repeat" type="radio" name="repeat" value=true>
@@ -34,15 +34,15 @@
       <!-- </div> -->
 
       <!-- <div class="field"> -->
-        <label for="vital">Did you really need it?</label>
+        <label for="vital">Was it vital or a luxury?</label>
         <div class="control">
           <label class="radio">
             <input ng-model="expense.vital" type="radio" name="vital" value=true>
-            Yes
+            Vital
           </label>
           <label class="radio">
             <input ng-model="expense.vital" type="radio" name="vital" value=false>
-            No
+            Luxury
           </label>
         </div>
       <!-- </div> -->

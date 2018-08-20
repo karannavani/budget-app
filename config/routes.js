@@ -38,10 +38,10 @@ router.route('/login')
   .post(authController.login);
 
 router.route('/users')
-  .get(secureRoute, userController.index);
+  .get(userController.index);
 
 router.route('/users/:id')
-  .all(secureRoute)
+  // .all(secureRoute)
   .get(userController.show)
   .put(userController.update);
 

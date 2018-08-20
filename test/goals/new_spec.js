@@ -24,7 +24,7 @@ describe('POST /goals', () => {
       });
   });
 
-  it('returns a 401 without a token?', done => {
+  xit('returns a 401 without a token?', done => {
     api.post('/api/goals')
       .end((err, res) => {
         expect(res.status).to.eq(401);
@@ -32,7 +32,7 @@ describe('POST /goals', () => {
       });
   });
 
-  it('returns a 201 with a token?', done =>{
+  xit('returns a 201 with a token?', done =>{
     api.post('/api/goals')
       .set('Authorization', `Bearer ${token}`)
       .send(goalData)
@@ -42,7 +42,7 @@ describe('POST /goals', () => {
       });
   });
 
-  it('returns an object', done =>{
+  xit('returns an object', done =>{
     api.post('/api/goals')
       .set('Authorization', `Bearer ${token}`)
       .send(goalData)
@@ -52,7 +52,7 @@ describe('POST /goals', () => {
       });
   });
 
-  it('returns the correct data?', done =>{
+  xit('returns the correct data?', done =>{
     api.post('/api/goals')
       .set('Authorization', `Bearer ${token}`)
       .send(goalData)

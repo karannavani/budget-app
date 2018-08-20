@@ -14,4 +14,5 @@ function MainCtrl($rootScope, $scope, $auth, $state, $timeout) {
   };
 }
 
+
 export default MainCtrl;
