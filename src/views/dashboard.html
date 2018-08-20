@@ -3,24 +3,26 @@
 <!-- <h1 class="title is-1" ng-switch-default id="user.dailyBudget">£{{ user.dailyBudget }}</h1> -->
 
 <div class="columns is-multiline is-mobile">
-<div class="column is-10">
-  <div ng-switch="mode">
-    <input class="budget-title" ng-switch-when="edit" id="edit" ng-model="user.dailyBudget" placeholder="£">
-    <h1 class="budget-title" ng-switch-default id="user.dailyBudget"><span class="budget-title">£</span>{{ user.dailyBudget }}</h1>
+  <div class="column is-10">
+    <div ng-switch="mode">
+      <input class="budget-title" ng-switch-when="edit" id="edit" ng-model="user.dailyBudget" placeholder="£">
+      <h1 class="budget-title" ng-switch-default id="user.dailyBudget"><span class="budget-title">£</span>{{ user.dailyBudget }}</h1>
+    </div>
+  </div>
+  <div class="column">
+    <div ng-switch="mode">
+      <button class="button" ng-switch-when="edit" ng-click="saveBudget(user.dailyBudget)">Save</button>
+      <a ng-click="editBudget(user.dailyBudget)" ng-switch-when="notEdit"><i class="fas fa-pen"></i></a>
+    </div>
   </div>
 </div>
-<div class="column">
-  <div ng-switch="mode">
-    <button class="button" ng-switch-when="edit" ng-click="saveBudget(user.dailyBudget)">Save</button>
-    <a ng-click="editBudget(user.dailyBudget)" ng-switch-when="notEdit"><i class="fas fa-pen"></i></a>
-  </div>
-</div>
-</div>
-
-<div class="ldBar" data-value="50"></div>
 
 
+<zingchart id="myChart" zc-type="ring" zc-height="350" zc-width="350" zc-json="donutChartConfig"></zingchart>
+<div id="chartDiv"></div>
+<script>
 
+</script>
 
 
 <div class="columns is-centered">
