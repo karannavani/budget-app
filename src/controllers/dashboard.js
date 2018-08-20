@@ -59,7 +59,6 @@ function DashboardCtrl($rootScope, $scope, $http) {
 
   $rootScope.$watch('remainder', () => {
     if(($rootScope.remainder = $rootScope.user.dailyBudget - $rootScope.displayTotal)) {
-      console.log('remainder is', $rootScope.remainder);
       $scope.user.password = $rootScope.user.password;
       $scope.user.passwordConfirmation = $rootScope.user.password;
       newDay();
@@ -86,15 +85,8 @@ function DashboardCtrl($rootScope, $scope, $http) {
   }
 
   function addSavings() {
-    // console.log('remainder is', $rootScope.remainder);
     console.log('pushing to savings array');
     $rootScope.user.savingsArray.push($rootScope.remainder);
-    // 
-    // $http({
-    //   method: 'PUT',
-    //   url: `/api/users/${$rootScope.user._id}`,
-    //   data: $rootScope.user
-    // });
   }
 
   // $scope.$watch('user', () => {
