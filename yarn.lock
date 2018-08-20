@@ -166,13 +166,6 @@ amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
 
-angular-chart.js@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/angular-chart.js/-/angular-chart.js-1.1.1.tgz#49f0e18d081762b6d4c9791e487aff2fbb30f5ae"
-  dependencies:
-    angular "1.x"
-    chart.js "2.3.x"
-
 angular-locker@^2.0.5:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/angular-locker/-/angular-locker-2.0.5.tgz#5410a5571854a4fef66335474f6ec70a8a0a6959"
@@ -183,7 +176,7 @@ angular-messages@^1.7.3:
   version "1.7.3"
   resolved "https://registry.yarnpkg.com/angular-messages/-/angular-messages-1.7.3.tgz#e12adcb2bd26f1b2447caa84606c051bcbebb3c8"
 
-angular@1.x, "angular@>=1.2.0 <2.0.0", angular@^1.7.1:
+"angular@>=1.2.0 <2.0.0", angular@^1.7.1:
   version "1.7.3"
   resolved "https://registry.yarnpkg.com/angular/-/angular-1.7.3.tgz#0f25a661d079fc84d5ccc877a2ef9d7178575ddb"
 
@@ -1225,33 +1218,6 @@ chalk@^2.0.0, chalk@^2.4.1:
     escape-string-regexp "^1.0.5"
     supports-color "^5.3.0"
 
-chart.js@2.3.x:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/chart.js/-/chart.js-2.3.0.tgz#40460e48e2c417c05fc3325cd84f7b000dc7d7d6"
-  dependencies:
-    chartjs-color "^2.0.0"
-    moment "^2.10.6"
-
-chart.js@^2.7.2:
-  version "2.7.2"
-  resolved "https://registry.yarnpkg.com/chart.js/-/chart.js-2.7.2.tgz#3c9fde4dc5b95608211bdefeda7e5d33dffa5714"
-  dependencies:
-    chartjs-color "^2.1.0"
-    moment "^2.10.2"
-
-chartjs-color-string@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/chartjs-color-string/-/chartjs-color-string-0.5.0.tgz#8d3752d8581d86687c35bfe2cb80ac5213ceb8c1"
-  dependencies:
-    color-name "^1.0.0"
-
-chartjs-color@^2.0.0, chartjs-color@^2.1.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/chartjs-color/-/chartjs-color-2.2.0.tgz#84a2fb755787ed85c39dd6dd8c7b1d88429baeae"
-  dependencies:
-    chartjs-color-string "^0.5.0"
-    color-convert "^0.5.3"
-
 check-error@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/check-error/-/check-error-1.0.2.tgz#574d312edd88bb5dd8912e9286dd6c0aed4aac82"
@@ -1364,10 +1330,6 @@ collection-visit@^1.0.0:
   dependencies:
     map-visit "^1.0.0"
     object-visit "^1.0.0"
-
-color-convert@^0.5.3:
-  version "0.5.3"
-  resolved "https://registry.yarnpkg.com/color-convert/-/color-convert-0.5.3.tgz#bdb6c69ce660fadffe0b0007cc447e1b9f7282bd"
 
 color-convert@^1.3.0, color-convert@^1.9.0:
   version "1.9.2"
@@ -3783,10 +3745,6 @@ mocha@^5.2.0:
     minimatch "3.0.4"
     mkdirp "0.5.1"
     supports-color "5.4.0"
-
-moment@^2.10.2, moment@^2.10.6:
-  version "2.22.2"
-  resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.2.tgz#3c257f9839fc0e93ff53149632239eb90783ff66"
 
 mongodb-core@3.1.0:
   version "3.1.0"
