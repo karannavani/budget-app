@@ -5,12 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="./loading-bar/loading-bar.css"/> <!-- dashboard progress bars -->
   <script src="external.js" charset="utf-8"></script>
-  <script type="text/javascript" src="./loading-bar/loading-bar.js"></script> <!-- might be able to get rid of the minified js file -->
-
-
-  <title>Thrifty</title>
+  <script src= "https://cdn.zingchart.com/zingchart.min.js"></script>
+  <script> zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
+  ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9","ee6b7db5b51705a13dc2339db3edaf6d"];</script>
+  <link href='https://fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
 </head>
 <body ng-controller="MainCtrl">
   <nav class="navbar is-light" role="navigation" aria-label="main navigation">
@@ -44,6 +43,7 @@
     {{ flashMessage.content }}
   </div>
     <div ui-view class="container content-body"></div>
-  </body>
 
+
+  </body>
   </html>

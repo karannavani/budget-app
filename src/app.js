@@ -3,6 +3,7 @@ import '@uirouter/angularjs';
 import 'satellizer';
 import 'angular-messages';
 import './scss/style.scss';
+import 'zingchart-angularjs';
 
 // Router
 import Router from './config/routes';
@@ -27,7 +28,7 @@ import DashboardCtrl from './controllers/dashboard';
 import MainCtrl from './controllers/main';
 
 angular.module('Thrifty',
-  [ 'ui.router', 'satellizer', 'ngMessages' ]
+  [ 'ui.router', 'satellizer', 'ngMessages', 'zingchart-angularjs' ]
 )
   .controller('AuthLoginCtrl', AuthLoginCtrl)
   .controller('AuthRegisterCtrl', AuthRegisterCtrl)
