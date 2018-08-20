@@ -3,6 +3,7 @@ import '@uirouter/angularjs';
 import 'satellizer';
 import 'angular-messages';
 import './scss/style.scss';
+import 'zingchart-angularjs';
 
 // Router
 import Router from './config/routes';
@@ -23,16 +24,17 @@ import GoalsShowCtrl from './controllers/goals/show';
 import GoalsEditCtrl from './controllers/goals/edit';
 import GoalsNewCtrl from './controllers/goals/new';
 
-
+import DashboardCtrl from './controllers/dashboard';
+import MainCtrl from './controllers/main';
 
 angular.module('Thrifty',
-  [ 'ui.router', 'satellizer', 'ngMessages' ]
+  [ 'ui.router', 'satellizer', 'ngMessages', 'zingchart-angularjs' ]
 )
   .controller('AuthLoginCtrl', AuthLoginCtrl)
   .controller('AuthRegisterCtrl', AuthRegisterCtrl)
   .controller('ProfileShowCtrl', ProfileShowCtrl)
   .controller('ProfileEditCtrl', ProfileEditCtrl)
-  
+
   .controller('ExpensesIndexCtrl', ExpensesIndexCtrl)
   .controller('ExpensesShowCtrl', ExpensesShowCtrl)
   .controller('ExpensesEditCtrl', ExpensesEditCtrl)
@@ -42,6 +44,15 @@ angular.module('Thrifty',
   .controller('GoalsShowCtrl', GoalsShowCtrl)
   .controller('GoalsEditCtrl', GoalsEditCtrl)
   .controller('GoalsNewCtrl', GoalsNewCtrl)
+
+  .controller('DashboardCtrl', DashboardCtrl)
+  .controller('MainCtrl', MainCtrl)
+
+  // experimental code for adding a global function through a service
+  // .factory('stringConverter', function() {
+  //   $scope.expense.repeat === 'true' ?  $scope.expense.repeat = true :  $scope.expense.repeat = false;
+  //   $scope.expense.vital === 'true' ?  $scope.expense.vital = true :  $scope.expense.vital = false;
+  // })
 
   .config(Router)
   .config(function($authProvider) {

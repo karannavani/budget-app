@@ -7,7 +7,9 @@ const userSchema = mongoose.Schema({
   lastName: { type: String },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  profilePicUrl: String
+  profilePicUrl: String,
+  dailyBudget: { type: Number },
+  weeklyBudget: Number
 }, { timestamps: true });
 
 userSchema
@@ -35,3 +37,7 @@ userSchema.methods.validatePassword = function validatePassword(password) {
 };
 
 module.exports = mongoose.model('User', userSchema);
+
+
+/// day by day budgets
+///dail

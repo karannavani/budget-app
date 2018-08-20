@@ -3,6 +3,7 @@ const Goal = require('../models/goal');
 function goalsIndex(req, res, next) {
   Goal
     .find()
+    .populate('createdBy')
     .then(goals => res.json(goals))
     .catch(next);
 }

@@ -30,7 +30,7 @@ describe('GET /goals', () => {
       .then(() => done());
   });
 
-  it('returns a 200 responce?', done => {
+  xit('returns a 200 responce?', done => {
     api.get('/api/goals')
       .end((err, res) => {
         expect(res.status).to.eq(200);
@@ -38,14 +38,14 @@ describe('GET /goals', () => {
       });
   });
 
-  it('returns an array?', done => {
+  xit('returns an array?', done => {
     api.get('/api/goals')
       .end((err, res) => {
         expect(res.body).to.be.an('array');
         done();
       });
   });
-  it('returns an array of the correct?', done => {
+  xit('returns an array of the correct?', done => {
     api.get('/api/goals')
       .end((err, res) => {
         expect(res.body.length).to.eq(goalData.length);
@@ -53,7 +53,7 @@ describe('GET /goals', () => {
       });
   });
 
-  it('returns an array of objects?', done => {
+  xit('returns an array of objects?', done => {
     api.get('/api/goals')
       .end((err, res) => {
         res.body.forEach(goal => expect(goal).to.be.an('object'));
@@ -61,7 +61,7 @@ describe('GET /goals', () => {
       });
   });
 
-  it('returns the correct data?', done => {
+  xit('returns the correct data?', done => {
     api.get('/api/goals')
       .end((err, res) => {
         res.body.forEach((goal) => {

@@ -28,14 +28,14 @@ describe('POST /expenses/:id', () => {
         done();
       });
   });
-  it('should return a 401 without a token', done => {
+  xit('should return a 401 without a token', done => {
     api.post('/api/expenses')
       .end((err, res) => {
         expect(res.status).to.eq(401);
         done();
       });
   });
-  it('should return a 200 with a token', done => {
+  xit('should return a 200 with a token', done => {
     api.post('/api/expenses')
       .set('Authorization', `Bearer ${token}`)
       .send(expenseData)
@@ -44,7 +44,7 @@ describe('POST /expenses/:id', () => {
         done();
       });
   });
-  it('should return the new item data', done => {
+  xit('should return the new item data', done => {
     api.post('/api/expenses')
       .set('Authorization', `Bearer ${token}`)
       .send(expenseData)

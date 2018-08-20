@@ -1,3 +1,22 @@
-<h1 class="title is-1">Goals</h1>
-<h1 class="subtitle is-1">What you are saving for:</h2>
-  <p>show</p>
+<h1 class="title is-1">{{ goal.name }}</h1>
+<div ng-if="goal.imageUrl">
+<img src="{{ goal.imageUrl}}" alt="{{ goal.name }}">
+</div>
+<hr />
+<div class="columns is-multiline">
+  <div class="column is-6 has-text-centered">
+    <p>Cost: £{{goal.cost}}</p>
+    <p>Saved: £{{goal.alreadySaved}}</p>
+    <p>Deadline: {{goal.deadline}}</p>
+  </div>
+</div>
+<hr />
+<div class="columns is-multiline is-mobile">
+  <div class="column">
+    <a class="button is-info" ui-sref="goalsEdit({ id: goal._id })">Edit</a>
+  </div>
+  <div class="column">
+    <button class="button is-danger is-pulled-right" ng-click="deleteGoal()">Delete</button>
+
+  </div>
+</div>

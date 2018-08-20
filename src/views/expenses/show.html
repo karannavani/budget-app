@@ -1,1 +1,15 @@
-<h1 class="title is-1">This is the expenses show page</h1>
+<h1 class="title is-1">Take a closer look</h1>
+<div class="columns is-multiline is-mobile">
+  <div class="column is-full">
+    <p>On: {{ expense.createdAt }}</p>
+    <p>You bought: {{ expense.type }}</p>
+    <p>For: {{ expense.cost }}</p>
+    <p>From: {{ expense.merchant }}</p>
+  </div>
+  <div class="column">
+    <button class="button is-info" ui-sref="expensesEdit({ id: expense._id })">Edit this expense</button>
+  </div>
+  <div class="column">
+    <button class="button is-danger" ng-click="deleteExpense()">Delete</button>
+  </div>
+</div>

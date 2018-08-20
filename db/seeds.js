@@ -8,11 +8,12 @@ const Expense = require('../models/expense');
 mongoose.connect(dbURI);
 Goal.collection.drop();
 User.collection.drop();
+Expense.collection.drop();
 
 const userData = [
-  { username: 'louis', firstName: 'Louis', lastName: 'Glick', email: 'lg@hotmail.com', password: 'pass', passwordConfirmation: 'pass' },
-  { username: 'tristan', firstName: 'Tristan', lastName: 'Hall', email: 'th@hotmail.com', password: 'pass', passwordConfirmation: 'pass' },
-  { username: 'karan', firstName: 'Karan', lastName: 'Navani', email: 'kn@hotmail.com', password: 'pass', passwordConfirmation: 'pass' }
+  { username: 'louis', firstName: 'Louis', lastName: 'Glick', email: 'lg@hotmail.com', password: 'pass', passwordConfirmation: 'pass', dailyBudget: 15, weeklyBudget: 75, profilePicUrl: 'https://i.pinimg.com/originals/59/6c/6f/596c6f87bc6494b22fa6183dcf941b01.jpg' },
+  { username: 'tristan', firstName: 'Tristan', lastName: 'Hall', email: 'th@hotmail.com', password: 'pass', passwordConfirmation: 'pass', dailyBudget: 20, weeklyBudget: 100, profilePicUrl: 'https://assets.saatchiart.com/saatchi/780360/art/3621325/2691210-NQDIKNXI-7.jpg' },
+  { username: 'karan', firstName: 'Karan', lastName: 'Navani', email: 'kn@hotmail.com', password: 'pass', passwordConfirmation: 'pass', dailyBudget: 10, weeklyBudget: 80, profilePicUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-mQX62AjgCfSpIhHqR6dTFZEAHBg6B_28S7eLig7iKKDmL962PA' }
 ];
 
 
@@ -67,22 +68,36 @@ User
   .create(userData)
   .then(users => {
     console.log(`created ${users.length} users`);
+    expenseData[0].createdBy = users[0].id;
+    expenseData[1].createdBy = users[1].id;
+    expenseData[2].createdBy = users[2].id;
+    goalData[0].createdBy = users[0].id;
+    goalData[2].createdBy = users[1].id;
+    goalData[1].createdBy = users[2].id;
+    return Expense.create(expenseData);
   })
-  .catch(err => console.log(err))
-  .finally(() => mongoose.connection.close());
-
-Expense
-  .create(expenseData)
-  .then(expenses => {
+  .then( expenses => {
     console.log(`created ${expenses.length} expenses`);
+    return Goal.create(goalData);
   })
-  .catch(err => console.log(err))
-  .finally(() => mongoose.connection.close());
-
-Goal
-  .create(goalData)
   .then(goals => {
     console.log(`created ${goals.length} goals`);
   })
   .catch(err => console.log(err))
   .finally(() => mongoose.connection.close());
+
+// Expense
+//   .create(expenseData)
+//   .then(expenses => {
+//     console.log(`created ${expenses.length} expenses`);
+//   })
+//   .catch(err => console.log(err))
+//   .finally(() => mongoose.connection.close());
+
+// Goal
+//   .create(goalData)
+//   .then(goals => {
+//     console.log(`created ${goals.length} goals`);
+//   })
+//   .catch(err => console.log(err))
+//   .finally(() => mongoose.connection.close());

@@ -1,12 +1,50 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" ng-app="Thrifty">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css">
-    <title>Thrifty</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    <div ui-view></div>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+  <script src="external.js" charset="utf-8"></script>
+  <script src= "https://cdn.zingchart.com/zingchart.min.js"></script>
+  <script> zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
+  ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9","ee6b7db5b51705a13dc2339db3edaf6d"];</script>
+  <link href='https://fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
+  <title>Thrifty</title>
+</head>
+<body ng-controller="MainCtrl">
+  <nav class="navbar is-light" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" ui-sref="dashboard">
+        <img class="logo image" src="/assets/logo.png" alt="Thrifty">
+      </a>
+      <a class="navbar-item" ui-sref="dashboard">THRIFTY</a>
+
+      <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </a>
+    </div>
+
+    <div class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" ui-sref-active="is-active" ui-sref="register" ng-if="!isAuthenticated()">Sign up</a>
+        <a class="navbar-item" ui-sref-active="is-active" ui-sref="login" ng-if="!isAuthenticated()">Log in</a>
+        <a class="navbar-item" ui-sref-active="is-active" ui-sref="dashboard" ng-if="isAuthenticated()">Home</a>
+        <a class="navbar-item" ui-sref-active="is-active" ui-sref="profileShow({ id: user._id })" ng-if="isAuthenticated()">Profile</a>
+        <a class="navbar-item" ui-sref-active="is-active" ui-sref="expensesHistory" ng-if="isAuthenticated()">Expenses</a>
+        <a class="navbar-item" ui-sref-active="is-active" ui-sref="goalsIndex" ng-if="isAuthenticated()">Goals</a>
+        <a class="navbar-item" ui-sref-active="is-active" ng-click="logout()" ng-if="isAuthenticated()">Log out</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="notification is-{{ flashMessage.type }}" ng-class="{ 'is-hidden': !flashMessage }" ng-style="{ marginTop: 3 }">
+    {{ flashMessage.content }}
+  </div>
+    <div ui-view class="container content-body"></div>
+
+
   </body>
-</html>
+  </html>
