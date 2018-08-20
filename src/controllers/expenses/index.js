@@ -6,14 +6,14 @@ function ExpensesIndexCtrl($scope, $http, $rootScope) {
   })
     .then(res => {
 
-      // console.log('Expenses are:', res.data);
+      console.log('Expenses are:', res.data);
       // $scope.expenses = res.data;
       // const expense = res.data.findAll(function(expense) {
       //   return expense.createdBy._id === $scope.user._id;
       // });
       res.data.forEach(expense => {
         console.log(expense.createdBy._id);
-
+        //
         if(expense.createdBy._id === $rootScope.user._id) console.log(expense);
       });
       // $scope.expenses = expense;
