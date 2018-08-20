@@ -15,6 +15,13 @@ function AuthLoginCtrl($http, $rootScope, $scope, $auth, $state) {
         $rootScope.user = user;
         $scope.user = user;
 
+        $scope.$watch(user, () => {
+          if($rootScope.user === user) {
+            $scope.user.password = $rootScope.user.password;
+            $scope.user.passwordConfirmation = $rootScope.user.password;
+            newDay();
+          }
+        });
       })
       // .find($scope.user.email)
 
@@ -22,15 +29,7 @@ function AuthLoginCtrl($http, $rootScope, $scope, $auth, $state) {
       .catch(err => console.log('There was an error', err));
   };
 
-  $scope.$watch(user, () => {
-    if($rootScope.user) {
-      console.log('user is', $rootScope.user);
-      $scope.user.password = $rootScope.user.password;
-      $scope.user.passwordConfirmation = $rootScope.user.password;
-      $scope.user.loginArray = $rootScope.user.loginArray;
-      newDay();
-    }
-  });
+
 
 
   function newDay() {
