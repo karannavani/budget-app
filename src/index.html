@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
   <script src="external.js" charset="utf-8"></script>
   <title>Thrifty</title>
 </head>
@@ -26,10 +27,10 @@
       <div class="navbar-end">
         <a class="navbar-item" ui-sref-active="is-active" ui-sref="register" ng-if="!isAuthenticated()">Sign up</a>
         <a class="navbar-item" ui-sref-active="is-active" ui-sref="login" ng-if="!isAuthenticated()">Log in</a>
-        <a class="navbar-item" ui-sref-active="is-active" ui-sref="dashboard">Home</a>
-        <a class="navbar-item" ui-sref-active="is-active" ui-sref="profileShow({ id: user._id })">Profile</a>
-        <a class="navbar-item" ui-sref-active="is-active" ui-sref="expensesHistory">Expenses</a>
-        <a class="navbar-item" ui-sref-active="is-active" ui-sref="goalsIndex">Goals</a>
+        <a class="navbar-item" ui-sref-active="is-active" ui-sref="dashboard" ng-if="isAuthenticated()">Home</a>
+        <a class="navbar-item" ui-sref-active="is-active" ui-sref="profileShow({ id: user._id })" ng-if="isAuthenticated()">Profile</a>
+        <a class="navbar-item" ui-sref-active="is-active" ui-sref="expensesHistory" ng-if="isAuthenticated()">Expenses</a>
+        <a class="navbar-item" ui-sref-active="is-active" ui-sref="goalsIndex" ng-if="isAuthenticated()">Goals</a>
         <a class="navbar-item" ui-sref-active="is-active" ng-click="logout()" ng-if="isAuthenticated()">Log out</a>
       </div>
     </div>

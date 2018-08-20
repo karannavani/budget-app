@@ -1,5 +1,7 @@
-function ProfileEditCtrl($scope, $http, $state) {
+function ProfileEditCtrl($scope, $http, $state, $rootScope) {
   $scope.updateProfile = function() {
+    $scope.user.password = $rootScope.user.password;
+    $scope.user.passwordConfirmation = $rootScope.user.password;
     $http({
       method: 'PUT',
       url: `/api/users/${$state.params.id}`,

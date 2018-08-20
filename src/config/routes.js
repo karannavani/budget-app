@@ -82,7 +82,7 @@ function Router($stateProvider, $urlRouterProvider) {
       controller: 'ProfileEditCtrl'
     });
 
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/login');
 }
 
 export default Router;
