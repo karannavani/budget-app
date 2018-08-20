@@ -72,8 +72,8 @@ User
     expenseData[1].createdBy = users[1].id;
     expenseData[2].createdBy = users[2].id;
     goalData[0].createdBy = users[0].id;
-    goalData[1].createdBy = users[1].id;
-    goalData[2].createdBy = users[2].id;
+    goalData[2].createdBy = users[1].id;
+    goalData[1].createdBy = users[2].id;
     return Expense.create(expenseData);
   })
   .then( expenses => {
