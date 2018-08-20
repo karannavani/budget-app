@@ -6,7 +6,6 @@ const goalSchema = mongoose.Schema({
   deadline: String,
   alreadySaved: Number,
   imageUrl: String,
-  websiteUrl: String,
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' }
 }, { timestamps: true });
 

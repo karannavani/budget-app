@@ -1,16 +1,17 @@
 function Router($stateProvider, $urlRouterProvider) {
 
-  // function secureState($q, $state, $auth, $rootScope) {
-  //   return new $q((resolve) => {
-  //     if ($auth.isAuthenticated()) return resolve();
-  //     console.log('Creating a flash message from the router');
-  //     $rootScope.$broadcast('flashMessage', {
-  //       type: 'warning',
-  //       content: 'please log in'
-  //     });
-  //     $state.go('login');
-  //   });
-  // }
+
+  function secureState($q, $auth, $state, $rootScope) {
+    return new $q((resolve) => {
+      if ($auth.isAuthenticated()) return resolve();
+      console.log('Creating flash message from the router');
+      $rootScope.$broadcast('flashMessage', {
+        type: 'warning',
+        content: 'Please Log In...'
+      });
+      $state.go('login');
+    });
+  }
 
 
 
@@ -19,47 +20,56 @@ function Router($stateProvider, $urlRouterProvider) {
     .state('goalsIndex', {
       templateUrl: './views/goals/index.html',
       url: '/goals',
-      controller: 'GoalsIndexCtrl'
+      controller: 'GoalsIndexCtrl',
+      resolve: { secureState }
     })
     .state('goalsShow', {
       templateUrl: './views/goals/show.html',
       url: '/goals/:id',
-      controller: 'GoalsShowCtrl'
+      controller: 'GoalsShowCtrl',
+      resolve: { secureState }
     })
     .state('goalsNew', {
       templateUrl: './views/goals/new.html',
       url: '/goals/new',
-      controller: 'GoalsNewCtrl'
+      controller: 'GoalsNewCtrl',
+      resolve: { secureState }
     })
     .state('goalsEdit', {
       templateUrl: './views/goals/edit.html',
       url: '/goals/:id/edit',
-      controller: 'GoalsEditCtrl'
+      controller: 'GoalsEditCtrl',
+      resolve: { secureState }
     })
     .state('expensesHistory', {
       templateUrl: './views/expenses/history.html',
       url: '/expenses',
-      controller: 'ExpensesIndexCtrl'
+      controller: 'ExpensesIndexCtrl',
+      resolve: { secureState }
     })
     .state('expensesShow', {
       templateUrl: './views/expenses/show.html',
       url: '/expenses/:id',
-      controller: 'ExpensesShowCtrl'
+      controller: 'ExpensesShowCtrl',
+      resolve: { secureState }
     })
     .state('expensesNew', {
       templateUrl: './views/expenses/new.html',
       url: '/expenses/new',
-      controller: 'ExpensesNewCtrl'
+      controller: 'ExpensesNewCtrl',
+      resolve: { secureState }
     })
     .state('expensesEdit', {
       templateUrl: './views/expenses/edit.html',
       url: '/expenses/:id/edit',
-      controller: 'ExpensesEditCtrl'
+      controller: 'ExpensesEditCtrl',
+      resolve: { secureState }
     })
     .state('dashboard', {
       templateUrl: './views/dashboard.html',
       url: '/dashboard',
-      controller: 'DashboardCtrl'
+      controller: 'DashboardCtrl',
+      resolve: { secureState }
     })
     .state('register', {
       templateUrl: './views/auth/register.html',
@@ -75,11 +85,13 @@ function Router($stateProvider, $urlRouterProvider) {
       templateUrl: './views/profile/show.html',
       url: '/users/:id',
       controller: 'ProfileShowCtrl'
+      ,resolve: { secureState }
     })
     .state('profileEdit', {
       templateUrl: './views/profile/edit.html',
       url: '/users/:id/edit',
-      controller: 'ProfileEditCtrl'
+      controller: 'ProfileEditCtrl',
+      resolve: { secureState }
     });
 
   $urlRouterProvider.otherwise('/login');
