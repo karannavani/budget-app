@@ -62,73 +62,73 @@ function DashboardCtrl($rootScope, $scope, $http) {
 
   $scope.$watch('spendData', () => {
 
-    if($scope.spendData){$scope.donutChartConfig = {
-    'globals': {
-      'font-family': 'Lato',
-      'font-weight': '100'
-    },
-    'graphset': [
-      {
-        'type': 'ring',
-        'background-color': '#ffffff',
-        'tooltip': {
-          'visible': 0
+    if($scope.spendData){
+      $scope.donutChartConfig = {
+        'globals': {
+          'font-family': 'Lato',
+          'font-weight': '100'
         },
-        'plotarea': {
-          'margin': '2% 2% 2% 2%'
-        },
-        'plot': {
-          'slice': 175,
-          'ref-angl': 270,
-          'detach': false,
-          'hover-state': {
-            'visible': false
-          },
-          'value-box': {
-            'visible': true,
-            'type': 'first',
-            'connected': false,
-            'placement': 'center',
-            'text': `<span style='font-size:40px;'>You've spent</span><br><span>£${totalCost}</span>`,
-            'rules': [
-              {
-                'rule': '%v > 50',
-                visible: false
+        'graphset': [
+          {
+            'type': 'ring',
+            'background-color': '#ffffff',
+            'tooltip': {
+              'visible': 0
+            },
+            'plotarea': {
+              'margin': '2% 2% 2% 2%'
+            },
+            'plot': {
+              'slice': 175,
+              'ref-angl': 270,
+              'detach': false,
+              'hover-state': {
+                'visible': false
+              },
+              'value-box': {
+                'visible': true,
+                'type': 'first',
+                'connected': false,
+                'placement': 'center',
+                'text': `<span style='font-size:40px;'>You've spent</span><br><span>£${totalCost}</span>`,
+                'rules': [
+                  {
+                    'rule': '%v > 50',
+                    visible: false
+                  }
+                ],
+                'font-color': '#000000',
+                'font-weight': 'bold',
+                'font-size': '40px'
+              },
+              'animation': {
+                'delay': 0,
+                'effect': 2,
+                'speed': '40000',
+                'method': '0',
+                'sequence': '1'
               }
-            ],
-            'font-color': '#000000',
-            'font-size': '40px'
-          },
-          'animation': {
-            'delay': 0,
-            'effect': 2,
-            'speed': '40000',
-            'method': '0',
-            'sequence': '1'
-          }
-        },
-        'series': [
-          {
-            'values': [$scope.spendData[0]],
-            'background-color': '#10f785',
-            'border-color': '#282E3D',
-            'border-width': '0px',
-            'shadow': 0
-          },
-          {
-            'values': [$scope.spendData[1]],
-            'background-color': '#f10000',
-            'border-color': '#282E3D',
-            'border-width': '0px',
-            'shadow': 0
-
+            },
+            'series': [
+              {
+                'values': [$scope.spendData[0]],
+                'background-color': '#10f785',
+                'border-color': '#282E3D',
+                'border-width': '0px',
+                'shadow': 0
+              },
+              {
+                'values': [$scope.spendData[1]],
+                'background-color': '#f10000',
+                'border-color': '#282E3D',
+                'border-width': '0px',
+                'shadow': 0
+              }
+            ]
           }
         ]
-      }
-    ]
-
-  };
-}
+      };
+    }
   });//something done to change the <strong> element into a text input
 
 }
