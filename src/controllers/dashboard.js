@@ -2,6 +2,12 @@ function DashboardCtrl($rootScope, $scope, $http) {
   console.log('user is', $rootScope.user);
   $scope.user = $rootScope.user;
   $scope.mode = 'notEdit';
+  const today = new Date;
+  const slicedDate = today.toLocaleString().slice(0,10);
+  let expenseDate;
+  let totalCost = 0;
+  $scope.spendData = [4, 6];
+
 
   $scope.editBudget = function(name){
     $scope.mode = 'edit';
@@ -20,8 +26,40 @@ function DashboardCtrl($rootScope, $scope, $http) {
       data: $scope.user
     });
   };
+<<<<<<< HEAD
   $scope.spendData = [$rootScope.user.dailyBudget, $rootScope.displayTotal];
   console.log($scope.spendData);
+=======
+
+
+  // making GET request to get user expenses in dashboard scope
+  const userExpenses = [];
+  $http({
+    method: 'GET',
+    url: '/api/expenses'
+  })
+    .then(res => {
+
+      res.data.forEach(expense => {
+        if(expense.createdBy._id === $rootScope.user._id) {
+          userExpenses.push(expense);
+          expenseDate = `${expense.createdAt.slice(8,10)}/${expense.createdAt.slice(5,7)}/${expense.createdAt.slice(0,4)}`;
+          // console.log('expense created at', `${expense.createdAt.slice(8,10)}/${expense.createdAt.slice(5,7)}/${expense.createdAt.slice(0,4)}`);
+          if (expenseDate === slicedDate) {
+            //
+            //
+            totalCost = totalCost + expense.cost;
+          }
+        }
+      });
+
+      $rootScope.displayTotal= totalCost;
+      console.log('User expense is ===>', userExpenses);
+      $scope.expenses = userExpenses;
+    });
+
+
+>>>>>>> 894dfc914e009fa5a8e7a2c4a1857ea5589abd2d
   //something done to change the <strong> element into a text input
   $scope.donutChartConfig = {
     'globals': {
@@ -50,7 +88,7 @@ function DashboardCtrl($rootScope, $scope, $http) {
             'type': 'first',
             'connected': false,
             'placement': 'center',
-            'text': `<span style='font-size:40px;'>Running Total</span><br>`,
+            'text': `<span style='font-size:40px;'>Running Total</span>`,
             'rules': [
               {
                 'rule': '%v > 50',
