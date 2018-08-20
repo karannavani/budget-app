@@ -5,7 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="./loading-bar/loading-bar.css"/> <!-- dashboard progress bars -->
   <script src="external.js" charset="utf-8"></script>
+  <script type="text/javascript" src="./loading-bar/loading-bar.js"></script> <!-- might be able to get rid of the minified js file -->
+
+
   <title>Thrifty</title>
 </head>
 <body ng-controller="MainCtrl">
@@ -35,9 +39,11 @@
       </div>
     </div>
   </nav>
+
   <div class="notification is-{{ flashMessage.type }}" ng-class="{ 'is-hidden': !flashMessage }" ng-style="{ marginTop: 3 }">
     {{ flashMessage.content }}
   </div>
     <div ui-view class="container content-body"></div>
   </body>
+
   </html>
