@@ -85,19 +85,3 @@ User
   })
   .catch(err => console.log(err))
   .finally(() => mongoose.connection.close());
-
-// Expense
-//   .create(expenseData)
-//   .then(expenses => {
-//     console.log(`created ${expenses.length} expenses`);
-//   })
-//   .catch(err => console.log(err))
-//   .finally(() => mongoose.connection.close());
-
-// Goal
-//   .create(goalData)
-//   .then(goals => {
-//     console.log(`created ${goals.length} goals`);
-//   })
-//   .catch(err => console.log(err))
-//   .finally(() => mongoose.connection.close());
