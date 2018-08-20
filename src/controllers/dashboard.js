@@ -5,6 +5,7 @@ function DashboardCtrl($rootScope, $scope, $http) {
   const today = new Date;
   const slicedDate = today.toLocaleString().slice(0,10);
   let expenseDate;
+  let totalCost = 0;
 
 
   $scope.editBudget = function(name){
@@ -39,11 +40,16 @@ function DashboardCtrl($rootScope, $scope, $http) {
           userExpenses.push(expense);
           expenseDate = `${expense.createdAt.slice(8,10)}/${expense.createdAt.slice(5,7)}/${expense.createdAt.slice(0,4)}`;
           // console.log('expense created at', `${expense.createdAt.slice(8,10)}/${expense.createdAt.slice(5,7)}/${expense.createdAt.slice(0,4)}`);
-          console.log(expenseDate, slicedDate);
-          console.log(expenseDate === slicedDate);
+          if (expenseDate === slicedDate) {
+            //
+            //
+            totalCost = totalCost + expense.cost;
+          }
         }
       });
-      // console.log('User expense is ===>', userExpenses);
+
+      $rootScope.displayTotal= totalCost;
+      console.log('User expense is ===>', userExpenses);
       $scope.expenses = userExpenses;
     });
 
