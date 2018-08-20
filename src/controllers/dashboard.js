@@ -6,7 +6,9 @@ function DashboardCtrl($rootScope, $scope, $http) {
   const slicedDate = today.toLocaleString().slice(0,10);
   let expenseDate;
   let totalCost = 0;
-  $scope.spendData = [4, 6];
+  $scope.donutChartConfig = {};
+  // $scope.spendData = [4, 6];
+
 
 
   $scope.editBudget = function(name){
@@ -26,10 +28,6 @@ function DashboardCtrl($rootScope, $scope, $http) {
       data: $scope.user
     });
   };
-<<<<<<< HEAD
-  $scope.spendData = [$rootScope.user.dailyBudget, $rootScope.displayTotal];
-  console.log($scope.spendData);
-=======
 
 
   // making GET request to get user expenses in dashboard scope
@@ -56,12 +54,15 @@ function DashboardCtrl($rootScope, $scope, $http) {
       $rootScope.displayTotal= totalCost;
       console.log('User expense is ===>', userExpenses);
       $scope.expenses = userExpenses;
+      $scope.remainder = $rootScope.user.dailyBudget - $rootScope.displayTotal;
+      $scope.spendData = [$scope.remainder, $rootScope.displayTotal];
+      console.log('this is scope data', $scope.spendData);
     });
 
 
->>>>>>> 894dfc914e009fa5a8e7a2c4a1857ea5589abd2d
-  //something done to change the <strong> element into a text input
-  $scope.donutChartConfig = {
+  $scope.$watch('spendData', () => {
+
+    if($scope.spendData){$scope.donutChartConfig = {
     'globals': {
       'font-family': 'Lato',
       'font-weight': '100'
@@ -120,11 +121,15 @@ function DashboardCtrl($rootScope, $scope, $http) {
             'border-color': '#282E3D',
             'border-width': '0px',
             'shadow': 0
+
           }
         ]
       }
     ]
+
   };
+}
+  });//something done to change the <strong> element into a text input
 
 }
 
