@@ -20,7 +20,8 @@ function DashboardCtrl($rootScope, $scope, $http) {
       data: $scope.user
     });
   };
-  $scope.spendData = [4, 6];
+  $scope.spendData = [$rootScope.user.dailyBudget, $rootScope.displayTotal];
+  console.log($scope.spendData);
   //something done to change the <strong> element into a text input
   $scope.donutChartConfig = {
     'globals': {
@@ -35,7 +36,7 @@ function DashboardCtrl($rootScope, $scope, $http) {
           'visible': 0
         },
         'plotarea': {
-          'margin': '0% 0% 0% 0%'
+          'margin': '2% 2% 2% 2%'
         },
         'plot': {
           'slice': 175,
@@ -72,14 +73,14 @@ function DashboardCtrl($rootScope, $scope, $http) {
             'values': [$scope.spendData[0]],
             'background-color': '#FDFD47',
             'border-color': '#282E3D',
-            'border-width': '2px',
+            'border-width': '0px',
             'shadow': 0
           },
           {
             'values': [$scope.spendData[1]],
             'background-color': '#35D884',
             'border-color': '#282E3D',
-            'border-width': '2px',
+            'border-width': '0px',
             'shadow': 0
           }
         ]
