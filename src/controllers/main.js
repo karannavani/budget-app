@@ -5,7 +5,7 @@ function MainCtrl($rootScope, $scope, $auth, $state, $timeout) {
     console.log('e is', e,  'data is', data);
     $scope.flashMessage = data;
 
-    $timeout(() => $scope.flashMessage = null, 4000);
+    $timeout(() => $scope.flashMessage = null, 3500);
   });
 
   $scope.logout = function() {
