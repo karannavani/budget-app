@@ -8,6 +8,7 @@ function ExpensesNewCtrl($scope, $http, $rootScope, $state) {
   $scope.createExpense = function() {
     $scope.convertString();
     console.log($scope.expense);
+    $scope.expense.createdBy = $rootScope.user._id;
     $http({
       method: 'POST',
       url: '/api/expenses',
