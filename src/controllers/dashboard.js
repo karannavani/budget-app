@@ -51,13 +51,13 @@ function DashboardCtrl($rootScope, $scope, $http) {
       $rootScope.displayTotal= totalCost;
       console.log('User expense is ===>', userExpenses);
       $scope.expenses = userExpenses;
-      $scope.remainder = $rootScope.user.dailyBudget - $rootScope.displayTotal;
-      $scope.spendData = [$scope.remainder, $rootScope.displayTotal];
+      $rootScope.remainder = $rootScope.user.dailyBudget - $rootScope.displayTotal;
+      $scope.spendData = [$rootScope.remainder, $rootScope.displayTotal];
       console.log('this is scope data', $scope.spendData);
     });
 
 
-    
+
 
   // Graph logic
   $scope.$watch('spendData', () => {
