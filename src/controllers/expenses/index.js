@@ -1,5 +1,5 @@
 // let expense;
-function ExpensesIndexCtrl($scope, $http) {
+function ExpensesIndexCtrl($scope, $http, $rootScope) {
   $http({
     method: 'GET',
     url: '/api/expenses'
@@ -11,8 +11,12 @@ function ExpensesIndexCtrl($scope, $http) {
       // const expense = res.data.findAll(function(expense) {
       //   return expense.createdBy._id === $scope.user._id;
       // });
-      // res.data.forEach
-      $scope.expenses = expense;
+      res.data.forEach(expense => {
+        console.log(expense.createdBy._id);
+
+        if(expense.createdBy._id === $rootScope.user._id) console.log(expense);
+      });
+      // $scope.expenses = expense;
       console.log('Expenses are:', $scope.expenses);
     });
 
