@@ -42,7 +42,6 @@ function DashboardCtrl($rootScope, $scope, $http) {
         if(expense.createdBy._id === $rootScope.user._id) {
           userExpenses.push(expense);
           expenseDate = `${expense.createdAt.slice(8,10)}/${expense.createdAt.slice(5,7)}/${expense.createdAt.slice(0,4)}`;
-          // console.log('expense created at', `${expense.createdAt.slice(8,10)}/${expense.createdAt.slice(5,7)}/${expense.createdAt.slice(0,4)}`);
           if (expenseDate === slicedDate) {
             //
             //
@@ -97,7 +96,7 @@ function DashboardCtrl($rootScope, $scope, $http) {
                     visible: false
                   }
                 ],
-                'font-color': '#000000',
+                'font-color': '#256e94',
                 'font-weight': 'bold',
                 'font-size': '40px'
               },
@@ -130,7 +129,6 @@ function DashboardCtrl($rootScope, $scope, $http) {
       };
     }
   });//something done to change the <strong> element into a text input
-
 }
 
 export default DashboardCtrl;
