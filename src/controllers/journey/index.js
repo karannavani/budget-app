@@ -1,5 +1,6 @@
-function JourneyIndexCtrl($scope, $http) {
-
+function JourneyIndexCtrl($scope, $http, $auth) {
+  $scope.getPayload = $auth.getPayload;
+  console.log('payload is', $scope.getPayload().sub);
   navigator.geolocation.getCurrentPosition(position => {
     console.log('Found position', position);
     $scope.position = position;
@@ -82,6 +83,9 @@ function JourneyIndexCtrl($scope, $http) {
         .catch(err => console.log('An error with uber', err));
     }
 
+    $scope.deductJourney = function(amount) {
+      // $rootScope.user.dailyBudget - amount;
+    };
   };
 
 }
