@@ -1,5 +1,6 @@
 function MainCtrl($rootScope, $scope, $auth, $state, $timeout) {
   $scope.isAuthenticated = $auth.isAuthenticated;
+  $scope.getPayload = $auth.getPayload;
 
   $rootScope.$on('flashMessage', (e, data) => {
     console.log('e is', e,  'data is', data);

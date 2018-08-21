@@ -57,8 +57,9 @@ function JourneyIndexCtrl($scope, $http) {
         skipAuthorization: true
       })
         .then(res => {
-          $scope.priceUberPool = res.data.prices[0].estimate;
-          $scope.priceUberX = res.data.prices[1].estimate;
+          console.log('user data is', res.data);
+          $scope.priceUberPool = parseFloat((res.data.prices[0].high_estimate + res.data.prices[0].low_estimate)/2);
+          $scope.priceUberX = parseFloat((res.data.prices[1].high_estimate + res.data.prices[1].low_estimate)/2);
           console.log('priceUberPool is', res.data.prices[0].estimate);
           console.log('priceUberX is', res.data.prices[1].estimate);
           $scope.timeUberPool = (res.data.prices[0].duration)/100;
