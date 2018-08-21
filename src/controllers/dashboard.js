@@ -7,16 +7,16 @@ function DashboardCtrl($rootScope, $scope, $http) {
   let expenseDate;
   let totalCost = 0;
   $scope.donutChartConfig = {};
-  // $scope.spendData = [4, 6];
 
 
-
+  // Allows the user to edit budget from dashboard – linked to the ng-switch block
   $scope.editBudget = function(name){
     $scope.mode = 'edit';
     console.log(name);
   //something done to change the <strong> element into a text input
   };
 
+  // Updates the budget in the model with the edited budget
   $scope.saveBudget = function(name){
     $scope.mode = 'notEdit';
     console.log(name);
@@ -27,8 +27,8 @@ function DashboardCtrl($rootScope, $scope, $http) {
       url: `/api/users/${$rootScope.user._id}`,
       data: $scope.user
     });
+    $scope.$apply;
   };
-
 
   // making GET request to get user expenses in dashboard scope
   const userExpenses = [];
@@ -42,9 +42,8 @@ function DashboardCtrl($rootScope, $scope, $http) {
         if(expense.createdBy._id === $rootScope.user._id) {
           userExpenses.push(expense);
           expenseDate = `${expense.createdAt.slice(8,10)}/${expense.createdAt.slice(5,7)}/${expense.createdAt.slice(0,4)}`;
+
           if (expenseDate === slicedDate) {
-            //
-            //
             totalCost = totalCost + expense.cost;
           }
         }
@@ -53,12 +52,52 @@ function DashboardCtrl($rootScope, $scope, $http) {
       $rootScope.displayTotal= totalCost;
       console.log('User expense is ===>', userExpenses);
       $scope.expenses = userExpenses;
-      $scope.remainder = $rootScope.user.dailyBudget - $rootScope.displayTotal;
-      $scope.spendData = [$scope.remainder, $rootScope.displayTotal];
+      $rootScope.remainder = $rootScope.user.dailyBudget - $rootScope.displayTotal;
+      $scope.spendData = [$rootScope.remainder, $rootScope.displayTotal];
       console.log('this is scope data', $scope.spendData);
     });
 
 
+  $rootScope.$watch('remainder', () => {
+    if(($rootScope.remainder = $rootScope.user.dailyBudget - $rootScope.displayTotal)) {
+      $scope.user.password = $rootScope.user.password;
+      $scope.user.passwordConfirmation = $rootScope.user.password;
+      newDay();
+    }
+  });
+
+  // Favorite piece of code – Karan
+  function newDay() {
+    let today = new Date;
+    today = today.toLocaleString().slice(0,10);
+
+    if ($rootScope.user.loginArray.length === 0 || $rootScope.user.loginArray[0] !== today) {
+      addSavings();
+      $rootScope.user.loginArray.pop();
+      $rootScope.user.loginArray.push(today);
+      console.log('pushing to login array', $rootScope.user.loginArray);
+
+      $http({
+        method: 'PUT',
+        url: `/api/users/${$rootScope.user._id}`,
+        data: $rootScope.user
+      });
+    }
+  }
+
+  function addSavings() {
+    console.log('pushing to savings array');
+    $rootScope.user.savingsArray.push($rootScope.remainder);
+  }
+
+  // $scope.$watch('user', () => {
+  //   if($rootScope.user === user) {
+  //
+  //   }
+  // });
+
+
+  // Graph logic
   $scope.$watch('spendData', () => {
 
     if($scope.spendData){
@@ -126,6 +165,7 @@ function DashboardCtrl($rootScope, $scope, $http) {
             ]
           }
         ]
+
       };
     }
   });//something done to change the <strong> element into a text input
