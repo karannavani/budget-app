@@ -12,6 +12,9 @@ function MainCtrl($rootScope, $scope, $auth, $state, $timeout) {
     $auth.logout();
     $state.go('login');
   };
+  $scope.getEventTarget = function($event) {
+    console.log('this is the event target', $event.currentTarget);
+  };
 }
 
 
