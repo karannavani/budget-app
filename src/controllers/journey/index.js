@@ -57,8 +57,16 @@ function JourneyIndexCtrl($scope, $http) {
         skipAuthorization: true
       })
         .then(res => {
-          $scope.priceUber = res.data;
-          console.log('priceUber is', $scope.priceUber);
+          $scope.priceUberPool = res.data.prices[0].estimate;
+          $scope.priceUberX = res.data.prices[1].estimate;
+          console.log('priceUberPool is', res.data.prices[0].estimate);
+          console.log('priceUberX is', res.data.prices[1].estimate);
+          $scope.timeUberPool = (res.data.prices[0].duration)/100;
+          $scope.timeUberX = (res.data.prices[1].duration)/100;
+          console.log('timeUberPool is', (res.data.prices[0].duration)/100);
+          console.log('timeUberX is', (res.data.prices[1].duration)/100);
+
+
         })
         .catch(err => console.log('An error with uber', err));
     }
