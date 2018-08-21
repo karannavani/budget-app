@@ -63,7 +63,7 @@ function JourneyIndexCtrl($scope, $http) {
         .then(res => {
           console.log(res.data.journeys[0]);
           $scope.bikeDuration = res.data.journeys[0].duration;
-          // $scope.bikeCost = ######;
+          $scope.bikeCost = ((((res.data.journeys[0].duration)/30).toFixed(0))*2)+2;
         });
     }
 
