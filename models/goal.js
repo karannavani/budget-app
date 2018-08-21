@@ -9,4 +9,10 @@ const goalSchema = mongoose.Schema({
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' }
 }, { timestamps: true });
 
+goalSchema
+  .virtual('progress')
+  .set(function setProgress(progress) {
+    this._progress = progress;
+  });
+
 module.exports = mongoose.model('goal', goalSchema);
