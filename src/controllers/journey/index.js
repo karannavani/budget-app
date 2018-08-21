@@ -27,6 +27,7 @@ function JourneyIndexCtrl($scope, $http, $auth) {
         console.log('End Lon is', $scope.endLon);
         getTfl();
         getUber();
+        getBikeTfl();
       });
 
     function getTfl() {
@@ -83,8 +84,23 @@ function JourneyIndexCtrl($scope, $http, $auth) {
         .catch(err => console.log('An error with uber', err));
     }
 
-    $scope.deductJourney = function(amount) {
+    function getBikeTfl() {
+      $http({
+        method: 'GET',
+        url: `https://api.tfl.gov.uk/Journey/JourneyResults/${$scope.lat}%2C${$scope.lon}/to/${$scope.endLat}%2C-${$scope.endLon}/?mode=cycle&cyclePreference=CycleHire`,
+        skipAuthorization: true
+      })
+        .then(res => {
+          console.log(res.data.journeys[0]);
+          $scope.bikeDuration = res.data.journeys[0].duration;
+          $scope.bikeCost = Math.ceil((res.data.journeys[0].duration - 30)/30) * 2;
+        });
+    }
+
+    $scope.deductJourney = function($event) {
       // $rootScope.user.dailyBudget - amount;
+      console.log('event is', $event.currentTarget);
+      $scope.user.dailyBudget - amount;
     };
   };
 
