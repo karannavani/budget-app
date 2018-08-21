@@ -5,7 +5,7 @@ import 'angular-messages';
 import './scss/style.scss';
 import 'zingchart-angularjs';
 
-// Custome Javascript
+// Custom Javascript
 import './external';
 
 // Router
@@ -33,10 +33,11 @@ import MainCtrl from './controllers/main';
 import JourneyIndexCtrl from './controllers/journey/index';
 import JourneyShowCtrl from './controllers/journey/show';
 
+import FoodCtrl from './controllers/food/index';
+
 angular.module('Thrifty',
   [ 'ui.router', 'satellizer', 'ngMessages', 'zingchart-angularjs' ]
 )
-
 
   .controller('AuthLoginCtrl', AuthLoginCtrl)
   .controller('AuthRegisterCtrl', AuthRegisterCtrl)
@@ -59,12 +60,7 @@ angular.module('Thrifty',
   .controller('JourneyIndexCtrl', JourneyIndexCtrl)
   .controller('JourneyShowCtrl', JourneyShowCtrl)
 
-
-  // experimental code for adding a global function through a service
-  // .factory('stringConverter', function() {
-  //   $scope.expense.repeat === 'true' ?  $scope.expense.repeat = true :  $scope.expense.repeat = false;
-  //   $scope.expense.vital === 'true' ?  $scope.expense.vital = true :  $scope.expense.vital = false;
-  // })
+  .controller('FoodCtrl', FoodCtrl)
 
   .config(Router)
   .config(function($authProvider) {

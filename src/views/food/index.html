@@ -1,0 +1,8 @@
+<h1 class="title is-4">All Restaurants</h1>
+<div class="columns is-multiline" ng-if="restaurants" ng-repeat="restaurant in restaurants">
+    <div class="column is-4-mobile" >
+    <img src="{{ restaurant.restaurant.featured_image }}" alt="{{  restaurant.restaurant.name }}">
+    <hr>
+    </div>
+  </div>
+</div>

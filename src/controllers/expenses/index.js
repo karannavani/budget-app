@@ -9,7 +9,6 @@ function ExpensesIndexCtrl($scope, $http, $rootScope) {
       res.data.forEach(expense => {
         if(expense.createdBy._id === $rootScope.user._id) userExpenses.push(expense);
       });
-      console.log('User expense is ===>', userExpenses);
       $scope.expenses = userExpenses;
     });
 

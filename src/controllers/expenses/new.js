@@ -1,5 +1,4 @@
 function ExpensesNewCtrl($scope, $http, $rootScope, $state) {
-
   $scope.convertString = function() {
     $scope.expense.repeat === 'true' ?  $scope.expense.repeat = true :  $scope.expense.repeat = false;
     $scope.expense.vital === 'true' ?  $scope.expense.vital = true :  $scope.expense.vital = false;
@@ -7,7 +6,6 @@ function ExpensesNewCtrl($scope, $http, $rootScope, $state) {
 
   $scope.createExpense = function() {
     $scope.convertString();
-    console.log($scope.expense);
     $scope.expense.createdBy = $rootScope.user._id;
     $http({
       method: 'POST',
