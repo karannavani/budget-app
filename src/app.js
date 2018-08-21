@@ -30,6 +30,8 @@ import GoalsNewCtrl from './controllers/goals/new';
 import DashboardCtrl from './controllers/dashboard';
 import MainCtrl from './controllers/main';
 
+import FoodCtrl from './controllers/food/index';
+
 angular.module('Thrifty',
   [ 'ui.router', 'satellizer', 'ngMessages', 'zingchart-angularjs' ]
 )
@@ -51,11 +53,17 @@ angular.module('Thrifty',
   .controller('DashboardCtrl', DashboardCtrl)
   .controller('MainCtrl', MainCtrl)
 
-  // experimental code for adding a global function through a service
-  // .factory('stringConverter', function() {
-  //   $scope.expense.repeat === 'true' ?  $scope.expense.repeat = true :  $scope.expense.repeat = false;
-  //   $scope.expense.vital === 'true' ?  $scope.expense.vital = true :  $scope.expense.vital = false;
-  // })
+  .controller('FoodCtrl', FoodCtrl)
+
+  .factory('globalFunctions', function() {
+    function getUserLocation() {
+      navigator.geolocation.getCurrentPosition(position => position);
+    }
+
+    return {
+      getUserLocation
+    };
+  })
 
   .config(Router)
   .config(function($authProvider) {

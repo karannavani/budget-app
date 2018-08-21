@@ -1,4 +1,11 @@
-function ExpensesNewCtrl($scope, $http, $rootScope, $state) {
+function ExpensesNewCtrl($scope, $http, $rootScope, $state, globalFunctions) {
+  globalFunctions.getUserLocation();
+  $scope.$watch('position', () => {
+    if(globalFunctions.getUserLocation()) {
+      $scope.userPosition = globalFunctions.getUserLocation();
+      console.log('this is my position', $scope.userPosition);
+    }
+  });
 
   $scope.convertString = function() {
     $scope.expense.repeat === 'true' ?  $scope.expense.repeat = true :  $scope.expense.repeat = false;
@@ -7,7 +14,6 @@ function ExpensesNewCtrl($scope, $http, $rootScope, $state) {
 
   $scope.createExpense = function() {
     $scope.convertString();
-    console.log($scope.expense);
     $scope.expense.createdBy = $rootScope.user._id;
     $http({
       method: 'POST',

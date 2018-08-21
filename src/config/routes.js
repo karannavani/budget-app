@@ -92,6 +92,11 @@ function Router($stateProvider, $urlRouterProvider) {
       url: '/users/:id/edit',
       controller: 'ProfileEditCtrl',
       resolve: { secureState }
+    })
+    .state('foodIndex', {
+      templateUrl: './views/food/index.html',
+      url: '/food',
+      controller: 'FoodCtrl'
     });
 
   $urlRouterProvider.otherwise('/login');
