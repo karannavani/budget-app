@@ -1,5 +1,7 @@
 function GoalsIndexCtrl($scope, $http, $rootScope) {
   const userGoals = [];
+  // const progressArray = [];
+  // let progressIndex = -1;
 
   $http({
     method: 'GET',
@@ -9,8 +11,8 @@ function GoalsIndexCtrl($scope, $http, $rootScope) {
 
       res.data.forEach(goal => {
         if(goal.createdBy._id === $rootScope.user._id) {
+          goal.progress = parseFloat((goal.alreadySaved/goal.cost)*100).toFixed(2);
           userGoals.push(goal);
-          $scope.progress = parseFloat((goal.alreadySaved/goal.cost)*100).toFixed(2);
         }
         console.log('Saved is',goal.alreadySaved );
         console.log(' Cost is', goal.cost);
