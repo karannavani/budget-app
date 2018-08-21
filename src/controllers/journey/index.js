@@ -35,7 +35,9 @@ function JourneyIndexCtrl($scope, $http) {
         skipAuthorization: true
       })
         .then(res => {
-          console.log(res.data);
+          console.log(res.data.journeys[0]);
+          $scope.tubeDuration = res.data.journeys[0].duration;
+          $scope.tubeCost = (res.data.journeys[0].fare.totalCost / 100).toFixed(2);
         });
     }
 
