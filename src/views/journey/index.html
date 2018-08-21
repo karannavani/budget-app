@@ -1,3 +1,15 @@
-<h2 class="title is-2">Journey Index page</h2>
+<h2 class="title is-2">Get somewhere</h2>
 
-Rootscope's position is {{ position }}.
+<form class="locationInput" action="index.html" method="post">
+  <div class="field">
+    <label class="label">From</label>
+    <input class="input" type="text" name="startPoint" value="Current Location" readonly>
+  </div>
+  <div class="field">
+    <label class="label">To (Postcode)</label>
+    <input ng-model="endPoint" class="input" type="text" name="endPoint" placeholder="eg: E1 7PT">
+  </div>
+  <button class="button" type="button" name="button" ng-click="generateOptions()">Go</button>
+</form>
+
+<h4 class="title is-4">Your options are</h4>

@@ -4,7 +4,7 @@
 
 <div class="columns is-multiline is-mobile">
   <div class="column is-10">
-    <div ng-switch="mode">
+    <div ng-switch="mode" class="dashBudget">
       <input class="budget-title" ng-switch-when="edit" id="edit" ng-model="user.dailyBudget" placeholder="£">
       <h1 class="budget-title" ng-switch-default id="user.dailyBudget"><span class="budget-title">£</span>{{ user.dailyBudget }}</h1>
     </div>
