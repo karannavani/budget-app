@@ -1,12 +1,4 @@
-function ExpensesNewCtrl($scope, $http, $rootScope, $state, globalFunctions) {
-  globalFunctions.getUserLocation();
-  $scope.$watch('position', () => {
-    if(globalFunctions.getUserLocation()) {
-      $scope.userPosition = globalFunctions.getUserLocation();
-      console.log('this is my position', $scope.userPosition);
-    }
-  });
-
+function ExpensesNewCtrl($scope, $http, $rootScope, $state) {
   $scope.convertString = function() {
     $scope.expense.repeat === 'true' ?  $scope.expense.repeat = true :  $scope.expense.repeat = false;
     $scope.expense.vital === 'true' ?  $scope.expense.vital = true :  $scope.expense.vital = false;
