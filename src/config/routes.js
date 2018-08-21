@@ -110,8 +110,8 @@ function Router($stateProvider, $urlRouterProvider) {
     })
     .state('foodShow', {
       templateUrl: './views/food/show.html',
-      url: './food/:id'
-      // controller: 'FoodCtrl'
+      url: '/food/:id',
+      controller: 'RestaurantCtrl'
     });
 
   $urlRouterProvider.otherwise('/login');

@@ -34,6 +34,7 @@ import JourneyIndexCtrl from './controllers/journey/index';
 import JourneyShowCtrl from './controllers/journey/show';
 
 import FoodCtrl from './controllers/food/index';
+import RestaurantCtrl from './controllers/food/show';
 
 angular.module('Thrifty',
   [ 'ui.router', 'satellizer', 'ngMessages', 'zingchart-angularjs' ]
@@ -61,6 +62,7 @@ angular.module('Thrifty',
   .controller('JourneyShowCtrl', JourneyShowCtrl)
 
   .controller('FoodCtrl', FoodCtrl)
+  .controller('RestaurantCtrl', RestaurantCtrl)
 
   .config(Router)
   .config(function($authProvider) {

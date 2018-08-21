@@ -1,6 +1,7 @@
 function MainCtrl($rootScope, $scope, $auth, $state, $timeout, $http) {
   $scope.isAuthenticated = $auth.isAuthenticated;
   $scope.getPayload = $auth.getPayload;
+  // $scope.resId = $rootScope.resId;
 
 
   $http({
@@ -27,9 +28,6 @@ function MainCtrl($rootScope, $scope, $auth, $state, $timeout, $http) {
   $scope.logout = function() {
     $auth.logout();
     $state.go('login');
-  };
-  $scope.getEventTarget = function($event) {
-    console.log('this is the event target', $event.currentTarget);
   };
 }
 
