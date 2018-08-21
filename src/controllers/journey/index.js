@@ -1,5 +1,6 @@
-function JourneyIndexCtrl($scope, $http) {
-
+function JourneyIndexCtrl($scope, $http, $auth) {
+  $scope.getPayload = $auth.getPayload;
+  console.log('payload is', $scope.getPayload().sub);
   navigator.geolocation.getCurrentPosition(position => {
     console.log('Found position', position);
     $scope.position = position;
@@ -39,6 +40,16 @@ function JourneyIndexCtrl($scope, $http) {
           $scope.tubeDuration = res.data.journeys[0].duration;
           $scope.tubeCost = (res.data.journeys[0].fare.totalCost / 100).toFixed(2);
         });
+      $http({
+        method: 'GET',
+        url: `https://api.tfl.gov.uk/Journey/JourneyResults/${$scope.lat}%2C${$scope.lon}/to/${$scope.endLat}%2C-${$scope.endLon}/?mode=bus`,
+        skipAuthorization: true
+      })
+        .then(res => {
+          console.log(res.data.journeys[0]);
+          $scope.busDuration = res.data.journeys[0].duration;
+          $scope.busCost = (res.data.journeys[0].fare.totalCost / 100).toFixed(2);
+        });
     }
 
     function getUber() {
@@ -57,8 +68,9 @@ function JourneyIndexCtrl($scope, $http) {
         skipAuthorization: true
       })
         .then(res => {
-          $scope.priceUberPool = res.data.prices[0].estimate;
-          $scope.priceUberX = res.data.prices[1].estimate;
+          console.log('user data is', res.data);
+          $scope.priceUberPool = parseFloat((res.data.prices[0].high_estimate + res.data.prices[0].low_estimate)/2);
+          $scope.priceUberX = parseFloat((res.data.prices[1].high_estimate + res.data.prices[1].low_estimate)/2);
           console.log('priceUberPool is', res.data.prices[0].estimate);
           console.log('priceUberX is', res.data.prices[1].estimate);
           $scope.timeUberPool = (res.data.prices[0].duration)/100;
@@ -71,6 +83,9 @@ function JourneyIndexCtrl($scope, $http) {
         .catch(err => console.log('An error with uber', err));
     }
 
+    $scope.deductJourney = function(amount) {
+      // $rootScope.user.dailyBudget - amount;
+    };
   };
 
 }
