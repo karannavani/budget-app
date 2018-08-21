@@ -106,12 +106,14 @@ function Router($stateProvider, $urlRouterProvider) {
     .state('foodIndex',   {
       templateUrl: './views/food/index.html',
       url: '/food',
-      controller: 'FoodCtrl'
+      controller: 'FoodCtrl',
+      resolve: { secureState }
     })
     .state('foodShow', {
       templateUrl: './views/food/show.html',
       url: '/food/:id',
-      controller: 'RestaurantCtrl'
+      controller: 'RestaurantCtrl',
+      resolve: { secureState }
     });
 
   $urlRouterProvider.otherwise('/login');

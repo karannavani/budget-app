@@ -1,8 +1,6 @@
 function MainCtrl($rootScope, $scope, $auth, $state, $timeout, $http) {
   $scope.isAuthenticated = $auth.isAuthenticated;
   $scope.getPayload = $auth.getPayload;
-  // $scope.resId = $rootScope.resId;
-
 
   $http({
     method: 'GET',
