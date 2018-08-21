@@ -1,6 +1,5 @@
 function Router($stateProvider, $urlRouterProvider) {
 
-
   function secureState($q, $auth, $state, $rootScope) {
     return new $q((resolve) => {
       if ($auth.isAuthenticated()) return resolve();
