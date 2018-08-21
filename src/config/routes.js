@@ -15,7 +15,6 @@ function Router($stateProvider, $urlRouterProvider) {
 
 
   $stateProvider
-
     .state('goalsIndex', {
       templateUrl: './views/goals/index.html',
       url: '/goals',
@@ -91,6 +90,18 @@ function Router($stateProvider, $urlRouterProvider) {
       url: '/users/:id/edit',
       controller: 'ProfileEditCtrl',
       resolve: { secureState }
+    })
+    .state('journeyIndex', {
+      templateUrl: './views/journey/index.html',
+      url: '/journey',
+      controller: 'JourneyIndexCtrl'
+      ,resolve: { secureState }
+    })
+    .state('journeyShow', {
+      templateUrl: './views/journey/show.html',
+      url: '/journey/show',
+      controller: 'JourneyShowCtrl'
+      ,resolve: { secureState }
     });
 
   $urlRouterProvider.otherwise('/login');

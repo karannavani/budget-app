@@ -30,9 +30,14 @@ import GoalsNewCtrl from './controllers/goals/new';
 import DashboardCtrl from './controllers/dashboard';
 import MainCtrl from './controllers/main';
 
+import JourneyIndexCtrl from './controllers/journey/index';
+import JourneyShowCtrl from './controllers/journey/show';
+
 angular.module('Thrifty',
   [ 'ui.router', 'satellizer', 'ngMessages', 'zingchart-angularjs' ]
 )
+
+
   .controller('AuthLoginCtrl', AuthLoginCtrl)
   .controller('AuthRegisterCtrl', AuthRegisterCtrl)
   .controller('ProfileShowCtrl', ProfileShowCtrl)
@@ -50,6 +55,10 @@ angular.module('Thrifty',
 
   .controller('DashboardCtrl', DashboardCtrl)
   .controller('MainCtrl', MainCtrl)
+
+  .controller('JourneyIndexCtrl', JourneyIndexCtrl)
+  .controller('JourneyShowCtrl', JourneyShowCtrl)
+
 
   // experimental code for adding a global function through a service
   // .factory('stringConverter', function() {
