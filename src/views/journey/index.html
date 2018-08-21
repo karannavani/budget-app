@@ -12,19 +12,25 @@
   <button class="button" type="button" name="button" ng-click="generateOptions()">Go</button>
 </form>
 
-<h4 class="title is-4">Your options are</h4>
+<div class="card journeyCard" ng-if="priceUberPool">
+  <div class="card-content">
 
-<div class="columns is-multiline is-mobile" ng-if="priceUberPool">
 
-  <div class="column is-6">Bus</div>
-  <div class="column is-6">£{{ busCost }} - {{ busDuration }} mins</div>
+    <h4 class="title is-4" style="color: white">Your options are</h4>
 
-  <div class="column is-6">Tube</div>
-  <div class="column is-6">£{{ tubeCost }} - {{ tubeDuration }} mins</div>
+    <div class="columns is-multiline is-mobile">
 
-  <div class="column is-6">UberPool</div>
-  <div class="column is-6">£{{ priceUberPool }} - {{  timeUberPool }} mins</div>
+      <div class="column is-6">Bus</div>
+      <div class="column is-6">£{{ busCost }} - {{ busDuration }} mins</div>
 
-  <div class="column is-6">UberX</div>
-  <div class="column is-6">£{{ priceUberX }} - {{ timeUberX }} mins</div>
+      <div class="column is-6">Tube</div>
+      <div class="column is-6">£{{ tubeCost }} - {{ tubeDuration }} mins</div>
+
+      <div class="column is-6">UberPool</div>
+      <div class="column is-6">£{{ priceUberPool }} - {{  timeUberPool }} mins</div>
+
+      <div class="column is-6">UberX</div>
+      <div class="column is-6">£{{ priceUberX }} - {{ timeUberX }} mins</div>
+    </div>
+  </div>
 </div>
