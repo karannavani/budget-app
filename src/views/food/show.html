@@ -3,16 +3,14 @@
 <div class="columns is-mobile is-multiline">
   <div class="column is-half-mobile">
     <a href="{{ restaurant.images_url }}"> <img src="{{ restaurant.feature_img }}" alt="{{ restaurant.name }}"> </a>
+    <div class="">
+      {{ restaurant.cuisines }}
+    </div>
   </div>
   <div class="column is-half-mobile">
     <div class="">
       {{ restaurant.location.address }}
     </div>
-    <div class="button is-info">
-      <img src="{{ restaurant.menu_url }}" alt="{{ restaurant.name }} menu">
-    </div>
-  </div>
-
-
+    <button class="button is-info" href="{{ restaurant.menu_url }}">See the menu</button>
   </div>
 </div>
