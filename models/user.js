@@ -9,7 +9,7 @@ const userSchema = mongoose.Schema({
   password: { type: String, required: true },
   profilePicUrl: String,
   loginArray: [ String ],
-  savingsArray: [ String ],
+  savingsArray: [ Number ],
   dailyBudget: { type: Number },
   weeklyBudget: Number
 }, { timestamps: true });

@@ -87,7 +87,7 @@ function DashboardCtrl($rootScope, $scope, $http) {
 
   function addSavings() {
     console.log('pushing to savings array');
-    $rootScope.user.savingsArray.push($rootScope.remainder);
+    $rootScope.user.savingsArray.push(parseInt($rootScope.remainder));
   }
 
   // $scope.$watch('user', () => {
