@@ -1,7 +1,18 @@
 <h1 class="title is-1">{{ restaurant.name }}</h1>
 <hr>
 <div class="columns is-mobile is-multiline">
-  <div class="column">
+  <div class="column is-half-mobile">
+    <a href="{{ restaurant.images_url }}"> <img src="{{ restaurant.feature_img }}" alt="{{ restaurant.name }}"> </a>
+  </div>
+  <div class="column is-half-mobile">
+    <div class="">
+      {{ restaurant.location.address }}
+    </div>
+    <div class="button is-info">
+      <img src="{{ restaurant.menu_url }}" alt="{{ restaurant.name }} menu">
+    </div>
+  </div>
+
 
   </div>
 </div>
