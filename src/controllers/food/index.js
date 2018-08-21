@@ -1,14 +1,8 @@
-
 function FoodCtrl($scope, $http) {
-  console.log('Arrived at the Food Controller');
-  // $scope.lat = 51.51;
-  // $scope.lon = -0.07;
-
   navigator.geolocation.getCurrentPosition(userPosition => {
     $scope.userPosition = userPosition;
     $scope.lat = $scope.userPosition.coords.latitude;
     $scope.lon = $scope.userPosition.coords.longitude;
-    console.log('users position', userPosition);
     getPlace();
   });
 
@@ -26,8 +20,6 @@ function FoodCtrl($scope, $http) {
     })
       .then(res => {
         $scope.location = res.data.location;
-        console.log(res);
-        console.log('location is', $scope.location);
         getRestaurants();
       });
   }

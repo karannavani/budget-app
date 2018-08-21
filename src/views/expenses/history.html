@@ -1,16 +1,12 @@
-<div class="column">
-  <h1 class="has-text-centered title is-2">All {{ expenses.length }} expenses: </h1>
-</div>
+<div class="column has-text-centered title is-2">All {{ expenses.length }} expenses</div>
 <div class="columns is-multiline is-mobile">
   <div class="column is-6 has-text-centered">
-    <ul>
-    <li ng-repeat="expense in expenses | orderBy : '-createdAt'">
+    <div ng-repeat="expense in expenses | orderBy : '-createdAt'">
       <a ui-sref="expensesShow({ id: expense._id })">
         <h2 class="title is-4">{{ expense.type }}</h2>
         <p>£{{ expense.cost}} at {{ expense.merchant}} {{ expense.location}}</p>
       </a>
-    </li>
-    </ul>
+    </div>
   </div>
-  <a class="button" ui-sref="expensesNew"> + New Expense </a>
 </div>
+<div class="button is-large is-info" ui-sref="expensesNew">Log an expense</div>

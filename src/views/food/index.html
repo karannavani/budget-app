@@ -1,8 +1,14 @@
-<h1 class="title is-4">All Restaurants</h1>
-<div class="columns is-multiline" ng-if="restaurants" ng-repeat="restaurant in restaurants">
-    <div class="column is-4-mobile" >
-    <img src="{{ restaurant.restaurant.featured_image }}" alt="{{  restaurant.restaurant.name }}">
-    <hr>
+<h1 class="title is-3 has-text-centered">All Restaurants</h1>
+<hr>
+  <div ng-if="restaurants" ng-repeat="restaurant in restaurants">
+    <div class="columns is-mobile is-multiline">
+      <a ui-sref="foodShow" class="column is-full-mobile has-text-centered has-text-weight-bold">
+      {{ restaurant.restaurant.name }}
+      </a>
+      <div class="column is-one-third-mobile" >{{ restaurant.restaurant.location.locality_verbose }}</div>
+      <div class="column is-two-thirds-mobile" >Averave cost for 2: £{{ restaurant.restaurant.average_cost_for_two }}</div>
+      <a href="{{ restaurant.restaurant.menu_url }}" class="button is-large is-info">See Menu</a>
     </div>
+    <hr>
   </div>
 </div>
