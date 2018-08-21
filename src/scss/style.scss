@@ -27,6 +27,14 @@
   margin-top: 20px;
 }
 
+.journeyCard {
+  margin-top: 20px;
+  margin-left: 10px;
+  background: linear-gradient(90deg, #1CB5E0 0%, #000851 100%);
+  color: white;
+  font-weight: 400;
+}
+
 @media screen and (max-width: 768px) {
   .content-body{
     margin-left: 30px;
