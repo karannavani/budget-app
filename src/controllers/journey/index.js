@@ -25,6 +25,7 @@ function JourneyIndexCtrl($scope, $http) {
         console.log('End Lat is', $scope.endLat);
         console.log('End Lon is', $scope.endLon);
         getTfl();
+        getUber();
       });
 
     function getTfl() {
@@ -38,6 +39,27 @@ function JourneyIndexCtrl($scope, $http) {
         });
     }
 
+    function getUber() {
+      $http({
+        method: 'GET',
+        url: 'https://api.uber.com/v1.2/estimates/price',
+        params: {
+          start_latitude: $scope.lat,
+          start_longitude: $scope.lon,
+          end_latitude: $scope.endLat,
+          end_longitude: $scope.endLon
+        },
+        headers: {
+          Authorization: 'Token dxlEpZmVHfdFFkOr7nZ3SAfjcJvRb081DnQM_2KS'
+        },
+        skipAuthorization: true
+      })
+        .then(res => {
+          $scope.priceUber = res.data;
+          console.log('priceUber is', $scope.priceUber);
+        })
+        .catch(err => console.log('An error with uber', err));
+    }
 
   };
 
