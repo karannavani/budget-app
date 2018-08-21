@@ -16,15 +16,37 @@
 
 <div class="columns is-multiline is-mobile" ng-if="priceUberPool || tubeDuration">
   <div class="column is-6">
-    <p>UberPool costs {{ priceUberPool }} and will take {{  timeUberPool }} minutes.</p>
-    <p>UberX costs {{ priceUberX }} and will take {{  timeUberX }} minutes.</p>
-  </div>
-
-
-  <div class="column is-6">
     Tube
   </div>
   <div class="column is-6">
-  {{ tubeDuration }} mins – £{{ tubeCost }}
+    {{ tubeDuration }} mins – £{{ tubeCost }}
+  </div>
+
+  <div class="column is-6">
+    Bus
+  </div>
+  <div class="column is-6">
+    {{ busDuration }} mins – £{{ busCost }}
+  </div>
+
+  <div class="column is-6">
+    Bike
+  </div>
+  <div class="column is-6">
+    {{ bikeDuration }} mins – £{{ bikeCost }}
+  </div>
+
+  <div class="column is-6">
+    UberPool
+  </div>
+  <div class="column is-6">
+    {{ timeUberPool }} mins – {{ priceUberPool }}
+  </div>
+
+  <div class="column is-6">
+    UberX
+  </div>
+  <div class="column is-6">
+    {{ timeUberX }} mins – {{ priceUberX }}
   </div>
 </div>
