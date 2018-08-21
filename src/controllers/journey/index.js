@@ -39,6 +39,16 @@ function JourneyIndexCtrl($scope, $http) {
           $scope.tubeDuration = res.data.journeys[0].duration;
           $scope.tubeCost = (res.data.journeys[0].fare.totalCost / 100).toFixed(2);
         });
+      $http({
+        method: 'GET',
+        url: `https://api.tfl.gov.uk/Journey/JourneyResults/${$scope.lat}%2C${$scope.lon}/to/${$scope.endLat}%2C-${$scope.endLon}/?mode=bus`,
+        skipAuthorization: true
+      })
+        .then(res => {
+          console.log(res.data.journeys[0]);
+          $scope.busDuration = res.data.journeys[0].duration;
+          $scope.busCost = (res.data.journeys[0].fare.totalCost / 100).toFixed(2);
+        });
     }
 
     function getUber() {

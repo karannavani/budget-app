@@ -16,14 +16,15 @@
 
 <div class="columns is-multiline is-mobile" ng-if="priceUberPool">
 
-  <div class="column is-6">UberPool</div>
-  <div class="column is-6">£{{ priceUberPool }} - {{  timeUberPool }} mins</div>
-
-  <div class="column is-6">UberX</div>
-
-<div class="column is-6">£{{ priceUberX }} - {{ timeUberX }} mins</div>
+  <div class="column is-6">Bus</div>
+  <div class="column is-6">£{{ busCost }} - {{ busDuration }} mins</div>
 
   <div class="column is-6">Tube</div>
   <div class="column is-6">£{{ tubeCost }} - {{ tubeDuration }} mins</div>
 
+  <div class="column is-6">UberPool</div>
+  <div class="column is-6">£{{ priceUberPool }} - {{  timeUberPool }} mins</div>
+
+  <div class="column is-6">UberX</div>
+  <div class="column is-6">£{{ priceUberX }} - {{ timeUberX }} mins</div>
 </div>
