@@ -12,7 +12,7 @@ Expense.collection.drop();
 
 const userData = [
   { username: 'louis', firstName: 'Louis', lastName: 'Glick', email: 'lg@hotmail.com', password: 'pass', passwordConfirmation: 'pass', dailyBudget: 15, weeklyBudget: 75, profilePicUrl: 'https://upload.wikimedia.org/wikipedia/en/c/c5/Rincewind.png' },
-  { username: 'tristan', firstName: 'Tristan', lastName: 'Hall', email: 'th@hotmail.com', password: 'pass', passwordConfirmation: 'pass', dailyBudget: 20, weeklyBudget: 100, profilePicUrl: 'https://assets.saatchiart.com/saatchi/780360/art/3621325/2691210-NQDIKNXI-7.jpg' },
+  { username: 'tristan', firstName: 'Tristan', lastName: 'Hall', email: 'th@hotmail.com', password: 'pass', passwordConfirmation: 'pass', dailyBudget: 20, weeklyBudget: 100, profilePicUrl: 'https://yt3.ggpht.com/a-/ACSszfE48oZ04aGD4phXszCKdwgBQg-KpyqqXG3pQw=s900-mo-c-c0xffffffff-rj-k-no' },
   { username: 'karan', firstName: 'Karan', lastName: 'Navani', email: 'kn@hotmail.com', password: 'pass', passwordConfirmation: 'pass', dailyBudget: 20, weeklyBudget: 80, profilePicUrl: 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Karl_Marx.jpg' }
 ];
 
