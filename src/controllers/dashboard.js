@@ -27,6 +27,7 @@ function DashboardCtrl($rootScope, $scope, $http) {
       url: `/api/users/${$rootScope.user._id}`,
       data: $scope.user
     });
+    $scope.$apply;
   };
 
   // making GET request to get user expenses in dashboard scope
