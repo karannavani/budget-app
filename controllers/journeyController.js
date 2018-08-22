@@ -1,10 +1,10 @@
 const rp = require('request-promise');
 const { tflAppKey, tflAppId } = require('../config/environment');
-const appid = 'app_id=64435f3c';
-const appkey = 'app_key=80c06668769fa9fa71b56dea2692d6e3';
-
-console.log('app id is', tflAppId);
-console.log('api key is', tflAppKey);
+// const appid = 'app_id=64435f3c';
+// const appkey = 'app_key=80c06668769fa9fa71b56dea2692d6e3';
+//
+// console.log('app id is', tflAppId);
+// console.log('api key is', tflAppKey);
 
 // function getCurrentPosition(req, res, next) {
 //   console.log('we are in get place', tflApiKey);
@@ -47,12 +47,24 @@ console.log('api key is', tflAppKey);
 //
 // }
 
-function generateOptions(req, res, next) {
+function generateTflOptions(req, res, next) {
   const qs = req.query;
 
   rp({
     method: 'GET',
-    url: `https://api.tfl.gov.uk/Journey/JourneyResults/${qs.lat}%2C%20-${qs.lon}/to/${qs.endLat}%2C%20-${qs.endLon}?mode=tube&app_id=64435f3c&app_key=80c06668769fa9fa71b56dea2692d6e3`,
+    url: `https://api.tfl.gov.uk/Journey/JourneyResults/${qs.lat}%2C%20-${qs.lon}/to/${qs.endLat}%2C%20-${qs.endLon}?mode=${qs.mode}&app_id=${tflAppId}&app_key=${tflAppKey}`,
+    json: true
+  })
+    .then(response => res.json(response))
+    .catch(next);
+}
+
+function generateBikeOptions(req, res, next) {
+  const qs = req.query;
+
+  rp({
+    method: 'GET',
+    url: `https://api.tfl.gov.uk/Journey/JourneyResults/${qs.lat}%2C%20-${qs.lon}/to/${qs.endLat}%2C%20-${qs.endLon}?mode=${qs.mode}&cyclePreference=CycleHire&app_id=64435f3c&app_key=80c06668769fa9fa71b56dea2692d6e3`,
     json: true
   })
     .then(response => res.json(response))
@@ -61,5 +73,6 @@ function generateOptions(req, res, next) {
 
 module.exports = {
 //   getCurrentPosition,
-  generateOptions
+  generateTflOptions,
+  generateBikeOptions
 };

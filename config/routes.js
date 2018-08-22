@@ -51,6 +51,9 @@ router.route('/food')
   .get(foodController.getPlace);
 
 router.route('/tflOptions')
-  .get(journeyController.generateOptions);
+  .get(journeyController.generateTflOptions);
+
+router.route('/bikeOptions')
+  .get(journeyController.generateBikeOptions);
 
 module.exports = router;
