@@ -50,7 +50,6 @@ router.route('/users/:id')
 router.route('/food')
   .get(foodController.getPlace);
 
-<<<<<<< HEAD
 router.route('/food/:id')
   .get(foodController.showRestaurant)
   .get(foodController.locationPhoto);
@@ -58,12 +57,11 @@ router.route('/food/:id')
 router.route('/food/locationphoto')
   .get(foodController.locationPhoto);
 
-=======
 router.route('/tflOptions')
   .get(journeyController.generateTflOptions);
 
 router.route('/bikeOptions')
   .get(journeyController.generateBikeOptions);
->>>>>>> afd1dc4b2708631358fe334ce3a3058130ec910a
+
 
 module.exports = router;

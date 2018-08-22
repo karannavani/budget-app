@@ -4,6 +4,7 @@ import 'satellizer';
 import 'angular-messages';
 import './scss/style.scss';
 import 'zingchart-angularjs';
+import 'leaflet';
 
 // Custom Javascript
 import './external';
@@ -36,9 +37,13 @@ import JourneyShowCtrl from './controllers/journey/show';
 import FoodCtrl from './controllers/food/index';
 import RestaurantCtrl from './controllers/food/show';
 
+// Directives
+import Map from './directives/map';
+
 angular.module('Thrifty',
   [ 'ui.router', 'satellizer', 'ngMessages', 'zingchart-angularjs' ]
 )
+  .directive('Map', Map)
 
   .controller('AuthLoginCtrl', AuthLoginCtrl)
   .controller('AuthRegisterCtrl', AuthRegisterCtrl)
