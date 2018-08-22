@@ -32,7 +32,8 @@ function JourneyIndexCtrl($scope, $http, $auth, $rootScope) {
     function getTfl() {
       $http({
         method: 'GET',
-        url: '/api/routeOptions',
+        url: '/api/tflOptions',
+        skipAuthorization: true,
         params: {
           lat: $scope.lat,
           lon: $scope.lon,

@@ -1,5 +1,10 @@
 const rp = require('request-promise');
-const { tflApiKey } = require('../config/environment');
+const { tflAppKey, tflAppId } = require('../config/environment');
+const appid = 'app_id=64435f3c';
+const appkey = 'app_key=80c06668769fa9fa71b56dea2692d6e3';
+
+console.log('app id is', tflAppId);
+console.log('api key is', tflAppKey);
 
 // function getCurrentPosition(req, res, next) {
 //   console.log('we are in get place', tflApiKey);
@@ -47,7 +52,7 @@ function generateOptions(req, res, next) {
 
   rp({
     method: 'GET',
-    url: `https://api.tfl.gov.uk/Journey/JourneyResults/${qs.lat}%2C%20-${qs.lon}/to/${qs.endLat}%2C%20-${qs.endLon}/?mode=tube&${tflApiKey}`,
+    url: `https://api.tfl.gov.uk/Journey/JourneyResults/${qs.lat}%2C%20-${qs.lon}/to/${qs.endLat}%2C%20-${qs.endLon}?mode=tube&app_id=64435f3c&app_key=80c06668769fa9fa71b56dea2692d6e3`,
     json: true
   })
     .then(response => res.json(response))
