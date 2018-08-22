@@ -13,7 +13,20 @@ function ProfileShowCtrl($http, $scope, $state, $rootScope, $window) {
   console.log('my savings is', $rootScope.mySavings);
 
   $scope.goToLogin = function() {
-    $window.location.href = '/api/monzo';
+    $window.open('/api/monzo', '_blank');
+  };
+
+
+  $scope.fetchMonzo = function() {
+    $http({
+      method: 'GET',
+      url: '/api/transactions',
+      skipAuthorization: true
+    })
+      .then(res => {
+        console.log('monzo res is', res.data);
+        $scope.monzoTransactions = res.data;
+      });
   };
 
 }

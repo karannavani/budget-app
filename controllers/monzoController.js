@@ -8,6 +8,7 @@ const oauthDetails = {
 };
 
 let accessToken = null;
+let transactionsData = [];
 
 
 function login(req, res) {
@@ -37,28 +38,28 @@ function callback(req, res) {
   }, (err, response, body) => {
     accessToken = JSON.parse(body); // Populate access_token variable with token response
     console.log('callback access token is ===>', accessToken);
-    res.redirect('/api/accounts'); // Send user to their accounts
+    // res.redirect('/api/transactions'); // Send user to their accounts
   });
 
 }
 
-function accounts(req, res) {
-  console.log('accounts access token is ===>', accessToken);
-
-  const { token_type, access_token } = accessToken;
-  const accountsUrl = 'https://api.monzo.com/accounts';
-
-  request.get(accountsUrl, {
-    headers: {
-      Authorization: `${token_type} ${access_token}`
-    }
-  }, (req, response, body) => {
-    const { accounts } = JSON.parse(body);
-    // console.log('body is', body);
-    console.log('accounts is =======>', accounts);
-  });
-
-}
+// function accounts(req, res) {
+//   console.log('accounts access token is ===>', accessToken);
+//
+//   const { token_type, access_token } = accessToken;
+//   const accountsUrl = 'https://api.monzo.com/accounts';
+//
+//   request.get(accountsUrl, {
+//     headers: {
+//       Authorization: `${token_type} ${access_token}`
+//     }
+//   }, (req, response, body) => {
+//     const { accounts } = JSON.parse(body);
+//     // console.log('body is', body);
+//     console.log('accounts is =======>', accounts);
+//   });
+//
+// }
 
 function transactions(req, res) {
   const { token_type, access_token } = accessToken;
@@ -71,6 +72,8 @@ function transactions(req, res) {
   }, (req, response, body) => {
     const { transactions } = JSON.parse(body);
     console.log('transactions is =======>', transactions);
+    // transactionsData = transactions;
+    res.json(transactions);
     //
     // for(let transaction of transactions) {
     //   const {
@@ -90,6 +93,10 @@ function transactions(req, res) {
   });
 }
 
+// function monzoData(req, res) {
+//   res.json(transactions);
+// }
+
 // res.type('html');
 // res.write('<h1>Accounts</h1><ul>');
 //
@@ -107,6 +114,6 @@ function transactions(req, res) {
 module.exports = {
   login,
   callback,
-  accounts,
+  // accounts,
   transactions
 };
