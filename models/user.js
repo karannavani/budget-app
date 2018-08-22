@@ -8,6 +8,7 @@ const userSchema = mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   profilePicUrl: String,
+  loginArray: [ String ],
   dailyBudget: { type: Number },
   weeklyBudget: Number
 }, { timestamps: true });

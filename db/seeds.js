@@ -13,7 +13,7 @@ Expense.collection.drop();
 const userData = [
   { username: 'louis', firstName: 'Louis', lastName: 'Glick', email: 'lg@hotmail.com', password: 'pass', passwordConfirmation: 'pass', dailyBudget: 15, weeklyBudget: 75, profilePicUrl: 'https://i.pinimg.com/originals/59/6c/6f/596c6f87bc6494b22fa6183dcf941b01.jpg' },
   { username: 'tristan', firstName: 'Tristan', lastName: 'Hall', email: 'th@hotmail.com', password: 'pass', passwordConfirmation: 'pass', dailyBudget: 20, weeklyBudget: 100, profilePicUrl: 'https://assets.saatchiart.com/saatchi/780360/art/3621325/2691210-NQDIKNXI-7.jpg' },
-  { username: 'karan', firstName: 'Karan', lastName: 'Navani', email: 'kn@hotmail.com', password: 'pass', passwordConfirmation: 'pass', dailyBudget: 10, weeklyBudget: 80, profilePicUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-mQX62AjgCfSpIhHqR6dTFZEAHBg6B_28S7eLig7iKKDmL962PA' }
+  { username: 'karan', firstName: 'Karan', lastName: 'Navani', email: 'kn@hotmail.com', password: 'pass', passwordConfirmation: 'pass', dailyBudget: 20, weeklyBudget: 80, profilePicUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-mQX62AjgCfSpIhHqR6dTFZEAHBg6B_28S7eLig7iKKDmL962PA' }
 ];
 
 

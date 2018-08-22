@@ -7,16 +7,16 @@ function DashboardCtrl($rootScope, $scope, $http) {
   let expenseDate;
   let totalCost = 0;
   $scope.donutChartConfig = {};
-  // $scope.spendData = [4, 6];
 
 
-
+  // Allows the user to edit budget from dashboard – linked to the ng-switch block
   $scope.editBudget = function(name){
     $scope.mode = 'edit';
     console.log(name);
   //something done to change the <strong> element into a text input
   };
 
+  // Updates the budget in the model with the edited budget
   $scope.saveBudget = function(name){
     $scope.mode = 'notEdit';
     console.log(name);
@@ -28,7 +28,6 @@ function DashboardCtrl($rootScope, $scope, $http) {
       data: $scope.user
     });
   };
-
 
   // making GET request to get user expenses in dashboard scope
   const userExpenses = [];
@@ -42,10 +41,8 @@ function DashboardCtrl($rootScope, $scope, $http) {
         if(expense.createdBy._id === $rootScope.user._id) {
           userExpenses.push(expense);
           expenseDate = `${expense.createdAt.slice(8,10)}/${expense.createdAt.slice(5,7)}/${expense.createdAt.slice(0,4)}`;
-          // console.log('expense created at', `${expense.createdAt.slice(8,10)}/${expense.createdAt.slice(5,7)}/${expense.createdAt.slice(0,4)}`);
+
           if (expenseDate === slicedDate) {
-            //
-            //
             totalCost = totalCost + expense.cost;
           }
         }
@@ -60,6 +57,9 @@ function DashboardCtrl($rootScope, $scope, $http) {
     });
 
 
+    
+
+  // Graph logic
   $scope.$watch('spendData', () => {
 
     if($scope.spendData){
@@ -122,7 +122,6 @@ function DashboardCtrl($rootScope, $scope, $http) {
                 'border-color': '#282E3D',
                 'border-width': '0px',
                 'shadow': 0
-
               }
             ]
           }
