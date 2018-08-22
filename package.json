@@ -25,6 +25,7 @@
     "express": "^4.16.3",
     "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.2.8",
+    "request": "^2.88.0",
     "satellizer": "^0.15.5",
     "zingchart-angularjs": "^1.2.0"
   },
