@@ -7,6 +7,7 @@ const goalController = require('../controllers/goalController');
 const expenseController = require('../controllers/expenseController');
 const userController = require('../controllers/userController');
 const foodController = require('../controllers/foodController');
+const journeyController = require('../controllers/journeyController');
 
 //ROUTES
 
@@ -49,8 +50,16 @@ router.route('/users/:id')
 router.route('/food')
   .get(foodController.getPlace);
 
+<<<<<<< HEAD
 router.route('/food/:id')
   .get(foodController.showRestaurant);
 
+=======
+router.route('/tflOptions')
+  .get(journeyController.generateTflOptions);
+
+router.route('/bikeOptions')
+  .get(journeyController.generateBikeOptions);
+>>>>>>> afd1dc4b2708631358fe334ce3a3058130ec910a
 
 module.exports = router;
