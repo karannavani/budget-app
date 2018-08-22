@@ -1,1 +1,16 @@
-<h1 class="title is-1"> THIS WILL BE THE FOOD SHOW PAGE </h1>
+<h1 class="title is-1">{{ restaurant.name }}</h1>
+<hr>
+<div class="columns is-mobile is-multiline">
+  <div class="column is-half-mobile">
+    <a href="{{ restaurant.images_url }}"> <img src="{{ restaurant.feature_img }}" alt="{{ restaurant.name }}"> </a>
+    <div class="">
+      {{ restaurant.cuisines }}
+    </div>
+  </div>
+  <div class="column is-half-mobile">
+    <div class="">
+      {{ restaurant.location.address }}
+    </div>
+    <button class="button is-info" href="{{ restaurant.menu_url }}">See the menu</button>
+  </div>
+</div>

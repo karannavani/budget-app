@@ -1,4 +1,4 @@
-function FoodCtrl($scope, $http) {
+function FoodCtrl($scope, $http, $rootScope) {
   navigator.geolocation.getCurrentPosition(userPosition => {
     $scope.userPosition = userPosition;
     $scope.lat = $scope.userPosition.coords.latitude;
@@ -46,7 +46,10 @@ function FoodCtrl($scope, $http) {
         console.log('restaurants are', $scope.restaurants);
       });
   }
+  $scope.getEventTarget = function($event, resId) {
+    $rootScope.resId =resId;
+    console.log('resId is', $scope.resId);
+  };
 }
-
 
 export default FoodCtrl;

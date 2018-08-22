@@ -12,7 +12,7 @@
   <button class="button" type="button" name="button" ng-click="generateOptions()">Go</button>
 </form>
 
-<div class="card journeyCard" ng-if="priceUberPool && busDuration">
+<div class="card journeyCard" ng-if="uberPoolCost && busDuration">
   <div class="card-content">
 
 
@@ -20,8 +20,11 @@
 
     <div class="columns is-multiline is-mobile">
 
-      <div class="column is-6">Bus</div>
-      <div class="column is-6">£{{ busCost }} - {{ busDuration }} mins</div>
+      <!-- <div class="busDiv" ng-click="deductJourney($event)"> -->
+        <div class="column is-4 bus" ng-click="deductJourney($event)">Bus</div>
+        <div class="column bus" ng-click="deductJourney($event)">£{{ busCost }}</div>
+        <div class="column bus" ng-click="deductJourney($event)">{{ busDuration }} mins</div>
+      <!-- </div> -->
 
       <div class="column is-6">Bike</div>
       <div class="column is-6">£{{ bikeCost }} - {{ bikeDuration }} mins</div>
@@ -29,12 +32,24 @@
       <div class="column is-6">Tube</div>
       <div class="column is-6">£{{ tubeCost }} - {{ tubeDuration }} mins</div>
 
-      <div class="column is-6">UberPool</div>
-      <div class="column is-6">£{{ priceUberPool }} - {{  timeUberPool }} mins</div>
+      <div class="column is-4 tube" ng-click="deductJourney($event)">Tube</div>
+      <div class="column tube" ng-click="deductJourney($event)">£{{ tubeCost }}</div>
+      <div class="column tube" ng-click="deductJourney($event)">{{ tubeDuration }} mins</div>
 
+      <div class="column is-4 uberPool" ng-click="deductJourney($event)">UberPool</div>
+      <div class="column uberPool" ng-click="deductJourney($event)">£{{ uberPoolCost }}</div>
+      <div class="column uberPool" ng-click="deductJourney($event)">{{ uberPoolDuration }} mins</div>
+
+      <div class="column is-4 uberX" ng-click="deductJourney($event)">UberX</div>
+      <div class="column uberX" ng-click="deductJourney($event)">£{{ uberXCost }}</div>
+      <div class="column uberX" ng-click="deductJourney($event)">{{ uberXDuration }} mins</div>
+
+<<<<<<< HEAD
       <div class="column is-6">UberX</div>
       <div class="column is-6">£{{ priceUberX }} - {{ timeUberX }} mins</div>
 
+=======
+>>>>>>> d8934a6dd47b96e48ca6ea29bd0974c5d378f494
     </div>
   </div>
 </div>

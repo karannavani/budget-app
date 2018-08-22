@@ -2,7 +2,6 @@ function MainCtrl($rootScope, $scope, $auth, $state, $timeout, $http) {
   $scope.isAuthenticated = $auth.isAuthenticated;
   $scope.getPayload = $auth.getPayload;
 
-
   $http({
     method: 'GET',
     url: '/api/users'

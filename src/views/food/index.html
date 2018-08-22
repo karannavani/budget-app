@@ -2,11 +2,11 @@
 <hr>
   <div ng-if="restaurants" ng-repeat="restaurant in restaurants">
     <div class="columns is-mobile is-multiline">
-      <a ui-sref="foodShow" class="column is-full-mobile has-text-centered has-text-weight-bold">
+      <a ui-sref="foodShow({ id: restaurant.restaurant.R.res_id })" ng-click="getEventTarget($event, restaurant.restaurant.R.res_id)" class="column is-full-mobile has-text-centered has-text-weight-bold">
       {{ restaurant.restaurant.name }}
       </a>
       <div class="column is-one-third-mobile" >{{ restaurant.restaurant.location.locality_verbose }}</div>
-      <div class="column is-two-thirds-mobile" >Averave cost for 2: £{{ restaurant.restaurant.average_cost_for_two }}</div>
+      <div class="column is-two-thirds-mobile" >Averave cost: £{{ restaurant.restaurant.average_cost_for_two/2 }}</div>
       <a href="{{ restaurant.restaurant.menu_url }}" class="button is-large is-info">See Menu</a>
     </div>
     <hr>
