@@ -42,6 +42,10 @@ function JourneyIndexCtrl($scope, $http, $auth, $rootScope) {
           $scope.tubeDuration = res.data.journeys[0].duration;
           $scope.tubeCost = (res.data.journeys[0].fare.totalCost / 100).toFixed(2);
         });
+    }
+
+    function getBusTfl() {
+
       $http({
         method: 'GET',
         url: `https://api.tfl.gov.uk/Journey/JourneyResults/${$scope.lat}%2C${$scope.lon}/to/${$scope.endLat}%2C-${$scope.endLon}/?mode=bus&${tflKey}`,
@@ -52,6 +56,7 @@ function JourneyIndexCtrl($scope, $http, $auth, $rootScope) {
           $scope.busCost = (res.data.journeys[0].fare.totalCost / 100).toFixed(2);
         });
     }
+
     function getUber() {
       $http({
         method: 'GET',
