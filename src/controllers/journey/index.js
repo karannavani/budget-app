@@ -17,7 +17,7 @@ function JourneyIndexCtrl($scope, $http, $auth, $rootScope) {
   });
 
   $scope.generateOptions = function() {
-    const tflKey = 'app_id=68d28f58&app_key=3186ece70e4dc50cd4f9a7bcfd3fde3a';
+    const tflApiKey = 'app_id=68d28f58&app_key=3186ece70e4dc50cd4f9a7bcfd3fde3a';
 
     $http.get(`https://api.postcodes.io/postcodes/${$scope.endPoint}`)
       .then(res => {
@@ -35,7 +35,7 @@ function JourneyIndexCtrl($scope, $http, $auth, $rootScope) {
     function getTubeTfl() {
       $http({
         method: 'GET',
-        url: `https://api.tfl.gov.uk/Journey/JourneyResults/${$scope.lat}%2C${$scope.lon}/to/${$scope.endLat}%2C-${$scope.endLon}/?mode=tube&${tflKey}`,
+        url: `https://api.tfl.gov.uk/Journey/JourneyResults/${$scope.lat}%2C${$scope.lon}/to/${$scope.endLat}%2C-${$scope.endLon}/?mode=tube&${tflApiKey}`,
         skipAuthorization: true
       })
         .then(res => {
@@ -48,7 +48,7 @@ function JourneyIndexCtrl($scope, $http, $auth, $rootScope) {
 
       $http({
         method: 'GET',
-        url: `https://api.tfl.gov.uk/Journey/JourneyResults/${$scope.lat}%2C${$scope.lon}/to/${$scope.endLat}%2C-${$scope.endLon}/?mode=bus&${tflKey}`,
+        url: `https://api.tfl.gov.uk/Journey/JourneyResults/${$scope.lat}%2C${$scope.lon}/to/${$scope.endLat}%2C-${$scope.endLon}/?mode=bus&${tflApiKey}`,
         skipAuthorization: true
       })
         .then(res => {
@@ -83,7 +83,7 @@ function JourneyIndexCtrl($scope, $http, $auth, $rootScope) {
     function getBikeTfl() {
       $http({
         method: 'GET',
-        url: `https://api.tfl.gov.uk/Journey/JourneyResults/${$scope.lat}%2C${$scope.lon}/to/${$scope.endLat}%2C-${$scope.endLon}/?mode=cycle&cyclePreference=CycleHire&${tflKey}`,
+        url: `https://api.tfl.gov.uk/Journey/JourneyResults/${$scope.lat}%2C${$scope.lon}/to/${$scope.endLat}%2C-${$scope.endLon}/?mode=cycle&cyclePreference=CycleHire&${tflApiKey}`,
         skipAuthorization: true
       })
         .then(res => {
