@@ -11,11 +11,24 @@ function RestaurantCtrl($scope, $http, $rootScope) {
     }
   })
     .then(res => {
-      console.log('we are in the then block');
-      console.log('this is our res ==========================>', res);
+      console.log('we are in the then block'); // done
       $scope.restaurant = res.data;
       console.log('show restaurant data is', $scope.restaurant);
+      getPhoto();
     });
+
+  function getPhoto() {
+    $http({
+      method: 'GET',
+      url: '/api/food/locationphoto'
+    })
+      .then(res => {
+        console.log('photo response block');
+        console.log('this is our photo res ==========================>', res);
+        // $scope.restaurant = res.data;
+        // console.log('show restaurant data is', $scope.restaurant);
+      });
+  }
   // }
 }
 export default RestaurantCtrl;

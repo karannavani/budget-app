@@ -1,10 +1,8 @@
 const rp = require('request-promise');
 const { zomatoApiKey } = require('../config/environment');
+const { googleApiKey} = require('../config/environment');
 
 function getPlace(req, res, next) {
-  console.log('we are in get place', zomatoApiKey);
-  console.log('THIS IS LAT', req.query.lat);
-  console.log('THIS IS LON', req.query.lon);
   rp({
     method: 'GET',
     url: `https://developers.zomato.com/api/v2.1/geocode?lat=${req.query.lat}&lon=${req.query.lon}`,
@@ -33,9 +31,9 @@ function getPlace(req, res, next) {
     .catch(next);
 }
 
+
+
 function showRestaurant(req, res, next) {
-  console.log('we are in the showRestaurant controller and the ID is', req.query.res_id);
-  console.log('RESPONSE 22222222', req.query);
   rp({
     method: 'GET',
     url: `https://developers.zomato.com/api/v2.1/restaurant?res_id=${req.query.res_id}`,
@@ -50,11 +48,41 @@ function showRestaurant(req, res, next) {
       res.json(response);
     })
     .catch(next);
+  locationPhoto();
 }
 
+function locationPhoto(req, res, next) {
+  rp({
+    method: 'GET',
+    url: `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=Museum%20of%20Contemporary%20Art%20Australia&inputtype=textquery&fields=photos&key=${googleApiKey}`,
+    json: true
+  })
+    .then(response => {
+      console.log('the response from the back end is', response);
+      const placeResponse = response.candidates[0].photos[0].photo_reference;
+      console.log('THE PHOTO REFERENCE IS', placeResponse);
+      generatePhoto(placeResponse);
+    })
+    .catch(next);
+  function generatePhoto(req, res, next, placeResponse) {
+    rp({
+      method: 'GET',
+      url: `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${placeResponse}&key=${googleApiKey}`
+      // json: true
+    })
+      .then(response => {
+        console.log('THIS IS A JSON PHOTO', response);
+        console.log('THIS IS A JSON PHOTO ============================================+++++++++++++++++++++++++++++++++++++');
+        // res.json(photo);
+      });
+  }
+
+
+}
 
 
 module.exports ={
   getPlace: getPlace,
-  showRestaurant: showRestaurant
+  showRestaurant: showRestaurant,
+  locationPhoto: locationPhoto
 };

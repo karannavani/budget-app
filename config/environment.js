@@ -5,6 +5,7 @@ const secret = process.env.SECRET || 'wdi35';
 const zomatoApiKey = process.env.ZOMATO_API_KEY;
 const tflApiKey = process.env.TFL_API_KEY;
 const uberApiKey = process.env.UBER_API_KEY;
+const googleApiKey = process.env.GOOGLE_API_KEY;
 
 
-module.exports = { dbURI, port, secret, zomatoApiKey, tflApiKey, uberApiKey };
+module.exports = { dbURI, port, secret, zomatoApiKey, tflApiKey, uberApiKey, googleApiKey };
