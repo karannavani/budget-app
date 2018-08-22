@@ -1,24 +1,28 @@
 const rp = require('request-promise');
 const { tflApiKey } = require('../config/environment');
-
-let endPostCode;
-let startPostcode;
+const { uberApiKey } = require('../config/environment');
 
 
-function getCurrentPosition(req, res, next) {
-  console.log('we are in get place', tflApiKey);
-  console.log('LAT is', req.query.lat);
-  console.log('LON is', req.query.lon);
 
-  rp({
-    method: 'GET',
-    url: `https://api.postcodes.io/postcodes/${req.query.endPoint}`,
-    json: true
-  });
-}
-
+// function getCurrentPosition(req, res, next) {
+//   console.log('we are in get place', tflApiKey);
+//   console.log('LAT is', req.query.lat);
+//   console.log('LON is', req.query.lon);
+//
+//   rp({
+//     method: 'GET',
+//     url: `https://api.postcodes.io/postcodes/${req.query.endPoint}`,
+//     json: true
+//   });
+// }
 
 function generateOptions(req, res, next) {
+  let startPostcode;
+  let endPostCode;
+  let uberPoolCost;
+  let uberXCost;
+  let uberPoolDuration;
+  let uberXDuration;
   rp({
     method: 'GET',
     url: 'https://api.postcodes.io/postcodes/',
@@ -37,36 +41,38 @@ function generateOptions(req, res, next) {
         lon: req.query.endLon
       },
       json: true
-    })
-      .then(response => {
-        tflBus = response.data.journeys[0].duration;
-
-        return rp({
-          method: 'GET',
-          url: 'https://api.tfl.gov.uk/Journey/JourneyResults/',
-          qs: {
-            lat: req.query.startLat,
-            lon: req.query.startLon,
-            endLat: req.query.endLat,
-            endLon: req.query.endLon,
+    }).then(response => {
+      uberPoolCost = parseFloat((response.prices[0].high_estimate + response.prices[0].low_estimate)/2);
+      uberXCost = parseFloat((response.prices[1].high_estimate + response.prices[1].low_estimate)/2);
+      uberPoolDuration = (response.prices[0].duration)/100;
+      uberXDuration = (response.prices[1].duration)/100;
+      return rp({
+        method: 'GET',
+        url: 'https://api.uber.com/v1.2/estimates/price',
+        params: {
+          start_latitude: req.query.startLat,
+          start_longitude: req.query.startLon,
+          end_latitude: req.query.endLat,
+          end_longitude: req.query.endLon
         },
         headers: {
-          'user-key': tflApiKey
+          Authorization: uberApiKey
         },
-        skipAuthorization: true,
-        json: true
-      // set endpostcode onto a global
-      // get tfl data (using return rp({...}))
+        skipAuthorization: true
+      });
     })
-    .then(response => {
-      // now we've got everything!!! res.json()
-      // to return the data to the client
-    });
+      .catch(next);
+  })
+    .catch(next);
+}
+
+
+//res.json() to return the data to the client
 
 
 
 
 module.exports = {
-  getCurrentPosition,
+  // getCurrentPosition,
   generateOptions
 };
