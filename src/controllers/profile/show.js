@@ -1,4 +1,4 @@
-function ProfileShowCtrl($http, $scope, $state, $rootScope) {
+function ProfileShowCtrl($http, $scope, $state, $rootScope, $window) {
   $http({
     method: 'GET',
     url: `/api/users/${$state.params.id}`
@@ -11,6 +11,11 @@ function ProfileShowCtrl($http, $scope, $state, $rootScope) {
   // $rootScope.user.savingsArray.forEach
   $rootScope.mySavings = $rootScope.user.savingsArray.reduce( (accumulator, currentValue) => accumulator + currentValue, 0);
   console.log('my savings is', $rootScope.mySavings);
+
+  $scope.goToLogin = function() {
+    $window.location.href = '/api/monzo';
+  };
+
 }
 
 export default ProfileShowCtrl;

@@ -70,4 +70,10 @@ router.route('/monzo')
 router.route('/oauth/callback')
   .get(monzoController.callback);
 
+router.route('/accounts')
+  .get(monzoController.accounts);
+
+router.route('/transactions')
+  .get(monzoController.transactions);
+
 module.exports = router;
