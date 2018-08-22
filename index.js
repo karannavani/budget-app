@@ -81,6 +81,35 @@ app.get('/oauth/callback', (req, res) => {
   });
 });
 
+app.get('/pots', (req, res) => {
+  const { token_type, access_token } = accessToken;
+  const potsUrl = 'https://api.monzo.com/pots';
+
+  request.get(potsUrl, {
+    headers: {
+      Authorization: `${token_type} ${access_token}`
+    }
+  }, (req, response, body) => {
+    const { pots } = JSON.parse(body);
+    //
+    console.log('pots is', pots);
+    //
+    res.type('html');
+    res.write('<h1>Pots</h1><ul>');
+    //
+    for(let pot of pots) {
+      const {id, name, balance } = pot;
+      res.write(`
+         <li>
+           ${name}(<i>${balance}</i>) - <a href="/transactions/${id}">View transaction history</a>
+         </li>
+       `);
+    }
+    //
+    res.end('</ul>');
+  });
+});
+
 app.get('/accounts', (req, res) => {
   const { token_type, access_token } = accessToken;
   const accountsUrl = 'https://api.monzo.com/accounts';
