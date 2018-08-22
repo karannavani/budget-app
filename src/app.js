@@ -43,7 +43,7 @@ import Map from './directives/map';
 angular.module('Thrifty',
   [ 'ui.router', 'satellizer', 'ngMessages', 'zingchart-angularjs' ]
 )
-  .directive('Map', Map)
+  .directive('ngMap', Map)
 
   .controller('AuthLoginCtrl', AuthLoginCtrl)
   .controller('AuthRegisterCtrl', AuthRegisterCtrl)
