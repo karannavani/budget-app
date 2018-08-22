@@ -25,11 +25,13 @@ function JourneyIndexCtrl($scope, $http, $auth) {
         $scope.endLon = res.data.result.longitude;
         console.log('End Lat is', $scope.endLat);
         console.log('End Lon is', $scope.endLon);
-        getTfl();
+        getTubeTfl();
+        getBusTfl();
+        getBikeTfl();
         getUber();
       });
 
-    function getTfl() {
+    function getTubeTfl() {
       $http({
         method: 'GET',
         url: `https://api.tfl.gov.uk/Journey/JourneyResults/${$scope.lat}%2C${$scope.lon}/to/${$scope.endLat}%2C-${$scope.endLon}/?mode=tube`,
@@ -49,6 +51,30 @@ function JourneyIndexCtrl($scope, $http, $auth) {
           console.log(res.data.journeys[0]);
           $scope.busDuration = res.data.journeys[0].duration;
           $scope.busCost = (res.data.journeys[0].fare.totalCost / 100).toFixed(2);
+        });
+    }
+    function getBusTfl() {
+      $http({
+        method: 'GET',
+        url: `https://api.tfl.gov.uk/Journey/JourneyResults/${$scope.lat}%2C${$scope.lon}/to/${$scope.endLat}%2C-${$scope.endLon}/?mode=bus`,
+        skipAuthorization: true
+      })
+        .then(res => {
+          console.log(res.data.journeys[0]);
+          $scope.busDuration = res.data.journeys[0].duration;
+          $scope.busCost = (res.data.journeys[0].fare.totalCost / 100).toFixed(2);
+        });
+    }
+    function getBikeTfl() {
+      $http({
+        method: 'GET',
+        url: `https://api.tfl.gov.uk/Journey/JourneyResults/${$scope.lat}%2C${$scope.lon}/to/${$scope.endLat}%2C-${$scope.endLon}/?mode=cycle&cyclePreference=CycleHire`,
+        skipAuthorization: true
+      })
+        .then(res => {
+          console.log(res.data.journeys[0]);
+          $scope.bikeDuration = res.data.journeys[0].duration;
+          $scope.bikeCost = ((((res.data.journeys[0].duration)/30).toFixed(0))*2)+2;
         });
     }
 
