@@ -1,12 +1,22 @@
-<div class="column has-text-centered title is-2">All {{ expenses.length }} expenses</div>
 <div class="columns is-multiline is-mobile">
-  <div class="column is-6 has-text-centered">
-    <div ng-repeat="expense in expenses | orderBy : '-createdAt'">
-      <a ui-sref="expensesShow({ id: expense._id })">
-        <h2 class="title is-4">{{ expense.type }}</h2>
-        <p>£{{ expense.cost}} at {{ expense.merchant}} {{ expense.location}}</p>
-      </a>
+  <div class="level is-mobile">
+    <div class=" level-item">
+      <div class="level-left column is-10 has-text-centered title is-2">All {{ expenses.length }} expenses</div>
+    </div>
+    <div class=" level-item">
+      <div class="level-right column is-2 button is-info" ui-sref="expensesNew"><i class="fas fa-plus-circle"></i></div>
     </div>
   </div>
+  <div class="column is-12 has-text-centered">
+    <div ng-repeat="expense in expenses | orderBy : '-createdAt'">
+      <div class="column is-12">
+        <a ui-sref="expensesShow({ id: expense._id })">
+          <h2 class="title is-4">{{ expense.type }}</h2>
+          <p>£{{ expense.cost}} at {{ expense.merchant}} {{ expense.location}}</p>
+        </a>
+
+      </div>
+    </div>
+  </div>
+
 </div>
-<div class="button is-large is-info" ui-sref="expensesNew">Log an expense</div>

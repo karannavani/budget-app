@@ -1,6 +1,7 @@
 // REQUIRE SOFTWARE HERE
 const express = require('express');
 const router = express.Router();
+const request = require('request');
 const secureRoute = require('../lib/secureRoute');
 const authController = require('../controllers/authController');
 const goalController = require('../controllers/goalController');
@@ -8,6 +9,7 @@ const expenseController = require('../controllers/expenseController');
 const userController = require('../controllers/userController');
 const foodController = require('../controllers/foodController');
 const journeyController = require('../controllers/journeyController');
+const monzoController = require('../controllers/monzoController');
 
 //ROUTES
 
@@ -62,5 +64,8 @@ router.route('/tflOptions')
 
 router.route('/bikeOptions')
   .get(journeyController.generateBikeOptions);
+
+router.route('/monzo')
+  .get(monzoController.login);
 
 module.exports = router;
