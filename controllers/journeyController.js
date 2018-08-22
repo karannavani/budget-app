@@ -47,7 +47,7 @@ function generateOptions(req, res, next) {
 
   rp({
     method: 'GET',
-    url: `https://api.tfl.gov.uk/Journey/JourneyResults/${qs.lat}%2C%20-${qs.lon}/to/${qs.endLat}%2C%20-${qs.endLon}/?mode=${qs.mode}&${tflApiKey}`,
+    url: `https://api.tfl.gov.uk/Journey/JourneyResults/${qs.lat}%2C%20-${qs.lon}/to/${qs.endLat}%2C%20-${qs.endLon}/?mode=tube&${tflApiKey}`,
     json: true
   })
     .then(response => res.json(response))

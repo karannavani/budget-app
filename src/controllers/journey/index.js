@@ -32,13 +32,12 @@ function JourneyIndexCtrl($scope, $http, $auth, $rootScope) {
     function getTfl() {
       $http({
         method: 'GET',
-        url: '/api/tflOptions',
+        url: '/api/routeOptions',
         params: {
           lat: $scope.lat,
           lon: $scope.lon,
           endLat: $scope.endLat,
-          endLon: $scope.endLon,
-          mode: 'tube'
+          endLon: $scope.endLon
         }
       })
         .then(res => {
@@ -48,19 +47,12 @@ function JourneyIndexCtrl($scope, $http, $auth, $rootScope) {
         });
       // $http({
       //   method: 'GET',
-      //   url: '/api/tflOptions',
-      //   params: {
-      //     lat: $scope.lat,
-      //     lon: $scope.lon,
-      //     endLat: $scope.endLat,
-      //     endLon: $scope.endLon,
-      //     mode: 'bus'
-      //   }
+      //   url: `https://api.tfl.gov.uk/Journey/JourneyResults/${$scope.lat}%2C${$scope.lon}/to/${$scope.endLat}%2C-${$scope.endLon}/?mode=bus&${tflKey}`,
+      //   skipAuthorization: true
       // })
       //   .then(res => {
       //     $scope.busDuration = res.data.journeys[0].duration;
       //     $scope.busCost = (res.data.journeys[0].fare.totalCost / 100).toFixed(2);
-      //     console.log($scope.busDuration, $scope.busCost);
       //   });
     }
     // function getUber() {
