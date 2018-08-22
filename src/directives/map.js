@@ -5,13 +5,14 @@ function Map() {
     link($scope, $element) {
       const DomElement = $element[0];
       const map = L.map(DomElement);
-      map.setView([51.4175195, -0.0724934], 70);
+      console.log('+=+=+=+=+===+=====++=++++=+', $scope.resId);
 
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
       }).addTo(map);
-
-
+      $scope.$watch('restaurant', () => {
+        map.setView([$scope.restaurant.location.latitude, $scope.restaurant.location.longitude], 70);
+      });
       // if (navigator.geolocation) {
       //   navigator.geolocation.getCurrentPosition(position => {
       //     const makerLocation = [position.coords.latitude, position.coords.longitude];
