@@ -50,7 +50,7 @@ router.route('/users/:id')
 router.route('/food')
   .get(foodController.getPlace);
 
-router.route('/tflRouteOptions')
-  .get(journeyController.generateOptions);
+router.route('/uberRouteOptions')
+  .get(journeyController.findUberOptions);
 
 module.exports = router;
