@@ -45,7 +45,7 @@ const oauthDetails = {
 // Will be populated once received
 let accessToken = null;
 
-app.get('/monzo', (req, res) => {
+app.get('/', (req, res) => {
   const { client_id, redirect_uri } = oauthDetails;
   const monzoAuthUrl = 'https://auth.monzo.com';
   res.type('html');
@@ -105,6 +105,51 @@ app.get('/accounts', (req, res) => {
     }
 
     res.end('</ul>');
+  });
+});
+
+app.get('/transactions/:acc_id', (req, res) => {
+  const { acc_id } = req.params;
+  const { token_type, access_token } = accessToken;
+  const transactionsUrl = `https://api.monzo.com/transactions?expand[]=merchant&account_id=${acc_id}&limit=30`;
+
+  request.get(transactionsUrl, {
+    headers: {
+      Authorization: `${token_type} ${access_token}`
+    }
+  }, (req, response, body) => {
+    const { transactions } = JSON.parse(body);
+
+    res.type('html');
+    res.write(`
+      <h1>Transactions</h1>
+      <table>
+        <thead>
+          <th>Description</th>
+          <th>Amount</th>
+          <th>Category</th>
+        </thead>
+        <tbody>
+    `);
+
+    for(let transaction of transactions) {
+      const {
+        description,
+        amount,
+        category
+      } = transaction;
+
+      res.write(`
+        <tr>
+          <td>${description}</td>
+          <td>${(amount/100).toFixed(2)}</td>
+          <td>${category}</td>
+        </tr>
+      `);
+    }
+
+    res.write('</tbody></table>');
+    res.end('<br /><a href="/accounts">&lt; Back to accounts</a>');
   });
 });
 
