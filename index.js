@@ -120,6 +120,7 @@ app.get('/accounts', (req, res) => {
     }
   }, (req, response, body) => {
     const { accounts } = JSON.parse(body);
+    console.log('accounts is', { accounts });
 
     res.type('html');
     res.write('<h1>Accounts</h1><ul>');
@@ -140,7 +141,7 @@ app.get('/accounts', (req, res) => {
 app.get('/transactions/:acc_id', (req, res) => {
   const { acc_id } = req.params;
   const { token_type, access_token } = accessToken;
-  const transactionsUrl = `https://api.monzo.com/transactions?expand[]=merchant&account_id=${acc_id}&limit=30`;
+  const transactionsUrl = `https://api.monzo.com/transactions?expand[]=merchant&account_id=${acc_id}&limit=30&since=2018-08-15T23:00:00Z`;
 
   request.get(transactionsUrl, {
     headers: {
@@ -148,6 +149,7 @@ app.get('/transactions/:acc_id', (req, res) => {
     }
   }, (req, response, body) => {
     const { transactions } = JSON.parse(body);
+    console.log('transactions is', transactions);
 
     res.type('html');
     res.write(`
@@ -165,7 +167,8 @@ app.get('/transactions/:acc_id', (req, res) => {
       const {
         description,
         amount,
-        category
+        category,
+        created
       } = transaction;
 
       res.write(`
