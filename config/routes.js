@@ -49,4 +49,8 @@ router.route('/users/:id')
 router.route('/food')
   .get(foodController.getPlace);
 
+router.route('/food/:id')
+  .get(foodController.showRestaurant);
+
+
 module.exports = router;

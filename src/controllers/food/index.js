@@ -1,4 +1,4 @@
-function FoodCtrl($scope, $http) {
+function FoodCtrl($scope, $http, $rootScope) {
   navigator.geolocation.getCurrentPosition(userPosition => {
     $scope.userPosition = userPosition;
     $scope.lat = $scope.userPosition.coords.latitude;
@@ -20,36 +20,16 @@ function FoodCtrl($scope, $http) {
       .then(res => {
         console.log('res.data ->', res.data);
         $scope.restaurants = res.data.restaurants;
-        console.log('location from scope is', $scope.location);
+        console.log('location from scope is', $scope.restaurants);
         // getRestaurants();
       });
   }
 
-  
 
-//   function getRestaurants() {
-//     $http({
-//       method: 'GET',
-//       url: '/api/food',
-//       params: {
-//         entity_id: $scope.location.entity_id,
-//         entity_type: $scope.location.entity_type,
-//         lat: $scope.lat,
-//         lon: $scope.lon,
-//         radius: '300',
-//         sort: 'cost',
-//         order: 'asc'
-//       }
-//     })
-//       .then(res => {
-//         $scope.restaurants = res.data.restaurants;
-//         console.log('restaurants are', $scope.restaurants);
-//       });
-//   }
-//   $scope.getEventTarget = function($event, resId) {
-//     $rootScope.resId =resId;
-//     console.log('resId is', $scope.resId);
-//   };
+  $scope.getEventTarget = function($event, resId) {
+    $rootScope.resId =resId;
+    console.log('resId is', $scope.resId);
+  };
 }
 
 export default FoodCtrl;
