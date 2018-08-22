@@ -25,9 +25,9 @@ function JourneyIndexCtrl($scope, $http, $auth, $rootScope) {
         $scope.endLon = res.data.result.longitude;
         console.log('End Lat is', $scope.endLat);
         console.log('End Lon is', $scope.endLon);
-        getTfl();
+        // getTfl();
         getUber();
-        getBikeTfl();
+        // getBikeTfl();
       });
     //
     // function getTfl() {
@@ -68,8 +68,8 @@ function JourneyIndexCtrl($scope, $http, $auth, $rootScope) {
           $scope.uberPoolDuration = (res.data.prices[0].duration)/100;
           $scope.uberXDuration = (res.data.prices[1].duration)/100;
         });
-      }
-      }
+    }
+  };
   //   function getBikeTfl() {
   //     $http({
   //       method: 'GET',
@@ -147,5 +147,5 @@ function JourneyIndexCtrl($scope, $http, $auth, $rootScope) {
 //
 // }
 
-
+}
 export default JourneyIndexCtrl;
