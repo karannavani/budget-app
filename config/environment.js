@@ -6,6 +6,7 @@ const zomatoApiKey = process.env.ZOMATO_API_KEY;
 const tflAppKey = process.env.TFL_APP_KEY;
 const tflAppId = process.env.TFL_APP_ID;
 const uberApiKey = process.env.UBER_API_KEY;
+const googleApiKey = process.env.GOOGLE_API_KEY;
 
 
-module.exports = { dbURI, port, secret, zomatoApiKey, tflAppKey, tflAppId, uberApiKey };
+module.exports = { dbURI, port, secret, zomatoApiKey, tflAppKey, tflAppId, uberApiKey, googleApiKey };
