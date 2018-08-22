@@ -6,6 +6,8 @@ const authController = require('../controllers/authController');
 const goalController = require('../controllers/goalController');
 const expenseController = require('../controllers/expenseController');
 const userController = require('../controllers/userController');
+const foodController = require('../controllers/foodController');
+const journeyController = require('../controllers/journeyController');
 
 //ROUTES
 
@@ -44,5 +46,21 @@ router.route('/users/:id')
   // .all(secureRoute)
   .get(userController.show)
   .put(userController.update);
+
+router.route('/food')
+  .get(foodController.getPlace);
+
+router.route('/food/:id')
+  .get(foodController.showRestaurant)
+  .get(foodController.locationPhoto);
+
+router.route('/food/locationphoto')
+  .get(foodController.locationPhoto);
+
+router.route('/tflOptions')
+  .get(journeyController.generateTflOptions);
+
+router.route('/bikeOptions')
+  .get(journeyController.generateBikeOptions);
 
 module.exports = router;
