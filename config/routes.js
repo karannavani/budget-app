@@ -50,7 +50,7 @@ router.route('/users/:id')
 router.route('/food')
   .get(foodController.getPlace);
 
-router.route('/tflRouteOptions')
+router.route('/tflOptions')
   .get(journeyController.generateOptions);
 
 module.exports = router;
