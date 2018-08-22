@@ -6,6 +6,7 @@ const authController = require('../controllers/authController');
 const goalController = require('../controllers/goalController');
 const expenseController = require('../controllers/expenseController');
 const userController = require('../controllers/userController');
+const monzoController = require('../controllers/monzoController');
 
 //ROUTES
 
@@ -37,6 +38,9 @@ router.route('/register')
 router.route('/login')
   .post(authController.login);
 
+router.route('/monzo')
+  .get(monzoController.signIn);
+
 router.route('/users')
   .get(userController.index);
 
@@ -44,5 +48,6 @@ router.route('/users/:id')
   // .all(secureRoute)
   .get(userController.show)
   .put(userController.update);
+
 
 module.exports = router;
