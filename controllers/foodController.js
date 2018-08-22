@@ -34,29 +34,46 @@ function getPlace(req, res, next) {
   // getRestaurants();
 }
 
-
-function getRestaurants(req, res, next) {
-  console.log('this is req', req);
+function showRestaurant(req, res, next) {
   rp({
     method: 'GET',
-    url: `https://developers.zomato.com/api/v2.1/search?entity_id=${req.query.location.entity_id}&$entity_type=${req.query.location.entity_type}&lat=${req.query.lat}&lon=${req.query.lon}&radius="300"&sort="cost"&order="asc"`,
-    // params: {
-    // entity_id: req.query.location.entity_id, // the zomato geo location
-    // entity_type: req.query.location.entity_type, // the zomato subzone
-    // lat: req.query.lat,
-    // lon: req.query.lon,
-    // radius: '300',
-    // sort: 'cost',
-    // order: 'asc'
-    // },
-    header: {
+    url: `https://developers.zomato.com/api/v2.1/restaurant?${res.query.res_id}`,
+    headers: {
       'user-key': zomatoApiKey
-    }
+    },
+    skipAuthorization: true
   })
-    .then(response => res.json(response))
+    .then(response => {
+      console.log('response from RestaurantCtrl ===>>>>>>>', response);
+    })
     .catch(next);
+
 }
 
+
+// function getRestaurants(req, res, next) {
+//   console.log('this is req', req);
+//   rp({
+//     method: 'GET',
+//     url: `https://developers.zomato.com/api/v2.1/search?entity_id=${req.query.location.entity_id}&$entity_type=${req.query.location.entity_type}&lat=${req.query.lat}&lon=${req.query.lon}&radius="300"&sort="cost"&order="asc"`,
+//     // params: {
+//     // entity_id: req.query.location.entity_id, // the zomato geo location
+//     // entity_type: req.query.location.entity_type, // the zomato subzone
+//     // lat: req.query.lat,
+//     // lon: req.query.lon,
+//     // radius: '300',
+//     // sort: 'cost',
+//     // order: 'asc'
+//     // },
+//     header: {
+//       'user-key': zomatoApiKey
+//     }
+//   })
+//     .then(response => res.json(response))
+//     .catch(next);
+// }
+
 module.exports ={
-  getPlace
+  getPlace,
+  showRestaurant
 };

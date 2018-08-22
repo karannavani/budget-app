@@ -25,6 +25,8 @@ function FoodCtrl($scope, $http) {
       });
   }
 
+  
+
 //   function getRestaurants() {
 //     $http({
 //       method: 'GET',
