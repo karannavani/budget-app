@@ -1,7 +1,6 @@
 // REQUIRE SOFTWARE HERE
 const express = require('express');
 const router = express.Router();
-const request = require('request');
 const secureRoute = require('../lib/secureRoute');
 const authController = require('../controllers/authController');
 const goalController = require('../controllers/goalController');
@@ -67,5 +66,8 @@ router.route('/bikeOptions')
 
 router.route('/monzo')
   .get(monzoController.login);
+
+router.route('/oauth/callback')
+  .get(monzoController.callback);
 
 module.exports = router;

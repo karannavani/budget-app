@@ -114,6 +114,11 @@ function Router($stateProvider, $urlRouterProvider) {
       url: '/food/:id',
       controller: 'RestaurantCtrl',
       resolve: { secureState }
+    })
+    .state('monzoLogin', {
+      templateUrl: './views/monzo/login.html',
+      url: '/monzo',
+      controller: 'MonzoCtrl'
     });
 
   $urlRouterProvider.otherwise('/login');
