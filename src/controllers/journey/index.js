@@ -1,6 +1,5 @@
-function JourneyIndexCtrl($scope, $http, $auth) {
+function JourneyIndexCtrl($scope, $http, $auth, $rootScope, $state) {
   $scope.getPayload = $auth.getPayload;
-  console.log('payload is', $scope.getPayload().sub);
   navigator.geolocation.getCurrentPosition(position => {
     console.log('Found position', position);
     $scope.position = position;
@@ -18,6 +17,7 @@ function JourneyIndexCtrl($scope, $http, $auth) {
   });
 
   $scope.generateOptions = function() {
+    const tflKey = 'app_id=68d28f58&app_key=3186ece70e4dc50cd4f9a7bcfd3fde3a';
 
     $http.get(`https://api.postcodes.io/postcodes/${$scope.endPoint}`)
       .then(res => {
@@ -33,26 +33,23 @@ function JourneyIndexCtrl($scope, $http, $auth) {
     function getTfl() {
       $http({
         method: 'GET',
-        url: `https://api.tfl.gov.uk/Journey/JourneyResults/${$scope.lat}%2C${$scope.lon}/to/${$scope.endLat}%2C-${$scope.endLon}/?mode=tube`,
+        url: `https://api.tfl.gov.uk/Journey/JourneyResults/${$scope.lat}%2C${$scope.lon}/to/${$scope.endLat}%2C-${$scope.endLon}/?mode=tube&${tflKey}`,
         skipAuthorization: true
       })
         .then(res => {
-          console.log(res.data.journeys[0]);
           $scope.tubeDuration = res.data.journeys[0].duration;
           $scope.tubeCost = (res.data.journeys[0].fare.totalCost / 100).toFixed(2);
         });
       $http({
         method: 'GET',
-        url: `https://api.tfl.gov.uk/Journey/JourneyResults/${$scope.lat}%2C${$scope.lon}/to/${$scope.endLat}%2C-${$scope.endLon}/?mode=bus`,
+        url: `https://api.tfl.gov.uk/Journey/JourneyResults/${$scope.lat}%2C${$scope.lon}/to/${$scope.endLat}%2C-${$scope.endLon}/?mode=bus&${tflKey}`,
         skipAuthorization: true
       })
         .then(res => {
-          console.log(res.data.journeys[0]);
           $scope.busDuration = res.data.journeys[0].duration;
           $scope.busCost = (res.data.journeys[0].fare.totalCost / 100).toFixed(2);
         });
     }
-
     function getUber() {
       $http({
         method: 'GET',
@@ -69,39 +66,77 @@ function JourneyIndexCtrl($scope, $http, $auth) {
         skipAuthorization: true
       })
         .then(res => {
-          console.log('user data is', res.data);
-          $scope.priceUberPool = parseFloat((res.data.prices[0].high_estimate + res.data.prices[0].low_estimate)/2);
-          $scope.priceUberX = parseFloat((res.data.prices[1].high_estimate + res.data.prices[1].low_estimate)/2);
-          console.log('priceUberPool is', res.data.prices[0].estimate);
-          console.log('priceUberX is', res.data.prices[1].estimate);
-          $scope.timeUberPool = (res.data.prices[0].duration)/100;
-          $scope.timeUberX = (res.data.prices[1].duration)/100;
-          console.log('timeUberPool is', (res.data.prices[0].duration)/100);
-          console.log('timeUberX is', (res.data.prices[1].duration)/100);
-
-
+          $scope.uberPoolCost = parseFloat((res.data.prices[0].high_estimate + res.data.prices[0].low_estimate)/2);
+          $scope.uberXCost = parseFloat((res.data.prices[1].high_estimate + res.data.prices[1].low_estimate)/2);
+          $scope.uberPoolDuration = (res.data.prices[0].duration)/100;
+          $scope.uberXDuration = (res.data.prices[1].duration)/100;
         })
         .catch(err => console.log('An error with uber', err));
     }
-
     function getBikeTfl() {
       $http({
         method: 'GET',
-        url: `https://api.tfl.gov.uk/Journey/JourneyResults/${$scope.lat}%2C${$scope.lon}/to/${$scope.endLat}%2C-${$scope.endLon}/?mode=cycle&cyclePreference=CycleHire`,
+        url: `https://api.tfl.gov.uk/Journey/JourneyResults/${$scope.lat}%2C${$scope.lon}/to/${$scope.endLat}%2C-${$scope.endLon}/?mode=cycle&cyclePreference=CycleHire&${tflKey}`,
         skipAuthorization: true
       })
         .then(res => {
-          console.log(res.data.journeys[0]);
           $scope.bikeDuration = res.data.journeys[0].duration;
-          $scope.bikeCost = Math.ceil((res.data.journeys[0].duration - 30)/30) * 2;
+          $scope.bikeCost = Math.ceil(res.data.journeys[0].duration/30) * 2;
         });
     }
+  };
 
-    $scope.deductJourney = function($event) {
-      // $rootScope.user.dailyBudget - amount;
-      console.log('event is', $event.currentTarget);
-      $scope.user.dailyBudget - amount;
-    };
+  $scope.deductJourney = function(event) {
+    let cost;
+    // console.log('event is', event.currentTarget.textContent);
+    // console.log('daily budget is', $scope.user.dailyBudget);
+    // console.log(event.srcElement.className);
+
+    switch (event.srcElement.className.includes('')) {
+      case event.srcElement.className.includes('bus'):
+        console.log('Bus found');
+        cost = $scope.busCost;
+        break;
+      case event.srcElement.className.includes('bike'):
+        console.log('Bike found');
+        cost = $scope.bikeCost;
+        break;
+      case event.srcElement.className.includes('tube'):
+        console.log('Tube found');
+        cost = $scope.tubeCost;
+        break;
+      case event.srcElement.className.includes('uberPool'):
+        console.log('Uber Pool found');
+        cost = $scope.uberPoolCost;
+        break;
+      case event.srcElement.className.includes('uberX'):
+        console.log('UberX found');
+        cost = $scope.uberXCost;
+        break;
+      default:
+        console.log('Not found');
+    }
+    console.log($scope.user.dailyBudget - cost);
+
+    
+    createExpense();
+
+    function createExpense() {
+      // $scope.createdBy = $scope.user;
+      $scope.cost = cost;
+      // $scope.expense.name =
+      $http({
+        method: 'POST',
+        url: '/api/expenses',
+        createdBy: $scope.user,
+        cost: 13
+      })
+        .then(() => $rootScope.$broadcast('flashMessage',
+          { type: 'success',
+            content: 'You created a new expense'
+          }));
+      // .then(() => $state.go('dashboard'));
+    }
   };
 
 }
