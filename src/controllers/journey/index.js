@@ -1,4 +1,6 @@
 function JourneyIndexCtrl($scope, $http, $auth, $rootScope) {
+
+
   $scope.getPayload = $auth.getPayload;
   navigator.geolocation.getCurrentPosition(position => {
     console.log('Found position', position);
@@ -17,8 +19,6 @@ function JourneyIndexCtrl($scope, $http, $auth, $rootScope) {
   });
 
   $scope.generateOptions = function() {
-    const tflKey = 'app_id=68d28f58&app_key=3186ece70e4dc50cd4f9a7bcfd3fde3a';
-
     $http.get(`https://api.postcodes.io/postcodes/${$scope.endPoint}`)
       .then(res => {
         $scope.endLat = res.data.result.latitude;

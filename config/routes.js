@@ -7,6 +7,7 @@ const goalController = require('../controllers/goalController');
 const expenseController = require('../controllers/expenseController');
 const userController = require('../controllers/userController');
 const foodController = require('../controllers/foodController');
+const journeyController = require('../controllers/journeyController');
 
 //ROUTES
 
@@ -48,5 +49,8 @@ router.route('/users/:id')
 
 router.route('/food')
   .get(foodController.getPlace);
+
+router.route('/tflRouteOptions')
+  .get(journeyController.generateOptions);
 
 module.exports = router;
