@@ -6,6 +6,7 @@ const authController = require('../controllers/authController');
 const goalController = require('../controllers/goalController');
 const expenseController = require('../controllers/expenseController');
 const userController = require('../controllers/userController');
+const foodController = require('../controllers/foodController');
 
 //ROUTES
 
@@ -44,5 +45,8 @@ router.route('/users/:id')
   // .all(secureRoute)
   .get(userController.show)
   .put(userController.update);
+
+router.route('/food')
+  .get(foodController.getPlace);
 
 module.exports = router;
