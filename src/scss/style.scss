@@ -2,6 +2,28 @@ html {
   background-color: #002d56;
 }
 
+.navbar {
+  background: #002d56; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #4d5054, #002d56); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #4d5054, #002d56);
+  margin: none;
+}
+
+.nav-title {
+  color: white !important;
+  font-weight: bold;
+  font-size: 25px;
+  letter-spacing: 1px;
+}
+
+.navbar-menu {
+  background-color: #4d5054;
+}
+
+.burger-menu {
+  color: #67bde2 !important;
+}
+
 #state-title {
   font-family: 'Rubik', sans-serif;
   text-transform: uppercase;
@@ -23,8 +45,23 @@ html {
   color: white;
 }
 
+.login-about {
+  color: #10f785;
+}
+
+.login-text {
+  color: #ffb942;
+}
+
 .button {
   background-color: #ea4c89 !important;
+  border: none;
+  color: white;
+  font-weight: bold;
+}
+
+.login-buttons {
+  margin-top: 25px;
 }
 
 .buttons-l {

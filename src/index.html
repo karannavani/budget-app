@@ -19,18 +19,18 @@
   <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
   <title>Thrifty</title>
 </head>
-<body ng-controller="MainCtrl">
-  <nav class="navbar is-light" role="navigation" aria-label="main navigation">
+<body ng-controller="MainCtrl" class="has-navbar-fixed-top">
+  <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <a class="navbar-item" ui-sref="dashboard">
         <img class="logo image" src="/assets/logo.png" alt="Thrifty">
       </a>
-      <a class="navbar-item" ui-sref="dashboard">THRIFTY</a>
+      <a class="nav-title navbar-item" ui-sref="dashboard">THRIFTY</a>
 
       <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span class="burger-menu"></span>
+        <span class="burger-menu"></span>
+        <span class="burger-menu"></span>
       </a>
     </div>
 
