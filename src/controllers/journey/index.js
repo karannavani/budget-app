@@ -18,16 +18,29 @@ function JourneyIndexCtrl($scope, $http, $auth, $rootScope) {
   });
 
   $scope.generateOptions = function() {
-    $http.get(`https://api.postcodes.io/postcodes/${$scope.endPoint}`)
-      .then(res => {
-        $scope.endLat = res.data.result.latitude;
-        $scope.endLon = res.data.result.longitude;
-        console.log('End Lat is', $scope.endLat);
-        console.log('End Lon is', $scope.endLon);
-        getTfl();
-        getBikeTfl();
-        getUber();
-      });
+    getEndPoint();
+
+
+    function getEndPoint() {
+      $http({
+        method: 'GET',
+        url: '/api/getendpoint',
+        params: {
+          postcode: $scope.endPoint
+        }
+      })
+        .then(res => {
+          console.log('get endpoint res is');
+          $scope.endLat = res.data.result.latitude;
+          $scope.endLon = res.data.result.longitude;
+          console.log('End Lat is', $scope.endLat);
+          console.log('End Lon is', $scope.endLon);
+          getTfl();
+          getBikeTfl();
+          getUber();
+        });
+    }
+
 
     function getTfl() {
       $http({
