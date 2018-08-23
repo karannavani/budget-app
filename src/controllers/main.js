@@ -30,4 +30,6 @@ function MainCtrl($rootScope, $scope, $auth, $state, $timeout, $http) {
 }
 
 
+
+
 export default MainCtrl;

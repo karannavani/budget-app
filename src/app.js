@@ -70,6 +70,8 @@ angular.module('Thrifty',
 
   .controller('MonzoCtrl', MonzoCtrl)
 
+  // .controller('myController', MainCtrl)
+
   .config(Router)
   .config(function($authProvider) {
     $authProvider.loginUrl = '/api/login';
