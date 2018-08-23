@@ -56,6 +56,8 @@ router.route('/food/:id')
 
 // router.route('/food/locationphoto')
 //   .get(foodController.locationPhoto);
+router.route('/getendpoint')
+  .get(journeyController.getEndPoint);
 
 router.route('/tflOptions')
   .get(journeyController.generateTflOptions);
@@ -63,14 +65,14 @@ router.route('/tflOptions')
 router.route('/bikeOptions')
   .get(journeyController.generateBikeOptions);
 
+router.route('/uberRouteOptions')
+  .get(journeyController.findUberOptions);
+
 router.route('/monzo')
   .get(monzoController.login);
 
 router.route('/oauth/callback')
   .get(monzoController.callback);
-
-// router.route('/accounts')
-//   .get(monzoController.accounts);
 
 router.route('/transactions')
   .get(monzoController.transactions);
@@ -80,8 +82,8 @@ router.route('/pots')
 
 router.route('/movesavings')
   .get(monzoController.moveSavings);
-
-// router.route('/monzodata')
 //
+
+
 
 module.exports = router;

@@ -18,16 +18,30 @@ function JourneyIndexCtrl($scope, $http, $auth) {
   });
 
   $scope.generateOptions = function() {
-    $http.get(`https://api.postcodes.io/postcodes/${$scope.endPoint}`)
-      .then(res => {
-        $scope.endLat = res.data.result.latitude;
-        $scope.endLon = res.data.result.longitude;
-        console.log('End Lat is', $scope.endLat);
-        console.log('End Lon is', $scope.endLon);
-        getTfl();
-        getBikeTfl();
-        // getUber();
-      });
+    $scope.isClicked = true;
+    getEndPoint();
+
+
+    function getEndPoint() {
+      $http({
+        method: 'GET',
+        url: '/api/getendpoint',
+        params: {
+          postcode: $scope.endPoint
+        }
+      })
+        .then(res => {
+          console.log('get endpoint res is');
+          $scope.endLat = res.data.result.latitude;
+          $scope.endLon = res.data.result.longitude;
+          console.log('End Lat is', $scope.endLat);
+          console.log('End Lon is', $scope.endLon);
+          getTfl();
+          getBikeTfl();
+          getUber();
+        });
+    }
+
 
     function getTfl() {
       $http({
@@ -47,7 +61,6 @@ function JourneyIndexCtrl($scope, $http, $auth) {
           $scope.tubeCost = (res.data.journeys[0].fare.totalCost / 100).toFixed(2);
           console.log($scope.tubeDuration, $scope.tubeCost);
         });
-
 
       $http({
         method: 'GET',
@@ -87,29 +100,27 @@ function JourneyIndexCtrl($scope, $http, $auth) {
           console.log($scope.bikeDuration, $scope.bikeCost);
         });
     }
-    // function getUber() {
-    //   $http({
-    //     method: 'GET',
-    //     url: 'https://api.uber.com/v1.2/estimates/price',
-    //     params: {
-    //       start_latitude: $scope.lat,
-    //       start_longitude: $scope.lon,
-    //       end_latitude: $scope.endLat,
-    //       end_longitude: $scope.endLon
-    //     },
-    //     headers: {
-    //       Authorization: 'Token dxlEpZmVHfdFFkOr7nZ3SAfjcJvRb081DnQM_2KS'
-    //     },
-    //     skipAuthorization: true
-    //   })
-    //     .then(res => {
-    //       $scope.uberPoolCost = parseFloat((res.data.prices[0].high_estimate + res.data.prices[0].low_estimate)/2);
-    //       $scope.uberXCost = parseFloat((res.data.prices[1].high_estimate + res.data.prices[1].low_estimate)/2);
-    //       $scope.uberPoolDuration = (res.data.prices[0].duration)/100;
-    //       $scope.uberXDuration = (res.data.prices[1].duration)/100;
-    //     })
-    //     .catch(err => console.log('An error with uber', err));
-    // }
+    function getUber() {
+      console.log('uber start lat', $scope.lat);
+      $http({
+        method: 'GET',
+        url: '/api/uberRouteOptions',
+        params: {
+          lat: $scope.lat,
+          lon: $scope.lon,
+          endLat: $scope.endLat,
+          endLon: $scope.endLon
+        },
+        skipAuthorization: true
+      })
+        .then(res => {
+          $scope.uberPoolCost = parseFloat((res.data.prices[0].high_estimate + res.data.prices[0].low_estimate)/2);
+          $scope.uberXCost = parseFloat((res.data.prices[1].high_estimate + res.data.prices[1].low_estimate)/2);
+          $scope.uberPoolDuration = (res.data.prices[0].duration)/100;
+          $scope.uberXDuration = (res.data.prices[1].duration)/100;
+          console.log('uberPoolDuration', $scope.uberXDuration);
+        });
+    }
 
   };
 

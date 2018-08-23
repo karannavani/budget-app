@@ -1,3 +1,4 @@
+
 html {
   background-color: #002d56;
 }
@@ -45,6 +46,20 @@ html {
 
 .dashBudget input:focus {
   outline: none;
+}
+
+.loadingButton {
+  border: none;
+  color: green !important;
+}
+
+.button.is-loading::after, .select.is-loading::after, .control.is-loading::after, .loader {
+  border: 42px solid rgba(16, 247, 133, 0.6);
+  border-radius: 20px;
+}
+
+.loadingDiv{
+  justify-content: center;
 }
 
 .profile-details {

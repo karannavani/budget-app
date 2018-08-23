@@ -1,5 +1,9 @@
 <h1 class="title is-3 has-text-centered">All Restaurants</h1>
 <hr>
+<div class="column is-9-mobile loadingDiv content has-text-centered" ng-if="!restaurants">
+
+  <div class="button is-loading loadingButton"></div>
+</div>
   <div ng-if="restaurants" ng-repeat="restaurant in restaurants">
     <div class="columns is-mobile is-multiline">
       <a ui-sref="foodShow({ id: restaurant.restaurant.R.res_id })" ng-click="getEventTarget($event, restaurant.restaurant.R.res_id)" class="column is-full-mobile has-text-centered has-text-weight-bold">
