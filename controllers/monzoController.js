@@ -105,7 +105,7 @@ function moveSavings(req, res) {
     },
     form: {
       source_account_id: 'acc_00009OPnV5jnOw9VsS0oKX',
-      amount: 100,
+      amount: 1000,
       dedupe_id: Math.random()
     }
   }, (req, response, body) => {
