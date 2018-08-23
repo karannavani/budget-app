@@ -11,7 +11,7 @@
       <label class="label" for="firstName">First name</label>
       <input required minlength="2" ng-model="user.firstName" class="input" type="text" name="firstName" placeholder="">
     </div>
-
+    
     <div ng-messages="form.firstName.$error" ng-if="form.firstName.$dirty">
       <small ng-message="required" >Please add a first name</small>
       <small ng-message="minlength">That name is too short</small>

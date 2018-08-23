@@ -1,14 +1,14 @@
 <div class="w3-container w3-center w3-animate-left w3-hover-shadow">
-<h1 class="title is-3 has-text-centered">All Restaurants</h1>
-<hr>
-<div class="column is-9-mobile loadingDiv content has-text-centered" ng-if="!restaurants">
+  <h1 class="title is-3 has-text-centered">All Restaurants</h1>
+  <hr>
+  <div class="column is-9-mobile loadingDiv content has-text-centered" ng-if="!restaurants">
 
-  <div class="button is-loading loadingButton"></div>
-</div>
+    <div class="button is-loading loadingButton"></div>
+  </div>
   <div ng-if="restaurants" ng-repeat="restaurant in restaurants">
     <div class="columns is-mobile is-multiline">
       <a ui-sref="foodShow({ id: restaurant.restaurant.R.res_id })" ng-click="getEventTarget($event, restaurant.restaurant.R.res_id)" class="column is-full-mobile has-text-centered has-text-weight-bold">
-      {{ restaurant.restaurant.name }}
+        {{ restaurant.restaurant.name }}
       </a>
       <div class="column is-one-third-mobile" >{{ restaurant.restaurant.location.locality_verbose }}</div>
       <div class="column is-two-thirds-mobile" >Averave cost: £{{ restaurant.restaurant.average_cost_for_two/2 }}</div>
