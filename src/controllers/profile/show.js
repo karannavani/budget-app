@@ -54,6 +54,10 @@ function ProfileShowCtrl($http, $scope, $state, $rootScope, $window) {
       });
   };
 
+  // function calculateSpending() {
+  //
+  // }
+
 }
 
 export default ProfileShowCtrl;
