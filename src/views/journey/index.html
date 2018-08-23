@@ -12,36 +12,46 @@
   <button class="button" type="button" name="button" ng-click="generateOptions()">Go</button>
 </form>
 
+<div class="column">
+
+
 <div class="card journeyCard" ng-if="uberPoolCost && busDuration">
   <div class="card-content">
 
 
     <h4 class="title is-4" style="color: white">Your options are</h4>
 
-    <div class="columns is-multiline is-mobile">
+    <div class="columns">
 
       <!-- <div class="busDiv" ng-click="deductJourney($event)"> -->
+      <div class="columns is-multiline is-mobile">
         <div class="column is-4 bus" ng-click="deductJourney($event)">Bus</div>
         <div class="column bus" ng-click="deductJourney($event)">£{{ busCost }}</div>
         <div class="column bus" ng-click="deductJourney($event)">{{ busDuration }} mins</div>
+      </div>
       <!-- </div> -->
-
+      <div class="columns is-multiline is-mobile">
       <div class="column is-4 bike" ng-click="deductJourney($event)">Bike</div>
       <div class="column bike" ng-click="deductJourney($event)">£{{ bikeCost }}</div>
       <div class="column bike" ng-click="deductJourney($event)">{{ bikeDuration }} mins</div>
-
+    </div>
+          <div class="columns is-multiline is-mobile">
       <div class="column is-4 tube" ng-click="deductJourney($event)">Tube</div>
       <div class="column tube" ng-click="deductJourney($event)">£{{ tubeCost }}</div>
       <div class="column tube" ng-click="deductJourney($event)">{{ tubeDuration }} mins</div>
-
+    </div>
+        <div class="columns is-multiline is-mobile">
       <div class="column is-4 uberPool" ng-click="deductJourney($event)">UberPool</div>
       <div class="column uberPool" ng-click="deductJourney($event)">£{{ uberPoolCost }}</div>
       <div class="column uberPool" ng-click="deductJourney($event)">{{ uberPoolDuration }} mins</div>
-
+    </div>
+        <div class="columns is-multiline is-mobile">
       <div class="column is-4 uberX" ng-click="deductJourney($event)">UberX</div>
       <div class="column uberX" ng-click="deductJourney($event)">£{{ uberXCost }}</div>
       <div class="column uberX" ng-click="deductJourney($event)">{{ uberXDuration }} mins</div>
+    </div>
 
     </div>
   </div>
+</div>
 </div>
