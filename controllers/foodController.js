@@ -60,21 +60,20 @@ function locationPhoto(req, res, next) {
       console.log('the response from the back end is', response);
       const placeResponse = response.candidates[0].photos[0].photo_reference;
       console.log('THE PHOTO REFERENCE IS', placeResponse);
-      generatePhoto(placeResponse);
+      // generatePhoto(placeResponse);
+    });
+
+  rp({
+    method: 'GET',
+    url: `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=CmRaAAAAxCN126rYGofBifff2qPSOiRO6fQs5WZYfycD5pqGneFQMFMtjfAcfBvnLK_fxDUYrHCgzUWOulgM1Zeq1Nkjfik7CS3tuVXUBf2UF0_t5ysuNJq-VWbEvZrh4XaYIZ8FEhBE88IWOis-QwmbqU-n5vz8GhQbpHissHvsURD19NbVE3UekTr_EA&key=${googleApiKey}`
+    // json: true
+  })
+    .then(res => {
+      console.log('THIS IS A JSON PHOTO', res);
+      console.log('THIS IS A JSON PHOTO ============================================+++++++++++++++++++++++++++++++++++++');
+      res.json(res);
     })
     .catch(next);
-  function generatePhoto(req, res, next, placeResponse) {
-    rp({
-      method: 'GET',
-      url: `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${placeResponse}&key=${googleApiKey}`
-      // json: true
-    })
-      .then(response => {
-        console.log('THIS IS A JSON PHOTO', response);
-        console.log('THIS IS A JSON PHOTO ============================================+++++++++++++++++++++++++++++++++++++');
-        // res.json(photo);
-      });
-  }
 
 
 }

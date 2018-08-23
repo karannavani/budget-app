@@ -17,10 +17,6 @@ function Map() {
           .addTo(map);
         marker.bindPopup(`<p>${$scope.restaurant.name}</p>`);
       });
-      // if (navigator.geolocation) {
-      //   navigator.geolocation.getCurrentPosition(position => {
-      //   });
-      // }
     }};
 }
 export default Map;

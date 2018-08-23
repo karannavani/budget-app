@@ -51,8 +51,8 @@ router.route('/food')
   .get(foodController.getPlace);
 
 router.route('/food/:id')
-  .get(foodController.showRestaurant)
-  .get(foodController.locationPhoto);
+  .get(foodController.showRestaurant);
+// .get(foodController.locationPhoto);
 
 router.route('/food/locationphoto')
   .get(foodController.locationPhoto);
