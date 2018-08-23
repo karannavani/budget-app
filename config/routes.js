@@ -8,6 +8,7 @@ const expenseController = require('../controllers/expenseController');
 const userController = require('../controllers/userController');
 const foodController = require('../controllers/foodController');
 const journeyController = require('../controllers/journeyController');
+const monzoController = require('../controllers/monzoController');
 
 //ROUTES
 
@@ -63,5 +64,25 @@ router.route('/tflOptions')
 router.route('/bikeOptions')
   .get(journeyController.generateBikeOptions);
 
+router.route('/monzo')
+  .get(monzoController.login);
+
+router.route('/oauth/callback')
+  .get(monzoController.callback);
+
+// router.route('/accounts')
+//   .get(monzoController.accounts);
+
+router.route('/transactions')
+  .get(monzoController.transactions);
+
+router.route('/pots')
+  .get(monzoController.pots);
+
+router.route('/movesavings')
+  .get(monzoController.moveSavings);
+
+// router.route('/monzodata')
+//
 
 module.exports = router;

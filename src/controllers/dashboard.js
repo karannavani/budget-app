@@ -8,7 +8,6 @@ function DashboardCtrl($rootScope, $scope, $http) {
   let totalCost = 0;
   $scope.donutChartConfig = {};
 
-
   // Allows the user to edit budget from dashboard – linked to the ng-switch block
   $scope.editBudget = function(name){
     $scope.mode = 'edit';

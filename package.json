@@ -26,6 +26,7 @@
     "jsonwebtoken": "^8.3.0",
     "leaflet": "^1.3.4",
     "mongoose": "^5.2.8",
+    "request": "^2.88.0",
     "request-promise": "^4.2.2",
     "satellizer": "^0.15.5",
     "zingchart-angularjs": "^1.2.0"
