@@ -9,9 +9,12 @@
     <label class="label">To (Postcode)</label>
     <input ng-model="endPoint" class="input" type="text" name="endPoint" placeholder="eg: E1 7PT">
   </div>
-  <button class="button" type="button" name="button" ng-click="generateOptions()">Go</button>
+  <button class="button" date-target="pageloader" type="button" name="button" ng-click="generateOptions()">Go</button>
 </form>
+<div class="column is-9-mobile loadingDiv content has-text-centered" ng-if="isClicked && !uberXDuration && !uberPoolDuration && !busDuration">
 
+  <div class="button is-loading loadingButton"></div>
+</div>
 <div class="column">
 
 

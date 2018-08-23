@@ -18,6 +18,7 @@ function JourneyIndexCtrl($scope, $http, $auth, $rootScope) {
   });
 
   $scope.generateOptions = function() {
+    $scope.isClicked = true;
     getEndPoint();
 
 
