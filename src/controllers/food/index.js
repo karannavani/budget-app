@@ -21,7 +21,6 @@ function FoodCtrl($scope, $http, $rootScope) {
         console.log('res.data ->', res.data);
         $scope.restaurants = res.data.restaurants;
         console.log('location from scope is', $scope.restaurants);
-        // getRestaurants();
       });
   }
 
