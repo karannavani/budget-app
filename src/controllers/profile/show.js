@@ -25,6 +25,7 @@ function ProfileShowCtrl($http, $scope, $state, $rootScope, $window) {
       .then(res => {
         console.log('transactions is', res.data);
         $scope.monzoTransactions = res.data;
+        calculateSpending();
       });
     $http({
       method: 'GET',
@@ -54,9 +55,17 @@ function ProfileShowCtrl($http, $scope, $state, $rootScope, $window) {
       });
   };
 
-  // function calculateSpending() {
-  //
-  // }
+  function calculateSpending() {
+    const spentTodayArr = [];
+    $scope.monzoTransactions.forEach(transaction => {
+      console.log(Math.abs(transaction.amount/100).toFixed(2));
+      spentTodayArr.push(parseFloat(Math.abs(transaction.amount/100).toFixed(2)));
+    });
+    console.log('spent array is', spentTodayArr);
+    $scope.spentToday = spentTodayArr.reduce((a, b) => a + b, 0);
+    console.log('spent today is', $scope.spentToday);
+
+  }
 
 }
 
