@@ -32,7 +32,6 @@ import DashboardCtrl from './controllers/dashboard';
 import MainCtrl from './controllers/main';
 
 import JourneyIndexCtrl from './controllers/journey/index';
-import JourneyShowCtrl from './controllers/journey/show';
 
 import FoodCtrl from './controllers/food/index';
 import RestaurantCtrl from './controllers/food/show';
@@ -65,7 +64,6 @@ angular.module('Thrifty',
   .controller('MainCtrl', MainCtrl)
 
   .controller('JourneyIndexCtrl', JourneyIndexCtrl)
-  .controller('JourneyShowCtrl', JourneyShowCtrl)
 
   .controller('FoodCtrl', FoodCtrl)
   .controller('RestaurantCtrl', RestaurantCtrl)

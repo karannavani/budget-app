@@ -97,12 +97,6 @@ function Router($stateProvider, $urlRouterProvider) {
       controller: 'JourneyIndexCtrl'
       ,resolve: { secureState }
     })
-    .state('journeyShow', {
-      templateUrl: './views/journey/show.html',
-      url: '/journey/show',
-      controller: 'JourneyShowCtrl'
-      ,resolve: { secureState }
-    })
     .state('foodIndex',   {
       templateUrl: './views/food/index.html',
       url: '/food',

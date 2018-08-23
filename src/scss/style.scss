@@ -1,4 +1,3 @@
-
 html {
   background-color: #002d56;
 }
@@ -7,6 +6,7 @@ hr {
   background-color: #435363;
 }
 // Navbar styling
+
 
 .navbar {
   background: #002d56; /* fallback for old browsers */
@@ -92,6 +92,16 @@ hr {
 .show-detail-white {
   font-family: 'Rubik', sans-serif;
   color: white;
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height:40px;
+}
+
+.show-detail-orange {
+  font-family: 'Rubik', sans-serif;
+  color: #ffb942;
   font-size: 15px;
   font-weight: bold;
   text-transform: uppercase;
@@ -212,16 +222,16 @@ hr {
 }
 
 .journeyCard {
+  background: inherit;
   margin-top: 20px;
   margin-left: 10px;
-  background: linear-gradient(90deg, #1CB5E0 0%, #000851 100%);
   color: white;
   font-weight: 400;
+  width: 100vw;
 }
 .goalCard {
   margin-top: 20px;
   margin-left: 10px;
-  background: linear-gradient(190deg, #000 0%, #FFF 100%);
   color: white;
   font-weight: 400;
   color: yellow;
@@ -237,6 +247,14 @@ hr {
 
 .potsCard a {
   color: white;
+}
+
+.topmargin {
+  margin-top: 35px;
+}
+
+.bottommargin {
+  margin-bottom: 35px;
 }
 
 .map {
