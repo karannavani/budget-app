@@ -113,10 +113,10 @@ function DashboardCtrl($rootScope, $scope, $http) {
               'visible': 0
             },
             'plotarea': {
-              'margin': '2% 2% 2% 2%'
+              'margin': '3% 3% 3% 3%'
             },
             'plot': {
-              'slice': 175,
+              'slice': 155,
               'ref-angl': 270,
               'detach': false,
               'hover-state': {
@@ -127,14 +127,14 @@ function DashboardCtrl($rootScope, $scope, $http) {
                 'type': 'first',
                 'connected': false,
                 'placement': 'center',
-                'text': `<span style='font-size:40px;'>You've spent</span><br><span>£${totalCost}</span><br><span style='font-size:30px;'>You've got £${$rootScope.remainder} left</span>`,
+                'text': `<span style='font-size:40px;'>You've spent</span><br><span>£${totalCost}</span><br><span style='font-size:25px;'>You've got £${$rootScope.remainder} left</span>`,
                 'rules': [
                   {
                     'rule': '%v > 50',
                     visible: false
                   }
                 ],
-                'font-color': '#256e94',
+                'font-color': 'white',
                 'font-weight': 'bold',
                 'font-size': '40px'
               },
