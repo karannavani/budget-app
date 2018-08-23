@@ -20,18 +20,18 @@
 </div>
 </div>
 
+
 <div class="columns">
   <div class="column">
     <h3 class="title is-3">View your savings pot from Monzo</h3>
     <button class="button" name="button" ng-click="goToLogin()">Sign in to Monzo</button>
     <button class="button" name="button" ng-click="fetchMonzo()">Update</button>
-    <button class="button" name="button" ng-click="moveSavings()">Move savings to pot</button>
   </div>
 </div>
 
 <div class="columns is-multiline monzoDetails">
   <div class="card potsCard" ng-repeat="pot in monzoPots">
-    <div class="card-content" ng-if="!pot.deleted">
+    <div class="card-content" ng-if="!pot.deleted" ng-click="moveSavings($event)" id="{{ pot.id }}">
       {{ pot.name.toUpperCase() }} – £{{ (pot.balance/100).toFixed(2) }}
     </div>
   </div>
