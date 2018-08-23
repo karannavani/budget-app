@@ -80,8 +80,8 @@ router.route('/pots')
 
 router.route('/movesavings')
   .get(monzoController.moveSavings);
-
-// router.route('/monzodata')
 //
-
+router.route('/uberRouteOptions')
+  .get(journeyController.findUberOptions);
+  
 module.exports = router;
