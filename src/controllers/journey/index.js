@@ -1,4 +1,4 @@
-function JourneyIndexCtrl($scope, $http, $auth, $rootScope) {
+function JourneyIndexCtrl($scope, $http, $auth) {
 
   $scope.getPayload = $auth.getPayload;
   navigator.geolocation.getCurrentPosition(position => {
@@ -113,69 +113,7 @@ function JourneyIndexCtrl($scope, $http, $auth, $rootScope) {
 
   };
 
-  $scope.deductJourney = function(event) {
-    let cost;
-    let type;
-    let merchant;
-    // console.log('event is', event.currentTarget.textContent);
-    // console.log('daily budget is', $scope.user.dailyBudget);
-    // console.log(event.srcElement.className);
 
-    switch (event.srcElement.className.includes('')) {
-      case event.srcElement.className.includes('bus'):
-        console.log('Bus found');
-        type = 'Transport – Bus';
-        cost = $scope.busCost;
-        merchant = 'TFL';
-        break;
-      case event.srcElement.className.includes('bike'):
-        console.log('Bike found');
-        type = 'Transport – Bike';
-        cost = $scope.bikeCost;
-        merchant = 'TFL';
-        break;
-      case event.srcElement.className.includes('tube'):
-        console.log('Tube found');
-        type = 'Transport – Tube';
-        cost = $scope.tubeCost;
-        merchant = 'TFL';
-        break;
-      case event.srcElement.className.includes('uberPool'):
-        console.log('Uber Pool found');
-        type = 'Transport – Uber Pool';
-        cost = $scope.uberPoolCost;
-        merchant = 'Uber';
-        break;
-      case event.srcElement.className.includes('uberX'):
-        console.log('UberX found');
-        type = 'Transport – UberX';
-        cost = $scope.uberXCost;
-        merchant = 'Uber';
-        break;
-      default:
-        console.log('Not found');
-    }
-    console.log($scope.user.dailyBudget - cost);
-
-
-    createExpense();
-
-    function createExpense() {
-
-      $http({
-        method: 'POST',
-        url: '/api/expenses',
-        createdBy: $scope.user,
-        data: { createdBy: $scope.user, cost: cost, merchant: merchant, type: type }
-      })
-        .then(() => $rootScope.$broadcast('flashMessage',
-          { type: 'success',
-            content: 'You created a new expense'
-          }));
-    }
-  };
 
 }
-
-
 export default JourneyIndexCtrl;
