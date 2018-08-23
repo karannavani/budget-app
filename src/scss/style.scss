@@ -1,3 +1,32 @@
+html {
+  background-color: #002d56;
+}
+
+#state-title {
+  font-family: 'Rubik', sans-serif;
+  text-transform: uppercase;
+  color:white;
+  font-size: 40px;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+.dashboard-text {
+  color: #ea4c89;
+}
+
+.expense-title {
+  color: #ffb942;
+}
+
+.expense {
+  color: white;
+}
+
+.button {
+  background-color: #ea4c89 !important;
+}
+
 .buttons-l {
   margin-top: 20px;
 }
@@ -5,10 +34,13 @@
 .budget-title {
   font-size: 70px;
   font-weight: 500;
+  color: #ffb942;
 }
 
 .dashBudget input {
   border: none;
+  color: #ea4c89;
+  background-color: inherit;
 }
 
 .dashBudget input:focus {
@@ -49,6 +81,7 @@
   border: 1px solid black;
   padding: none;
 }
+
 
 @media screen and (max-width: 768px) {
   .content-body{

@@ -108,7 +108,7 @@ function DashboardCtrl($rootScope, $scope, $http) {
         'graphset': [
           {
             'type': 'ring',
-            'background-color': '#ffffff',
+            'background-color': '#002d56',
             'tooltip': {
               'visible': 0
             },
