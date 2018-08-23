@@ -1,18 +1,22 @@
 <div class="columns is-multiline is-mobile">
-      <div class="state-title column is-10">All {{ expenses.length }} expenses</div>
-      <div class="column is-2">
-        <div class="button is-info" ui-sref="expensesNew"><i class="fas fa-plus-circle"></i></div>
-      </div>
-  <div class="column is-12 has-text-centered">
-    <div ng-repeat="expense in expenses | orderBy : '-createdAt'">
-      <div class="column is-12">
-        <a ui-sref="expensesShow({ id: expense._id })">
-          <h2 class="expense-title expense-title title is-4">{{ expense.type }}</h2>
-          <p class="expense">£{{ expense.cost}} at {{ expense.merchant}} {{ expense.location}}</p>
-        </a>
-
-      </div>
-    </div>
+  <div class="state-title column is-10">All {{ expenses.length }} expenses</div>
+  <div class="column is-2">
+    <div class="button is-info" ui-sref="expensesNew"><i class="fas fa-plus-circle"></i></div>
   </div>
-
 </div>
+
+<!-- <div class="columns has-text-centered is-multiline is-mobile">
+  <div class="column is-5 detail-background" ng-repeat="expense in expenses | orderBy : '-createdAt'">
+    <a ui-sref="expensesShow({ id: expense._id })">
+      <h2 class="expense-title deatil-background title is-4">{{ expense.type }}</h2>
+      <p class="expense show-detail-green">£{{ expense.cost}} at {{ expense.merchant}} {{ expense.location}}</p>
+    </a>
+  </div>
+</div> -->
+
+  <div class="detail-background" ng-repeat="expense in expenses | orderBy : '-createdAt'">
+    <a ui-sref="expensesShow({ id: expense._id })">
+      <h2 class="subtitle-text-orange deatil-background">{{ expense.type }}</h2>
+      <p class="expense show-detail-green">£{{ expense.cost}} at {{ expense.merchant}} {{ expense.location}}</p>
+    </a>
+  </div>

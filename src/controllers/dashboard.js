@@ -166,6 +166,8 @@ function DashboardCtrl($rootScope, $scope, $http) {
         ]
 
       };
+
+    
     }
   });//something done to change the <strong> element into a text input
 }

@@ -20,19 +20,34 @@
 </div>
 </div>
 
+<hr>
+
 
 <div class="columns">
+  <!-- <div class="column">
+
+  </div> -->
+  <img src="https://monzo.com/static/images/mondo-mark-01.png" class="image is-128x128 is-centered" alt="">
   <div class="column">
-    <h3 class="title is-3">View your savings pot from Monzo</h3>
     <button class="button" name="button" ng-click="goToLogin()">Sign in to Monzo</button>
-    <button class="button" name="button" ng-click="fetchMonzo()">Update</button>
+    <button class="button is-pulled-right" name="button" ng-click="fetchMonzo()">Update</button>
   </div>
 </div>
 
 <div class="columns is-multiline monzoDetails">
+  <div class="column" ng-if="spentToday">
+  <h3 class="subtitle-text-green large">Today</h3>
+  <h3 class="show-detail-white">You've spent £{{ spentToday }}</h3>
+  <h3 class="show-detail-white">Your balance is £{{ monzoBalance }}</h3>
+    </div>
+
+      <zingchart id="myChart2" zc-type="hbar" zc-height="325" zc-width="325" zc-json="myConfig"></zingchart>
+  <div class="column">
+  <h3 class="subtitle-text-green large" ng-if="monzoPots">Savings</h3>
   <div class="card potsCard" ng-repeat="pot in monzoPots">
     <div class="card-content" ng-if="!pot.deleted" ng-click="moveSavings($event)" id="{{ pot.id }}">
       {{ pot.name.toUpperCase() }} – £{{ (pot.balance/100).toFixed(2) }}
     </div>
   </div>
+    </div>
 </div>

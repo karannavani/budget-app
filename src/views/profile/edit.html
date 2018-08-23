@@ -2,12 +2,12 @@
 
 <form ng-submit="updateProfile()" name="form" novalidate>
   <div class="field">
-    <label class="label" for="username">Username</label>
+    <label class="form-input-text label" for="username">Username</label>
     <input required minlength="2" ng-model="user.username" class="input" type="text" name="username" placeholder="">
   </div>
 
   <div class="field">
-    <label class="label" for="firstName">First name</label>
+    <label class="form-input-text label" for="firstName">First name</label>
     <input required minlength="2" ng-model="user.firstName" class="input" type="text" name="firstName" placeholder="">
   </div>
 
@@ -17,17 +17,17 @@
   </div>
 
   <div class="field">
-    <label class="label" for="lastName">Last name</label>
+    <label class="form-input-text label" for="lastName">Last name</label>
     <input ng-model="user.lastName" class="input" type="text" name="lastName" placeholder="">
   </div>
 
   <div class="field">
-    <label class="label" for="passwordConfirmation">Profile Picture (url)</label>
+    <label class="form-input-text label" for="passwordConfirmation">Profile Picture (url)</label>
     <input ng-model="user.profilePicUrl" class="input" type="text" name="profilePicUrl" placeholder="">
 </div>
 
   <div class="field">
-    <label class="label" for="email">Email</label>
+    <label class="form-input-text label" for="email">Email</label>
     <input ng-model="user.email" class="input" type="email" name="email" placeholder="e.g. john.smith@gmail.com">
   </div>
 

@@ -74,8 +74,8 @@ router.route('/monzo')
 router.route('/oauth/callback')
   .get(monzoController.callback);
 
-// router.route('/transactions')
-//   .get(monzoController.transactions);
+router.route('/transactions')
+  .get(monzoController.transactions);
 
 router.route('/pots')
   .get(monzoController.pots);
