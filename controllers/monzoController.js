@@ -91,26 +91,26 @@ function transactions(req, res) {
   });
 }
 
-// function balance(req, res) {
-//   const qs = req.query;
-//   const { token_type, access_token } = accessToken;
-//   // const potsUrl = `https://api.monzo.com/pots/pot_00009UpCmbImvocgZL3UoL/deposit`;
-//
-//   rp({
-//     method: 'GET',
-//     url: `https://api.monzo.com/balance?account_id=acc_00009OPnV5jnOw9VsS0oKX`,
-//     headers: {
-//       Authorization: `${token_type} ${access_token}`
-//     }
-//   }, (req, response, body) => {
-//     console.log('res is', res);
-//     const { balance } = JSON.parse(body);
-//     console.log('balance is =======>', balance);
-//     // transactionsData = transactions;
-//     res.json(balance);
-//
-//   });
-// }
+function balance(req, res) {
+  const qs = req.query;
+  const { token_type, access_token } = accessToken;
+  // const potsUrl = `https://api.monzo.com/pots/pot_00009UpCmbImvocgZL3UoL/deposit`;
+
+  rp({
+    method: 'GET',
+    url: `https://api.monzo.com/balance?account_id=acc_00009OPnV5jnOw9VsS0oKX`,
+    headers: {
+      Authorization: `${token_type} ${access_token}`
+    }
+  }, (req, response, body) => {
+    console.log('res is', res);
+    const { balance } = JSON.parse(body);
+    console.log('balance is =======>', balance);
+    // transactionsData = transactions;
+    res.json(balance);
+
+  });
+}
 
 function pots(req, res) {
   const { token_type, access_token } = accessToken;
@@ -162,5 +162,6 @@ module.exports = {
   // accounts,
   transactions,
   pots,
-  moveSavings
+  moveSavings,
+  balance
 };

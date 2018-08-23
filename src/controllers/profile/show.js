@@ -36,6 +36,15 @@ function ProfileShowCtrl($http, $scope, $state, $rootScope, $window) {
         console.log('pots is', res.data);
         $scope.monzoPots = res.data;
       });
+    $http({
+      method: 'GET',
+      url: '/api/balance',
+      skipAuthorization: true
+    })
+      .then(res => {
+        console.log('balance is', res.data);
+        $scope.monzoBalance = (res.data/100).toFixed(2);
+      });
 
   };
 
@@ -58,8 +67,10 @@ function ProfileShowCtrl($http, $scope, $state, $rootScope, $window) {
   function calculateSpending() {
     const spentTodayArr = [];
     $scope.monzoTransactions.forEach(transaction => {
-      console.log(Math.abs(transaction.amount/100).toFixed(2));
-      spentTodayArr.push(parseFloat(Math.abs(transaction.amount/100).toFixed(2)));
+      // console.log(Math.abs(transaction.amount/100).toFixed(2));
+      if(transaction.scheme !== 'uk_retail_pot') {
+        spentTodayArr.push(parseFloat(Math.abs(transaction.amount/100).toFixed(2)));
+      }
     });
     console.log('spent array is', spentTodayArr);
     $scope.spentToday = spentTodayArr.reduce((a, b) => a + b, 0);
