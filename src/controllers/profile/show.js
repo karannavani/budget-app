@@ -24,8 +24,17 @@ function ProfileShowCtrl($http, $scope, $state, $rootScope, $window) {
       skipAuthorization: true
     })
       .then(res => {
-        console.log('monzo res is', res.data);
+        console.log('transactions is', res.data);
         $scope.monzoTransactions = res.data;
+      });
+    $http({
+      method: 'GET',
+      url: '/api/pots',
+      skipAuthorization: true
+    })
+      .then(res => {
+        console.log('pots is', res.data);
+        $scope.monzoPots = res.data;
       });
   };
 

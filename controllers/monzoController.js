@@ -74,46 +74,50 @@ function transactions(req, res) {
     console.log('transactions is =======>', transactions);
     // transactionsData = transactions;
     res.json(transactions);
-    //
-    // for(let transaction of transactions) {
-    //   const {
-    //     description,
-    //     amount,
-    //     category
-    //   } = transaction;
-    //
-    //   res.write(`
-    //     <tr>
-    //       <td>${description}</td>
-    //       <td>${(amount/100).toFixed(2)}</td>
-    //       <td>${category}</td>
-    //     </tr>
-    //   `);
-    // }
+
   });
 }
 
-// function monzoData(req, res) {
-//   res.json(transactions);
-// }
+function pots(req, res) {
+  const { token_type, access_token } = accessToken;
+  const potsUrl = `https://api.monzo.com/pots`;
 
-// res.type('html');
-// res.write('<h1>Accounts</h1><ul>');
-//
-// for(let account of accounts) {
-//   const {id, type, description } = account;
-//   res.write(`
-//     <li>
-//       ${description}(<i>${type}</i>) - <a href="/transactions/${id}">View transaction history</a>
-//     </li>
-//   `);
-// }
-//
-// res.end('</ul>');
+  request.get(potsUrl, {
+    headers: {
+      Authorization: `${token_type} ${access_token}`
+    }
+  }, (req, response, body) => {
+    const { pots } = JSON.parse(body);
+    console.log('pots is =======>', pots);
+    // transactionsData = transactions;
+    res.json(pots);
+
+  });
+}
+
+function moveSavings(req, res) {
+  const { token_type, access_token } = accessToken;
+  const potsUrl = `https://api.monzo.com/pots`;
+
+  request.get(potsUrl, {
+    headers: {
+      Authorization: `${token_type} ${access_token}`
+    }
+  }, (req, response, body) => {
+    const { pots } = JSON.parse(body);
+    console.log('pots is =======>', pots);
+    // transactionsData = transactions;
+    res.json(pots);
+
+  });
+}
+
 
 module.exports = {
   login,
   callback,
   // accounts,
-  transactions
+  transactions,
+  pots,
+  moveSavings
 };
