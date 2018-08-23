@@ -71,7 +71,7 @@ function transactions(req, res) {
     }
   }, (req, response, body) => {
     const { transactions } = JSON.parse(body);
-    console.log('transactions is =======>', transactions);
+    // console.log('transactions is =======>', transactions);
     // transactionsData = transactions;
     res.json(transactions);
 
@@ -88,7 +88,7 @@ function pots(req, res) {
     }
   }, (req, response, body) => {
     const { pots } = JSON.parse(body);
-    console.log('pots is =======>', pots);
+    // console.log('pots is =======>', pots);
     // transactionsData = transactions;
     res.json(pots);
 
@@ -97,17 +97,23 @@ function pots(req, res) {
 
 function moveSavings(req, res) {
   const { token_type, access_token } = accessToken;
-  const potsUrl = `https://api.monzo.com/pots`;
+  const potsUrl = `https://api.monzo.com/pots/pot_00009UpCmbImvocgZL3UoL/deposit`;
 
-  request.get(potsUrl, {
+  request.put(potsUrl, {
     headers: {
       Authorization: `${token_type} ${access_token}`
+    },
+    form: {
+      source_account_id: 'acc_00009OPnV5jnOw9VsS0oKX',
+      amount: 100,
+      dedupe_id: Math.random()
     }
   }, (req, response, body) => {
-    const { pots } = JSON.parse(body);
-    console.log('pots is =======>', pots);
+    console.log('res is', res);
+    const { responsefromMonzo } = JSON.parse(body);
+    console.log('response is =======>', responsefromMonzo);
     // transactionsData = transactions;
-    res.json(pots);
+    res.json(responsefromMonzo);
 
   });
 }

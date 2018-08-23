@@ -79,6 +79,9 @@ router.route('/transactions')
 router.route('/pots')
   .get(monzoController.pots);
 
+router.route('/movesavings')
+  .get(monzoController.moveSavings);
+
 // router.route('/monzodata')
 //
 

@@ -36,6 +36,19 @@ function ProfileShowCtrl($http, $scope, $state, $rootScope, $window) {
         console.log('pots is', res.data);
         $scope.monzoPots = res.data;
       });
+
+  };
+
+  $scope.moveSavings = function() {
+    $http({
+      method: 'GET',
+      url: '/api/movesavings',
+      skipAuthorization: true
+    })
+      .then(res => {
+        console.log('res is', res.data);
+        $scope.monzoPots = res.data;
+      });
   };
 
 }
