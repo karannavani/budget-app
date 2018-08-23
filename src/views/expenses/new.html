@@ -3,53 +3,53 @@
   <div class="column">
     <form ng-submit="createExpense()">
       <div class="field">
-        <label for="type">Type</label>
+        <label class="form-input-text" for="type">Type</label>
         <input ng-model="expense.type" type="text" name="type" class="input" placeholder="e.g. Coffee">
       </div>
       <div class="field">
-        <label for="cost">Price</label>
+        <label class="form-input-text" for="cost">Price</label>
         <input ng-model="expense.cost" type="text" name="cost" class="input">
       </div>
       <div class="field">
-        <label for="merchant">Vendor</label>
+        <label class="form-input-text" for="merchant">Vendor</label>
         <input ng-model="expense.merchant" type="text" name="merchant" class="input" placeholder="e.g. Black Sheep Coffee">
       </div>
       <div class="field">
-        <label for="location">Location</label>
+        <label class="form-input-text" for="location">Location</label>
         <input ng-model="expense.location" type="text" name="location" class="input" placeholder="e.g. Aldgate East">
       </div>
 
       <!-- <div class="field"> -->
-        <label for="repeat">Is this a regular purchase?</label>
+        <label class="form-input-text" for="repeat">Is this a regular purchase?</label>
         <div class="control">
           <label class="radio">
+            <p class="form-input-text">Yes</p>
             <input ng-model="expense.repeat" type="radio" name="repeat" value=true>
-            Yes
           </label>
           <label class="radio">
+            <p class="form-input-text">No</p>
             <input ng-model="expense.repeat" type="radio" name="repeat" value=false>
-            No
           </label>
         </div>
       <!-- </div> -->
 
       <!-- <div class="field"> -->
-        <label for="vital">Was it vital or a luxury?</label>
+      <hr>
+        <label class="form-input-text" for="vital">Was it vital or a luxury?</label>
         <div class="control">
           <label class="radio">
+            <p class="form-input-text">Vital</p>
             <input ng-model="expense.vital" type="radio" name="vital" value=true>
-            Vital
           </label>
           <label class="radio">
+            <p class="form-input-text">Luxury</p>
             <input ng-model="expense.vital" type="radio" name="vital" value=false>
-            Luxury
           </label>
         </div>
       <!-- </div> -->
 
       <button class="buttons-l button is-info is-large">Submit expense</button>
     </form>
-    <button class="buttons-l button is-info is-large">Barcode Scanner</button>
   </div>
 </div>
 {{ expenses.length }}

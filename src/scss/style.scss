@@ -3,6 +3,9 @@ html {
   background-color: #002d56;
 }
 
+hr {
+  background-color: #435363;
+}
 // Navbar styling
 
 .navbar {
@@ -60,6 +63,13 @@ html {
   font-weight: bold;
 }
 
+.subtitle-text-orange {
+  font-family: 'Rubik', sans-serif;
+  color: #ffb942;
+  font-size: 21px;
+  font-weight: bold;
+}
+
 .subtitle-text-green {
   font-family: 'Rubik', sans-serif;
   color: #10f785;
@@ -68,6 +78,33 @@ html {
   text-transform: uppercase;
 }
 
+
+.show-detail-green {
+  font-family: 'Rubik', sans-serif;
+  color: #10f785 !important;
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height:40px;
+}
+
+.show-detail-white {
+  font-family: 'Rubik', sans-serif;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height:40px;
+}
+
+.detail-background {
+  // box-sizing: content-box;
+  // background-color: #1c3855 !important;
+  border-bottom: 1px solid white;
+  margin-bottom: 10px;
+}
 
 
 .profilePic {
@@ -115,6 +152,7 @@ html {
 
 .form-input-text {
   color: #ffb942;
+  font-weight: bold;
 }
 
 .button {
