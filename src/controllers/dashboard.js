@@ -156,7 +156,7 @@ function DashboardCtrl($rootScope, $scope, $http) {
               },
               {
                 'values': [$scope.spendData[1]],
-                'background-color': '#f10000',
+                'background-color': '#ff647a',
                 'border-color': '#282E3D',
                 'border-width': '0px',
                 'shadow': 0
