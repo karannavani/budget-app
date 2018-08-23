@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <!-- <script src="external.js" charset="utf-8"></script> -->
   <script src= "https://cdn.zingchart.com/zingchart.min.js"></script>
   <script> zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
@@ -36,15 +38,15 @@
 
     <div class="navbar-menu">
       <div class="navbar-end">
-        <a class="navbar-item" ui-sref-active="is-active" ui-sref="register" ng-if="!isAuthenticated()">Sign up</a>
-        <a class="navbar-item" ui-sref-active="is-active" ui-sref="login" ng-if="!isAuthenticated()">Log in</a>
-        <a class="navbar-item" ui-sref-active="is-active" ui-sref="dashboard" ng-if="isAuthenticated()">Home</a>
-        <a class="navbar-item" ui-sref-active="is-active" ui-sref="profileShow({ id: user._id })" ng-if="isAuthenticated()">Profile</a>
-        <a class="navbar-item" ui-sref-active="is-active" ui-sref="expensesHistory" ng-if="isAuthenticated()">Expenses</a>
-        <a class="navbar-item" ui-sref-active="is-active" ui-sref="journeyIndex" ng-if="isAuthenticated()">Journey</a>
-        <a class="navbar-item" ui-sref-active="is-active" ui-sref="foodIndex" ng-if="isAuthenticated()">Food</a>
-        <a class="navbar-item" ui-sref-active="is-active" ui-sref="goalsIndex" ng-if="isAuthenticated()">Goals</a>
-        <a class="navbar-item" ui-sref-active="is-active" ng-click="logout()" ng-if="isAuthenticated()">Log out</a>
+        <a class="navbar-item w3-hover-sepia w3-hover-opacity" ui-sref-active="is-active" ui-sref="register" ng-if="!isAuthenticated()">Sign up</a>
+        <a class="navbar-item w3-hover-sepia w3-hover-opacity" ui-sref-active="is-active" ui-sref="login" ng-if="!isAuthenticated()">Log in</a>
+        <a class="navbar-item w3-hover-sepia w3-hover-opacity" ui-sref-active="is-active" ui-sref="dashboard" ng-if="isAuthenticated()">Home</a>
+        <a class="navbar-item w3-hover-sepia w3-hover-opacity" ui-sref-active="is-active" ui-sref="profileShow({ id: user._id })" ng-if="isAuthenticated()">Profile</a>
+        <a class="navbar-item w3-hover-sepia w3-hover-opacity" ui-sref-active="is-active" ui-sref="expensesHistory" ng-if="isAuthenticated()">Expenses</a>
+        <a class="navbar-item w3-hover-sepia w3-hover-opacity" ui-sref-active="is-active" ui-sref="journeyIndex" ng-if="isAuthenticated()">Journey</a>
+        <a class="navbar-item w3-hover-sepia w3-hover-opacity" ui-sref-active="is-active" ui-sref="foodIndex" ng-if="isAuthenticated()">Food</a>
+        <a class="navbar-item w3-hover-sepia w3-hover-opacity" ui-sref-active="is-active" ui-sref="goalsIndex" ng-if="isAuthenticated()">Goals</a>
+        <a class="navbar-item w3-hover-sepia w3-hover-opacity" ui-sref-active="is-active" ng-click="logout()" ng-if="isAuthenticated()">Log out</a>
       </div>
     </div>
   </nav>

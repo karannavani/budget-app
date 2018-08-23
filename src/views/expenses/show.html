@@ -1,15 +1,17 @@
-<h1 id="state-title" class="title is-2">Take a closer look</h1>
-<div class="columns is-multiline is-mobile is-centered">
-  <div class="column is-full">
-    <p>On: {{ expense.createdAt }}</p>
-    <p>You bought: {{ expense.type }}</p>
-    <p>For: {{ expense.cost }}</p>
-    <p>From: {{ expense.merchant }}</p>
-  </div>
-  <div class="column">
-    <button class="button is-info" ui-sref="expensesEdit({ id: expense._id })">Edit this expense</button>
-  </div>
-  <div class="column">
-    <button class="button is-danger" ng-click="deleteExpense()">Delete</button>
+<div class="w3-container w3-center w3-animate-right w3-hover-shadow">
+  <h1 id="state-title" class="title is-2">Take a closer look</h1>
+  <div class="columns is-multiline is-mobile is-centered">
+    <div class="column is-full">
+      <p>On: {{ expense.createdAt }}</p>
+      <p>You bought: {{ expense.type }}</p>
+      <p>For: {{ expense.cost }}</p>
+      <p>From: {{ expense.merchant }}</p>
+    </div>
+    <div class="column">
+      <button class="button is-info" ui-sref="expensesEdit({ id: expense._id })">Edit this expense</button>
+    </div>
+    <div class="column">
+      <button class="button is-danger" ng-click="deleteExpense()">Delete</button>
+    </div>
   </div>
 </div>

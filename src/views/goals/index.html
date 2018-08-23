@@ -1,16 +1,16 @@
 
-  <div class="card goalCard" ng-repeat="goal in goals | orderBy : 'createdAt'">
-    <div class="card-content">
-      <a ui-sref="goalsShow({ id: goal._id })">
-        <h2 class="title is-4">{{ goal.name }}</h2>
-        <img  style="max-height: 300px" ng-src="{{ goal.imageUrl }}" alt="{{ goal.name }}">
-        <p>Cost: £{{goal.cost}}</p>
-        <p>Saved: £{{goal.alreadySaved}}</p>
-        <progress class="progress" value="{{goal.progress}}" max="100">{{goal.progress}}%</progress>
-        <p>{{goal.progress}}% to your goal!</p>
-        <p>Deadline: {{goal.deadline}}</p>
+<div class="card goalCard w3-container w3-center w3-animate-left w3-hover-shadow" ng-repeat="goal in goals | orderBy : 'createdAt'">
+  <div class="card-content">
+    <a ui-sref="goalsShow({ id: goal._id })">
+      <h2 class="title is-4">{{ goal.name }}</h2>
+      <img  style="max-height: 300px" ng-src="{{ goal.imageUrl }}" alt="{{ goal.name }}">
+      <p>Cost: £{{goal.cost}}</p>
+      <p>Saved: £{{goal.alreadySaved}}</p>
+      <progress class="progress" value="{{goal.progress}}" max="100">{{goal.progress}}%</progress>
+      <p>{{goal.progress}}% to your goal!</p>
+      <p>Deadline: {{goal.deadline}}</p>
 
     </a>
-    </div>
   </div>
-  <a class="button" ui-sref="goalsNew"> + New Goal </a>
+</div>
+<a class="button" ui-sref="goalsNew"> + New Goal </a>

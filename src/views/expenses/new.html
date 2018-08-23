@@ -1,25 +1,27 @@
-<h1 id="state-title" class="title is-2 has-text-centered">Enter spend details</h1>
-<div class="container">
-  <div class="column">
-    <form ng-submit="createExpense()">
-      <div class="field">
-        <label for="type">Type</label>
-        <input ng-model="expense.type" type="text" name="type" class="input" placeholder="e.g. Coffee">
-      </div>
-      <div class="field">
-        <label for="cost">Price</label>
-        <input ng-model="expense.cost" type="text" name="cost" class="input">
-      </div>
-      <div class="field">
-        <label for="merchant">Vendor</label>
-        <input ng-model="expense.merchant" type="text" name="merchant" class="input" placeholder="e.g. Black Sheep Coffee">
-      </div>
-      <div class="field">
-        <label for="location">Location</label>
-        <input ng-model="expense.location" type="text" name="location" class="input" placeholder="e.g. Aldgate East">
-      </div>
 
-      <!-- <div class="field"> -->
+<div class="w3-container w3-center w3-animate-right w3-hover-shadow">
+  <h1 id="state-title" class="title is-2 has-text-centered">Enter spend details</h1>
+  <div class="container">
+    <div class="column">
+      <form ng-submit="createExpense()">
+        <div class="field">
+          <label for="type">Type</label>
+          <input ng-model="expense.type" type="text" name="type" class="input" placeholder="e.g. Coffee">
+        </div>
+        <div class="field">
+          <label for="cost">Price</label>
+          <input ng-model="expense.cost" type="text" name="cost" class="input">
+        </div>
+        <div class="field">
+          <label for="merchant">Vendor</label>
+          <input ng-model="expense.merchant" type="text" name="merchant" class="input" placeholder="e.g. Black Sheep Coffee">
+        </div>
+        <div class="field">
+          <label for="location">Location</label>
+          <input ng-model="expense.location" type="text" name="location" class="input" placeholder="e.g. Aldgate East">
+        </div>
+
+        <!-- <div class="field"> -->
         <label for="repeat">Is this a regular purchase?</label>
         <div class="control">
           <label class="radio">
@@ -31,9 +33,9 @@
             No
           </label>
         </div>
-      <!-- </div> -->
+        <!-- </div> -->
 
-      <!-- <div class="field"> -->
+        <!-- <div class="field"> -->
         <label for="vital">Was it vital or a luxury?</label>
         <div class="control">
           <label class="radio">
@@ -45,11 +47,12 @@
             Luxury
           </label>
         </div>
-      <!-- </div> -->
+        <!-- </div> -->
 
-      <button class="buttons-l button is-info is-large">Submit expense</button>
-    </form>
-    <button class="buttons-l button is-info is-large">Barcode Scanner</button>
+        <button class="buttons-l button is-info is-large">Submit expense</button>
+      </form>
+      <button class="buttons-l button is-info is-large">Barcode Scanner</button>
+    </div>
   </div>
+  {{ expenses.length }}
 </div>
-{{ expenses.length }}
