@@ -11,14 +11,14 @@ function Map() {
         attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
       }).addTo(map);
       $scope.$watch('restaurant', () => {
-        map.setView([$scope.restaurant.location.latitude, $scope.restaurant.location.longitude], 70);
+        map.setView([$scope.restaurant.location.latitude, $scope.restaurant.location.longitude], 120);
+        const makerLocation = [$scope.restaurant.location.latitude, $scope.restaurant.location.longitude];
+        const marker =L.marker(makerLocation)
+          .addTo(map);
+        marker.bindPopup(`<p>${$scope.restaurant.name}</p>`);
       });
       // if (navigator.geolocation) {
       //   navigator.geolocation.getCurrentPosition(position => {
-      //     const makerLocation = [position.coords.latitude, position.coords.longitude];
-      //     const marker =L.marker(makerLocation)
-      //       .addTo(map);
-      //     marker.bindPopup('<p>You are here!</p>');
       //   });
       // }
     }};

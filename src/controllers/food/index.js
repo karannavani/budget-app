@@ -28,7 +28,6 @@ function FoodCtrl($scope, $http, $rootScope) {
 
   $scope.getEventTarget = function($event, resId) {
     $rootScope.resId =resId;
-    console.log('rootscope is', $rootScope);
     console.log('resId is', $scope.resId);
   };
 }

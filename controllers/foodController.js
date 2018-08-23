@@ -12,9 +12,8 @@ function getPlace(req, res, next) {
     json: true
   })
     .then(response => {
-      console.log('respose number 1 is ==========>', response.location); // this is the subzone
-      // res.json(response.location.entity_id);
-      rp({
+      console.log('respose number 1 is ==========>', response.location);
+      rp({ // second rp gets the restaurants in the local area
         method: 'GET',
         url: `https://developers.zomato.com/api/v2.1/search?entity_id=${response.location.entity_id}&$entity_type=${response.location.entity_type}&lat=${req.query.lat}&lon=${req.query.lon}&radius="300"&sort="cost"&order="asc"`,
         headers: {
@@ -23,7 +22,7 @@ function getPlace(req, res, next) {
         json: true
       })
         .then(response => {
-          console.log('respose number 2 is -------->', response); // this is the subzone
+          console.log('respose number 2 is -------->', response);
           res.json(response);
         })
         .catch(next);
@@ -44,7 +43,7 @@ function showRestaurant(req, res, next) {
     json: true
   })
     .then(response => {
-      console.log('response from RestaurantCtrl ===>>>>>>>', response);
+      console.log('response from RestaurantCtrl ===>', response);
       res.json(response);
     })
     .catch(next);
