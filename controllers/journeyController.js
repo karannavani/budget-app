@@ -68,19 +68,19 @@ const { uberApiKey } = require('../config/environment');
 //res.json() to return the data to the client
 
 function findUberOptions(req, res, next) {
-
+  console.log('uber', uberApiKey);
   rp({
     method: 'GET',
     url: 'https://api.uber.com/v1.2/estimates/price',
     json: true,
-    params: {
+    qs: {
       start_latitude: req.query.lat,
       start_longitude: req.query.lon,
       end_latitude: req.query.endLat,
       end_longitude: req.query.endLon
     },
     headers: {
-      Authorization: uberApiKey
+      Authorization: `Token ${uberApiKey}`
     },
     skipAuthorization: true
   })
