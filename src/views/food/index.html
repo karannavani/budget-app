@@ -1,17 +1,24 @@
 <h1 class="state-title">All Restaurants</h1>
 <hr>
-<div class="column is-9-mobile loadingDiv content has-text-centered" ng-if="!restaurants">
 
+<div class="column is-9-mobile loadingDiv content has-text-centered" ng-if="!restaurants">
   <div class="button is-loading loadingButton"></div>
 </div>
+
   <div ng-if="restaurants" ng-repeat="restaurant in restaurants">
     <div class="columns is-mobile is-multiline">
-      <a ui-sref="foodShow({ id: restaurant.restaurant.R.res_id })" ng-click="getEventTarget($event, restaurant.restaurant.R.res_id)" class="column is-full-mobile has-text-centered has-text-weight-bold">
-      {{ restaurant.restaurant.name }}
+      <a ui-sref="foodShow({ id: restaurant.restaurant.R.res_id })" ng-click="getEventTarget($event, restaurant.restaurant.R.res_id)">
+        <div class="columns is-multiline is-mobile">
+          <div class="column is-half-mobile">
+            <img src="#" alt="this is an image">
+          </div>
+          <div class="column is-half-mobile has-text-weight-bold">
+            <p class="restaurant-title">{{ restaurant.restaurant.name }}</p><hr>
+            <p class="restaurant-info">{{ restaurant.restaurant.location.locality_verbose }}</p><hr>
+            <p class="restaurant-info">Average cost: £{{ restaurant.restaurant.average_cost_for_two/2 }}</p>
+          </div>
+        </div>
       </a>
-      <div class="column is-one-third-mobile" >{{ restaurant.restaurant.location.locality_verbose }}</div>
-      <div class="column is-two-thirds-mobile" >Average cost: £{{ restaurant.restaurant.average_cost_for_two/2 }}</div>
-      <a href="{{ restaurant.restaurant.menu_url }}" class="button is-large is-info">See Menu</a>
     </div>
     <hr>
   </div>

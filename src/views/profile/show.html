@@ -22,14 +22,14 @@
 
 <hr>
 
-
-<div class="columns">
-  <!-- <div class="column">
-
-  </div> -->
-  <img src="https://monzo.com/static/images/mondo-mark-01.png" class="image is-128x128 is-centered" alt="">
+<div class="columns is-mobile is-multiline">
+    <div class="column is-6 is-offset-4 has-text-centered">
+      <img src="https://monzo.com/static/images/mondo-mark-01.png" class="monzo image is-128x128" alt="Monzo Bank">
+    </div>
   <div class="column">
     <button class="button" name="button" ng-click="goToLogin()">Sign in to Monzo</button>
+  </div>
+  <div class="column is-pulled-right">
     <button class="button is-pulled-right" name="button" ng-click="fetchMonzo()">Update</button>
   </div>
 </div>

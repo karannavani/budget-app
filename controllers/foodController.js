@@ -16,7 +16,7 @@ function getPlace(req, res, next) {
       console.log('respose number 1 is ==========>', response.location);
       rp({ // second rp gets the restaurants in the local area
         method: 'GET',
-        url: `https://developers.zomato.com/api/v2.1/search?entity_id=${response.location.entity_id}&entity_type=${response.location.entity_type}&lat=${req.query.lat}&lon=${req.query.lon}&radius=300&sort=cost&order=asc`,
+        url: `https://developers.zomato.com/api/v2.1/search?entity_id=${response.location.entity_id}&entity_type=${response.location.entity_type}&lat=${req.query.lat}&lon=${req.query.lon}&count=100&radius=300&sort=cost&order=asc`,
         headers: {
           'user-key': zomatoApiKey
         },
