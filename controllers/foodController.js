@@ -3,6 +3,7 @@ const { zomatoApiKey } = require('../config/environment');
 // const { googleApiKey} = require('../config/environment');
 
 function getPlace(req, res, next) {
+  console.log('zomato key is', zomatoApiKey);
   rp({
     method: 'GET',
     url: `https://developers.zomato.com/api/v2.1/geocode?lat=${req.query.lat}&lon=${req.query.lon}`,
