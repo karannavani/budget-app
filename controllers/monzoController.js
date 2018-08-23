@@ -96,16 +96,19 @@ function pots(req, res) {
 }
 
 function moveSavings(req, res) {
+  const qs = req.query;
   const { token_type, access_token } = accessToken;
-  const potsUrl = `https://api.monzo.com/pots/pot_00009UpCmbImvocgZL3UoL/deposit`;
+  // const potsUrl = `https://api.monzo.com/pots/pot_00009UpCmbImvocgZL3UoL/deposit`;
 
-  request.put(potsUrl, {
+  rp({
+    method: 'PUT',
+    url: `https://api.monzo.com/pots/${qs.id}/deposit`,
     headers: {
       Authorization: `${token_type} ${access_token}`
     },
     form: {
       source_account_id: 'acc_00009OPnV5jnOw9VsS0oKX',
-      amount: 1000,
+      amount: qs.amount,
       dedupe_id: Math.random()
     }
   }, (req, response, body) => {
