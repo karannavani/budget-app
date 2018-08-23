@@ -52,10 +52,9 @@ router.route('/food')
 
 router.route('/food/:id')
   .get(foodController.showRestaurant);
-// .get(foodController.locationPhoto);
 
-router.route('/food/locationphoto')
-  .get(foodController.locationPhoto);
+// router.route('/food/locationphoto')
+//   .get(foodController.locationPhoto);
 
 router.route('/tflOptions')
   .get(journeyController.generateTflOptions);
