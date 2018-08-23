@@ -1,12 +1,12 @@
-<h2 class="title is-2">Get somewhere</h2>
+<h2 class="state-title">Get somewhere</h2>
 
 <form class="locationInput" action="index.html" method="post">
   <div class="field">
-    <label class="label">From</label>
+    <label class="form-input-text label">From</label>
     <input class="input" type="text" name="startPoint" value="Current Location" readonly>
   </div>
   <div class="field">
-    <label class="label">To (Postcode)</label>
+    <label class="form-input-text label">To (Postcode)</label>
     <input ng-model="endPoint" class="input" type="text" name="endPoint" placeholder="eg: E1 7PT">
   </div>
   <button class="button" date-target="pageloader" type="button" name="button" ng-click="generateOptions()">Go</button>

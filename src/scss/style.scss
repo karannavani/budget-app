@@ -22,6 +22,7 @@ html {
   background: -webkit-linear-gradient(to right, #4d5054, #002d56); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #4d5054, #002d56);
   margin: none;
+  z-index: 1;
   .navbar-end a {
     color: white;
     background: #002d56; /* fallback for old browsers */
@@ -36,11 +37,14 @@ html {
   color: #67bde2 !important;
 }
 
-#state-title {
+
+
+
+.state-title {
   font-family: 'Rubik', sans-serif;
   text-transform: uppercase;
   color:white;
-  font-size: 40px;
+  font-size: 30px;
   font-weight: bold;
   letter-spacing: 3px;
 }
@@ -48,6 +52,34 @@ html {
 .dashboard-text {
   color: #ea4c89;
 }
+
+
+
+.profilePic {
+  border-radius: 25px;
+}
+
+.profile-info-text {
+  color: #ffb942 !important;
+  font-family: 'Rubik', sans-serif;
+  font-weight: bold;
+  }
+
+.profile-name {
+  // inherit profile-info-text
+  margin-bottom: none !important;
+  font-size: 20px;
+}
+
+.amount-saved {
+  color: white;
+}
+
+
+
+
+
+
 
 .expense-title {
   color: #ffb942;
