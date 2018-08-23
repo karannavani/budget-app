@@ -16,7 +16,6 @@ function ProfileShowCtrl($http, $scope, $state, $rootScope, $window) {
     $window.open('/api/monzo', '_blank');
   };
 
-
   $scope.fetchMonzo = function() {
     $http({
       method: 'GET',
@@ -39,10 +38,14 @@ function ProfileShowCtrl($http, $scope, $state, $rootScope, $window) {
 
   };
 
-  $scope.moveSavings = function() {
+  $scope.moveSavings = function(event) {
     $http({
       method: 'GET',
       url: '/api/movesavings',
+      params: {
+        amount: $scope.mySavings * 100,
+        id: event.target.id
+      },
       skipAuthorization: true
     })
       .then(res => {
