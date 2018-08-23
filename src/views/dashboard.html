@@ -1,46 +1,50 @@
-<h2 id="state-title" class="title is-2">Welcome {{ user.firstName }}</h2>
-<h4 class="dashboard-text title is-4">Your budget today is</h4>
-<!-- <h1 class="title is-1" ng-switch-default id="user.dailyBudget">£{{ user.dailyBudget }}</h1> -->
+<div class="w3-container w3-center w3-animate-top w3-hover-shadow">
 
-<div class="columns is-multiline is-mobile">
-  <div class="column is-10">
-    <div ng-switch="mode" class="dashBudget">
-      <input class="budget-title" ng-switch-when="edit" id="edit" ng-model="user.dailyBudget" placeholder="£">
-      <h1 class="budget-title" ng-switch-default id="user.dailyBudget"><span class="budget-title">£</span>{{ user.dailyBudget }}</h1>
+  <h2 id="state-title" class="title is-2">Welcome {{ user.firstName }}</h2>
+  <h4 class="dashboard-text title is-4">Your budget today is</h4>
+  <!-- <h1 class="title is-1" ng-switch-default id="user.dailyBudget">£{{ user.dailyBudget }}</h1> -->
+
+  <div class="columns is-multiline is-mobile">
+    <div class="column is-10">
+      <div ng-switch="mode" class="dashBudget">
+        <input class="budget-title" ng-switch-when="edit" id="edit" ng-model="user.dailyBudget" placeholder="£">
+        <h1 class="budget-title" ng-switch-default id="user.dailyBudget"><span class="budget-title">£</span>{{ user.dailyBudget }}</h1>
+      </div>
+    </div>
+    <div class="column">
+      <div ng-switch="mode">
+        <button class="button" ng-switch-when="edit" ng-click="saveBudget(user.dailyBudget)">Save</button>
+        <a ng-click="editBudget(user.dailyBudget)" ng-switch-when="notEdit"><i class="fas fa-pen"></i></a>
+      </div>
     </div>
   </div>
-  <div class="column">
-    <div ng-switch="mode">
-      <button class="button" ng-switch-when="edit" ng-click="saveBudget(user.dailyBudget)">Save</button>
-      <a ng-click="editBudget(user.dailyBudget)" ng-switch-when="notEdit"><i class="fas fa-pen"></i></a>
-    </div>
-  </div>
-</div>
 
-<!-- <h4 class="title is-4">You've spent £{{ displayTotal }}</h4> -->
-<!-- <div class="columns"> -->
+  <!-- <h4 class="title is-4">You've spent £{{ displayTotal }}</h4> -->
+  <!-- <div class="columns"> -->
   <!-- <div class="column has-text-centered"> -->
 
-    <zingchart id="myChart" zc-type="ring" zc-height="355" zc-width="355" zc-json="donutChartConfig"></zingchart>
-    <div class="column is-12" id="chartDiv"></div>
+  <zingchart id="myChart" zc-type="ring" zc-height="355" zc-width="355" zc-json="donutChartConfig"></zingchart>
+  <div class="column is-12" id="chartDiv"></div>
   <!-- </div> -->
-<!-- </div> -->
-<!-- <script> -->
+  <!-- </div> -->
+  <!-- <script> -->
 
-<!-- </script> -->
+  <!-- </script> -->
 
 
-<div class="columns is-centered dashButtons">
-  <div class="column has-text-centered">
-    <button type="button" ui-sref = "journeyIndex" class="button is-fullwidth is-rounded is-link">Plan my journey</button>
+  <div class="columns is-centered dashButtons">
+    <div class="column has-text-centered">
+      <button type="button" ui-sref = "journeyIndex" class="button is-fullwidth is-rounded is-link">Plan my journey</button>
+    </div>
+    <div class="column has-text-centered">
+      <button type="button" ui-sref="foodIndex" class="button is-fullwidth is-rounded is-link">Find me food</button>
+    </div>
+    <div class="column has-text-centered">
+      <button type="button" ui-sref = "expensesNew" class="button is-fullwidth is-rounded is-link">Add an expense</button>
+    </div>
+    <div class="column has-text-centered">
+      <button type="button" ui-sref = "goalsIndex" class="button is-fullwidth is-rounded is-link">Check your goals</button>
+    </div>
   </div>
-  <div class="column has-text-centered">
-    <button type="button" ui-sref="foodIndex" class="button is-fullwidth is-rounded is-link">Find me food</button>
-  </div>
-  <div class="column has-text-centered">
-    <button type="button" ui-sref = "expensesNew" class="button is-fullwidth is-rounded is-link">Add an expense</button>
-  </div>
-  <div class="column has-text-centered">
-    <button type="button" ui-sref = "goalsIndex" class="button is-fullwidth is-rounded is-link">Check your goals</button>
-  </div>
+
 </div>

@@ -1,35 +1,37 @@
-<h1 class="title is-1">Edit your profile</h1>
+<div class="w3-container w3-center w3-animate-left w3-hover-shadow">
+  <h1 class="title is-1">Edit your profile</h1>
 
-<form ng-submit="updateProfile()" name="form" novalidate>
-  <div class="field">
-    <label class="label" for="username">Username</label>
-    <input required minlength="2" ng-model="user.username" class="input" type="text" name="username" placeholder="">
-  </div>
+  <form ng-submit="updateProfile()" name="form" novalidate>
+    <div class="field">
+      <label class="label" for="username">Username</label>
+      <input required minlength="2" ng-model="user.username" class="input" type="text" name="username" placeholder="">
+    </div>
 
-  <div class="field">
-    <label class="label" for="firstName">First name</label>
-    <input required minlength="2" ng-model="user.firstName" class="input" type="text" name="firstName" placeholder="">
-  </div>
+    <div class="field">
+      <label class="label" for="firstName">First name</label>
+      <input required minlength="2" ng-model="user.firstName" class="input" type="text" name="firstName" placeholder="">
+    </div>
 
-  <div ng-messages="form.firstName.$error" ng-if="form.firstName.$dirty">
-    <small ng-message="required" >Please add a first name</small>
-    <small ng-message="minlength">That name is too short</small>
-  </div>
+    <div ng-messages="form.firstName.$error" ng-if="form.firstName.$dirty">
+      <small ng-message="required" >Please add a first name</small>
+      <small ng-message="minlength">That name is too short</small>
+    </div>
 
-  <div class="field">
-    <label class="label" for="lastName">Last name</label>
-    <input ng-model="user.lastName" class="input" type="text" name="lastName" placeholder="">
-  </div>
+    <div class="field">
+      <label class="label" for="lastName">Last name</label>
+      <input ng-model="user.lastName" class="input" type="text" name="lastName" placeholder="">
+    </div>
 
-  <div class="field">
-    <label class="label" for="passwordConfirmation">Profile Picture (url)</label>
-    <input ng-model="user.profilePicUrl" class="input" type="text" name="profilePicUrl" placeholder="">
+    <div class="field">
+      <label class="label" for="passwordConfirmation">Profile Picture (url)</label>
+      <input ng-model="user.profilePicUrl" class="input" type="text" name="profilePicUrl" placeholder="">
+    </div>
+
+    <div class="field">
+      <label class="label" for="email">Email</label>
+      <input ng-model="user.email" class="input" type="email" name="email" placeholder="e.g. john.smith@gmail.com">
+    </div>
+
+    <button class="button">Save</button>
+  </form>
 </div>
-
-  <div class="field">
-    <label class="label" for="email">Email</label>
-    <input ng-model="user.email" class="input" type="email" name="email" placeholder="e.g. john.smith@gmail.com">
-  </div>
-
-  <button class="button">Save</button>
-</form>
