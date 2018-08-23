@@ -11,13 +11,12 @@
   </div>
   <button class="button" date-target="pageloader" type="button" name="button" ng-click="generateOptions()">Go</button>
 </form>
+<div class="column is-9-mobile loadingDiv content has-text-centered" ng-if="isClicked && (!uberXDuration || !uberPoolDuration || !busDuration || !bikeDuration || !tubeDuration)">
 
-<div class="column is-9-mobile loadingDiv content has-text-centered" ng-if="isClicked && !uberXDuration && !uberPoolDuration && !busDuration">
   <div class="button is-loading loadingButton"></div>
 </div>
 
-
-<div class="columns" ng-if="uberPoolCost && busDuration">
+<div class="columns" ng-if="uberXDuration && uberPoolDuration && busDuration && bikeDuration && tubeDuration">
   <h4 class="subtitle-text-green topmargin">Your options are:</h4>
   <hr>
   <!-- <div class="busDiv" ng-click="deductJourney($event)"> -->

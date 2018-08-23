@@ -24,14 +24,18 @@
 
 
 <div class="columns">
+  <!-- <div class="column">
+
+  </div> -->
+  <img src="https://monzo.com/static/images/mondo-mark-01.png" class="image is-128x128 is-centered" alt="">
   <div class="column">
-    <h3 class="subtitle-text-green large">View your savings pot from Monzo</h3>
     <button class="button" name="button" ng-click="goToLogin()">Sign in to Monzo</button>
     <button class="button is-pulled-right" name="button" ng-click="fetchMonzo()">Update</button>
   </div>
 </div>
 
 <div class="columns is-multiline monzoDetails">
+  <h3 class="subtitle-text-green large">Savings</h3>
   <div class="card potsCard" ng-repeat="pot in monzoPots">
     <div class="card-content" ng-if="!pot.deleted" ng-click="moveSavings($event)" id="{{ pot.id }}">
       {{ pot.name.toUpperCase() }} – £{{ (pot.balance/100).toFixed(2) }}
