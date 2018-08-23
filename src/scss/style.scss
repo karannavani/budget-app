@@ -18,7 +18,18 @@ html {
 }
 
 .navbar-menu {
-  background-color: #4d5054;
+  background: #002d56; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #4d5054, #002d56); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #4d5054, #002d56);
+  margin: none;
+  .navbar-end a {
+    color: white;
+    background: #002d56; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #4d5054, #002d56); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #4d5054, #002d56);
+    margin: none;
+    font-weight: bold;
+  }
 }
 
 .burger-menu {
@@ -41,6 +52,11 @@ html {
 .expense-title {
   color: #ffb942;
 }
+
+// #myChart-img {
+//   display: flex;
+//   justify-content: center;
+// }
 
 .expense {
   color: white;
