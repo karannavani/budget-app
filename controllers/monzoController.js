@@ -1,10 +1,16 @@
 const rp = require('request-promise');
 const request = require('request');
+const { clientId } = require('../config/environment');
+const { clientSecret } = require('../config/environment');
+const { redirectUri } = require('../config/environment');
 
 const oauthDetails = {
-  clientId: 'oauth2client_00009ZwDIYexsmCFEpJO09',
-  clientSecret: 'mnzpub.nLYRcNz2lKr9XsltNdJXbUygVSci/He9xp3REApCNyfGwPaqNoVQdJN/Z/KMRXlBxip7dSUFcQaZrjkzYWYH',
-  redirectUri: 'http://localhost:4000/api/oauth/callback'
+  // clientId: 'oauth2client_00009ZwDIYexsmCFEpJO09',
+  // clientSecret: 'mnzpub.nLYRcNz2lKr9XsltNdJXbUygVSci/He9xp3REApCNyfGwPaqNoVQdJN/Z/KMRXlBxip7dSUFcQaZrjkzYWYH',
+  // redirectUri: 'http://localhost:4000/api/oauth/callback'
+  clientId,
+  clientSecret,
+  redirectUri
 };
 
 let accessToken = null;
@@ -61,19 +67,43 @@ function callback(req, res) {
 //
 // }
 
-function transactions(req, res) {
-  const { token_type, access_token } = accessToken;
-  const transactionsUrl = `https://api.monzo.com/transactions?expand[]=merchant&account_id=acc_00009OPnV5jnOw9VsS0oKX&since=2018-08-16T23:00:00Z&limit=100`;
+// function transactions(req, res) {
+//   const { token_type, access_token } = accessToken;
+//   const transactionsUrl = `https://api.monzo.com/transactions?expand[]=merchant&account_id=acc_00009OPnV5jnOw9VsS0oKX&since=2018-08-16T23:00:00Z&limit=100`;
+//
+//   request.get(transactionsUrl, {
+//     headers: {
+//       Authorization: `${token_type} ${access_token}`
+//     }
+//   }, (req, response, body) => {
+//     const { transactions } = JSON.parse(body);
+//     // console.log('transactions is =======>', transactions);
+//     // transactionsData = transactions;
+//     res.json(transactions);
+//
+//   });
+// }
 
-  request.get(transactionsUrl, {
+function balance(req, res) {
+  const qs = req.query;
+  const { token_type, access_token } = accessToken;
+  // const potsUrl = `https://api.monzo.com/pots/pot_00009UpCmbImvocgZL3UoL/deposit`;
+
+  rp({
+    method: 'GET',
+    url: `https://api.monzo.com/balance`,
     headers: {
       Authorization: `${token_type} ${access_token}`
+    },
+    query: {
+      account_id: 'acc_00009OPnV5jnOw9VsS0oKX'
     }
   }, (req, response, body) => {
-    const { transactions } = JSON.parse(body);
-    // console.log('transactions is =======>', transactions);
+    console.log('res is', res);
+    const { balance } = JSON.parse(body);
+    console.log('balance is =======>', balance);
     // transactionsData = transactions;
-    res.json(transactions);
+    res.json(balance);
 
   });
 }
@@ -96,16 +126,19 @@ function pots(req, res) {
 }
 
 function moveSavings(req, res) {
+  const qs = req.query;
   const { token_type, access_token } = accessToken;
-  const potsUrl = `https://api.monzo.com/pots/pot_00009UpCmbImvocgZL3UoL/deposit`;
+  // const potsUrl = `https://api.monzo.com/pots/pot_00009UpCmbImvocgZL3UoL/deposit`;
 
-  request.put(potsUrl, {
+  rp({
+    method: 'PUT',
+    url: `https://api.monzo.com/pots/${qs.id}/deposit`,
     headers: {
       Authorization: `${token_type} ${access_token}`
     },
     form: {
       source_account_id: 'acc_00009OPnV5jnOw9VsS0oKX',
-      amount: 1000,
+      amount: qs.amount,
       dedupe_id: Math.random()
     }
   }, (req, response, body) => {
@@ -123,7 +156,8 @@ module.exports = {
   login,
   callback,
   // accounts,
-  transactions,
+  // transactions,
   pots,
-  moveSavings
+  moveSavings,
+  balance
 };
