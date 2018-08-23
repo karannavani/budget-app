@@ -7,6 +7,11 @@ const tflAppKey = process.env.TFL_APP_KEY;
 const tflAppId = process.env.TFL_APP_ID;
 const uberApiKey = process.env.UBER_API_KEY;
 const googleApiKey = process.env.GOOGLE_API_KEY;
+const clientId = process.env.MONZO_CLIENT_ID;
+const clientSecret = process.env.MONZO_CLIENT_SECRET;
+const redirectUri = process.env.MONZO_REDIRECT_URI;
+// MONZO KEYS
 
 
-module.exports = { dbURI, port, secret, zomatoApiKey, tflAppKey, tflAppId, uberApiKey, googleApiKey };
+
+module.exports = { dbURI, port, secret, zomatoApiKey, tflAppKey, tflAppId, uberApiKey, googleApiKey, clientId, clientSecret, redirectUri };

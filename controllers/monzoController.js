@@ -1,10 +1,16 @@
 const rp = require('request-promise');
 const request = require('request');
+const { clientId } = require('../config/environment');
+const { clientSecret } = require('../config/environment');
+const { redirectUri } = require('../config/environment');
 
 const oauthDetails = {
-  clientId: 'oauth2client_00009ZwDIYexsmCFEpJO09',
-  clientSecret: 'mnzpub.nLYRcNz2lKr9XsltNdJXbUygVSci/He9xp3REApCNyfGwPaqNoVQdJN/Z/KMRXlBxip7dSUFcQaZrjkzYWYH',
-  redirectUri: 'http://localhost:4000/api/oauth/callback'
+  // clientId: 'oauth2client_00009ZwDIYexsmCFEpJO09',
+  // clientSecret: 'mnzpub.nLYRcNz2lKr9XsltNdJXbUygVSci/He9xp3REApCNyfGwPaqNoVQdJN/Z/KMRXlBxip7dSUFcQaZrjkzYWYH',
+  // redirectUri: 'http://localhost:4000/api/oauth/callback'
+  clientId,
+  clientSecret,
+  redirectUri
 };
 
 let accessToken = null;
