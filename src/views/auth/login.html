@@ -1,18 +1,18 @@
-<div class="w3-container w3-center w3-animate-left w3-hover-shadow">
-  <h2 id="state-title" class="title is-2">Welcome to Thrifty!</h2>
+<div class="w3-container w3-animate-left">
+  <h2 class="state-title">Welcome to Thrifty!</h2>
   <h5 class="login-about title is-5">A place to plan your daily spend, look for money saving suggestions
     and keep track of your financial goals.</h5>
-    <h6 class="login-text title is-6">Log in to continue or sign up</h6>
+    <h6 class="form-input-text title is-6">Log in to continue or sign up</h6>
     <form ng-submit="login()">
       <!-- <input type="hidden" ng-model="user.id" class="input" type="id" name="id"> -->
 
       <div class="field">
-        <label class="login-text label" for="email">Email</label>
+        <label class="form-input-text label" for="email">Email</label>
         <input ng-model="user.email" class="input" type="email" name="email" placeholder="e.g. john.smith@gmail.com">
       </div>
 
       <div class="field">
-        <label class="login-text label" for="password">Password</label>
+        <label class="form-input-text label" for="password">Password</label>
         <input ng-model="user.password" class="input" type="password" name="password" placeholder="">
       </div>
 

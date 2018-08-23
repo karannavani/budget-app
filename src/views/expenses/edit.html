@@ -1,22 +1,22 @@
-<div class="w3-container w3-center w3-animate-left w3-hover-shadow">
-  <h1 id="state-title" class="title is-2 has-text-centered">Edit Expense</h1>
+<div class="w3-container  w3-animate-left ">
+  <h1 class="state-title">Edit Expense</h1>
   <div class="container">
     <div class="column">
       <form ng-submit="updateExpense()">
         <div class="field">
-          <label for="type">Type</label>
+          <label class="form-text-input" for="type">Type</label>
           <input ng-model="expense.type" type="text" name="type" class="input">
         </div>
         <div class="field">
-          <label for="cost">Price</label>
+          <label class="form-text-input" for="cost">Price</label>
           <input ng-model="expense.cost" type="text" name="cost" class="input">
         </div>
         <div class="field">
-          <label for="merchant">Vendor</label>
+          <label class="form-text-input" for="merchant">Vendor</label>
           <input ng-model="expense.merchant" type="text" name="merchant" class="input">
         </div>
         <div class="field">
-          <label for="location">Location</label>
+          <label class="form-text-input" for="location">Location</label>
           <input ng-model="expense.location" type="text" name="location" class="input">
         </div>
         <!-- Radio Buttons -->
@@ -46,5 +46,4 @@
       </form>
     </div>
   </div>
-  {{ expenses.length }}
 </div>

@@ -1,14 +1,14 @@
-<div class="w3-container w3-center w3-animate-right w3-hover-shadow">
-  <h2 class="title is-2">You're almost there...</h2>
+<div class="w3-container w3-animate-right">
+  <h2 class="state-title">Get Thrifty...</h2>
 
   <form ng-submit="register()" name="form" novalidate>
     <div class="field">
-      <label class="label" for="username">Username</label>
+      <label class="form-input-text label" for="username">Username</label>
       <input required minlength="2" ng-model="user.username" class="input" type="text" name="username" placeholder="">
     </div>
 
     <div class="field">
-      <label class="label" for="firstName">First name</label>
+      <label class="form-input-text label" for="firstName">First name</label>
       <input required minlength="2" ng-model="user.firstName" class="input" type="text" name="firstName" placeholder="">
     </div>
 
@@ -18,31 +18,30 @@
     </div>
 
     <div class="field">
-      <label class="label" for="lastName">Last name</label>
+      <label class="form-input-text label" for="lastName">Last name</label>
       <input ng-model="user.lastName" class="input" type="text" name="lastName" placeholder="">
     </div>
 
     <div class="field">
-      <label class="label" for="passwordConfirmation">Profile Picture (url)</label>
+      <label class="form-input-text label" for="passwordConfirmation">Profile Picture (url)</label>
       <input ng-model="user.profilePicUrl" class="input" type="text" name="profilePicUrl" placeholder="">
     </div>
 
     <div class="field">
-      <label class="label" for="email">Email</label>
+      <label class="form-input-text label" for="email">Email</label>
       <input ng-model="user.email" class="input" type="email" name="email" placeholder="e.g. john.smith@gmail.com">
     </div>
 
     <div class="field">
-      <label class="label" for="password">Password</label>
+      <label class="form-input-text label" for="password">Password</label>
       <input ng-model="user.password" class="input" type="password" name="password" placeholder="">
+    </div>
 
-      <div class="field">
-        <label class="label" for="passwordConfirmation">Confirm your password</label>
-        <input ng-model="user.passwordConfirmation" class="input" type="password" name="passwordConfirmation" placeholder="">
-      </div>
+    <div class="field">
+      <label class="form-input-text label" for="passwordConfirmation">Confirm your password</label>
+      <input ng-model="user.passwordConfirmation" class="input" type="password" name="passwordConfirmation" placeholder="">
+    </div>
 
-      <button class="button">Sign up</button>
-    </form>
-
-  </div>
+    <button class="button">Sign up</button>
+  </form>
 </div>

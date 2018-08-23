@@ -1,23 +1,22 @@
-
-<div class="w3-container w3-center w3-animate-right w3-hover-shadow">
-  <h1 id="state-title" class="title is-2 has-text-centered">Enter spend details</h1>
+<div class="w3-container  w3-animate-right ">
+  <h1 class="state-title">Enter spend details</h1>
   <div class="container">
     <div class="column">
       <form ng-submit="createExpense()">
         <div class="field">
-          <label for="type">Type</label>
+          <label class="form-input-text" for="type">Type</label>
           <input ng-model="expense.type" type="text" name="type" class="input" placeholder="e.g. Coffee">
         </div>
         <div class="field">
-          <label for="cost">Price</label>
+          <label class="form-input-text" for="cost">Price</label>
           <input ng-model="expense.cost" type="text" name="cost" class="input">
         </div>
         <div class="field">
-          <label for="merchant">Vendor</label>
+          <label class="form-input-text" for="merchant">Vendor</label>
           <input ng-model="expense.merchant" type="text" name="merchant" class="input" placeholder="e.g. Black Sheep Coffee">
         </div>
         <div class="field">
-          <label for="location">Location</label>
+          <label class="form-input-text" for="location">Location</label>
           <input ng-model="expense.location" type="text" name="location" class="input" placeholder="e.g. Aldgate East">
         </div>
 
