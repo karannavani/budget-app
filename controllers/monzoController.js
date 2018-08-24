@@ -8,7 +8,8 @@ const { redirectUri } = require('../config/environment');
 // const month = today.toLocaleString().slice(3,5);
 // const year = today.toLocaleString().slice(6,10);
 const date = (new Date()).toISOString().slice(0,10);
-const today = (new Date()).toISOString().slice(0,10)+'T00:00:00Z';
+// const today = (new Date()).toISOString().slice(0,10)+'T00:00:00Z';
+const today = '2018-08-23T00:00:00Z';
 
 const oauthDetails = {
   // clientId: 'oauth2client_00009ZwDIYexsmCFEpJO09',
