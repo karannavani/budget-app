@@ -1,3 +1,5 @@
+let resPic;
+
 function FoodCtrl($scope, $http, $rootScope) {
   navigator.geolocation.getCurrentPosition(userPosition => {
     $scope.userPosition = userPosition;
@@ -21,6 +23,16 @@ function FoodCtrl($scope, $http, $rootScope) {
         console.log('res.data ->', res.data);
         $scope.restaurants = res.data.restaurants;
         console.log('location from scope is', $scope.restaurants);
+        console.log('finding type', $scope.restaurants[0].restaurant.cuisines);
+        // $scope.restaurants.forEach(restaurant => {
+        //   respic = restaurant.restaurant.cuisines;
+        //     switch(resPic) {
+        //       case 'British': $scope.restaurant.picture = '';
+        //       break;
+        //       case 'Indian, Curry': $scope.restaurant.picture = '';
+        //     }
+        //   }
+        // } )
       });
   }
 
