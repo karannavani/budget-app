@@ -9,7 +9,7 @@ function GoalsEditCtrl($scope, $http, $state, $rootScope) {
         { type: 'success',
           content: 'Changes have been saved'
         }))
-      .then(() =>$state.go('goalsShow', { id: $state.params.id }));
+      .then(() =>$state.go('goalsIndex'));
   };
 
   $http({

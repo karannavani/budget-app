@@ -16,6 +16,7 @@ hr {
 }
 
 .nav-title {
+  font-family: 'Rubik', sans-serif;
   color: white !important;
   font-weight: bold;
   font-size: 25px;
@@ -29,7 +30,8 @@ hr {
   margin: none;
   z-index: 1;
   .navbar-end a {
-    color: white;
+    font-family: 'Rubik', sans-serif;
+    color: #ffb942;
     background: #002d56; /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #4d5054, #002d56); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #4d5054, #002d56);
@@ -150,6 +152,15 @@ hr {
   font-family: 'Rubik', sans-serif;
   font-size: 15px;
   color: #ea4c89;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.restaurant-show-title {
+  font-family: 'Rubik', sans-serif;
+  font-size: 15px;
+  color: #ffb942;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;

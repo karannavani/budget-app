@@ -5,7 +5,7 @@
   <div class="column is-half-mobile">
     <h1 class="profile-info-text profile-name">{{ user.firstName }} {{ user.lastName }}</h1>
     <h6 class="profile-info-text profile-since">User since {{ user.createdAt.slice(8,10) }}/{{ user.createdAt.slice(5,7) }}/{{ user.createdAt.slice(0,4) }}</h6>
-    <button class="button" name="button" ui-sref="profileEdit({ id: user._id })">Edit Profile</button>
+    <button class="button is-pulled-right" name="button" ui-sref="profileEdit({ id: user._id })"><i class="fas fa-user-edit"></i></button>
   </div>
 </div>
 <div class="columns">
@@ -23,11 +23,12 @@
 <hr>
 
 <div class="columns is-mobile is-multiline">
-    <div class="column is-6 is-offset-4 has-text-centered">
-      <img src="https://monzo.com/static/images/mondo-mark-01.png" class="monzo image is-128x128" alt="Monzo Bank">
+    <div class="column is-12 has-text-centered">
+      <!-- <img src="https://monzo.com/static/images/mondo-mark-01.png" class="monzo image is-128x128" alt="Monzo Bank"> -->
+      <img src="https://discourse-cdn-sjc1.com/business5/uploads/getmondo/original/2X/9/9b0eada5d0989a2065995d74e3ffa2d891967708.png" class="monzo" alt="Monzo Bank">
     </div>
   <div class="column">
-    <button class="button" name="button" ng-click="goToLogin()">Sign in to Monzo</button>
+    <button class="button" name="button" ng-click="goToLogin()">Link to Monzo</button>
   </div>
   <div class="column is-pulled-right">
     <button class="button is-pulled-right" name="button" ng-click="fetchMonzo()">Update</button>

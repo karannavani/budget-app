@@ -1,4 +1,9 @@
-<h1 class="state-title">Your goals</h1>
+<div class="columns is-multiline is-mobile">
+  <div class="state-title column is-10">You have {{ goals.length}} goals</div>
+  <div class="column is-2">
+    <div class="button is-info" ui-sref="goalsNew"><i class="fas fa-plus-circle"></i></div>
+  </div>
+</div>
 <div class="container">
   <div class="" ng-repeat="goal in goals | orderBy : 'createdAt'">
     <div class="card-content">
@@ -17,7 +22,7 @@
         <p class="show-detail-orange">{{goal.progress}}% to your goal!</p>
         <p class="show-detail-orange">Deadline: {{goal.deadline}}</p>
       </a>
+      <hr>
     </div>
   </div>
-  <a class="button bottommargin" ui-sref="goalsNew"> Add a goal </a>
 </div>
