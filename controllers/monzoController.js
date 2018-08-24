@@ -50,6 +50,7 @@ function callback(req, res) {
   }, (err, response, body) => {
     accessToken = JSON.parse(body); // Populate access_token variable with token response
     console.log('callback access token is ===>', accessToken);
+    res.redirect('https://thriftyapp.herokuapp.com/#!/users/5b7b0e7b8e801f00331e1f0e')
     // res.redirect('/api/transactions'); // Send user to their accounts
   });
 
