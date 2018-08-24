@@ -102,7 +102,7 @@ function DashboardCtrl($rootScope, $scope, $http) {
     if($scope.spendData){
       $scope.donutChartConfig = {
         'globals': {
-          'font-family': 'Lato',
+          'font-family': 'Rubik',
           'font-weight': '100'
         },
         'graphset': [
