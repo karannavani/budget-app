@@ -1,19 +1,18 @@
-<h1 class="state-title">{{ res.name }}</h1>
+<h1 class="state-title">{{ restaurant.name }}</h1>
 <hr>
 <div class="columns is-mobile is-multiline">
   <div class="column is-half-mobile">
-    <a href="{{ restaurant.images_url }}"> <img src="{{ restaurant.feature_img }}" alt="{{ restaurant.name }}"> </a>
-    <div class="">
-      {{ restaurant.cuisines }}
+    <a href="{{ restaurant.images_url }}"> <img src="https://images1.houstonpress.com/imager/u/745xauto/9275907/houfood_170315_gusfc_cuclam.jpg" alt=""> </a>
+    <div class="restaurant-show-title">
+      {{ restaurant.location.address }}
     </div>
   </div>
   <div class="column is-half-mobile">
-    <div class="">
-      {{ restaurant.location.address }}
+    <div class="show-detail-white">
+      <p class="show-detail-white">{{ restaurant.cuisines }}</p>
+      <p class="show-detail-white">Roughly £{{ restaurant.average_cost_for_two / 2 }} pp</p>
     </div>
-
-
-    </div>
-    <button class="button is-info is-full-mobile" href="{{ restaurant.menu_url }}">See the menu</button>
-    <div class="column is-full-mobile map" ng-map ></div>
   </div>
+  <div class="column is-full-mobile map" ng-map ></div>
+  <button class="button is-info is-full-mobile" href="{{ restaurant.menu_url }}">See the menu</button>
+</div>

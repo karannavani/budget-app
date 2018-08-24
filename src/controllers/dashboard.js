@@ -102,7 +102,7 @@ function DashboardCtrl($rootScope, $scope, $http) {
     if($scope.spendData){
       $scope.donutChartConfig = {
         'globals': {
-          'font-family': 'Lato',
+          'font-family': 'Rubik',
           'font-weight': '100'
         },
         'graphset': [
@@ -127,7 +127,7 @@ function DashboardCtrl($rootScope, $scope, $http) {
                 'type': 'first',
                 'connected': false,
                 'placement': 'center',
-                'text': `<span style='font-size:40px;'>You've spent</span><br><span>£${totalCost}</span><br><span style='font-size:25px;'>You've got £${$rootScope.remainder} left</span>`,
+                'text': `<span style='font-size:36px;'>You've spent</span><br><span>£${totalCost}</span><br><span style='font-size:25px;'>You've got £${$rootScope.remainder} left</span>`,
                 'rules': [
                   {
                     'rule': '%v > 50',
