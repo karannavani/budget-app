@@ -1,3 +1,9 @@
+let cost;
+let type;
+let merchant;
+let monzoId;
+const userExpenses = [];
+
 function ProfileShowCtrl($http, $scope, $state, $rootScope, $window) {
   $http({
     method: 'GET',
@@ -7,6 +13,8 @@ function ProfileShowCtrl($http, $scope, $state, $rootScope, $window) {
       console.log('Found a user', res.data);
       $scope.user = res.data;
     });
+
+  getExpenses();
 
   // $rootScope.user.savingsArray.forEach
   $rootScope.mySavings = $rootScope.user.savingsArray.reduce( (accumulator, currentValue) => accumulator + currentValue, 0);
@@ -68,9 +76,25 @@ function ProfileShowCtrl($http, $scope, $state, $rootScope, $window) {
     const spentTodayArr = [];
     $scope.monzoTransactions.forEach(transaction => {
       // console.log(Math.abs(transaction.amount/100).toFixed(2));
+
       if(transaction.scheme !== 'uk_retail_pot') {
         spentTodayArr.push(parseFloat(Math.abs(transaction.amount/100).toFixed(2)));
+
+        // $scope.expenses.forEach(expense => {
+        const existingTransaction = $scope.expenses.find(function (existingTransaction) {
+          return existingTransaction.monzoId === transaction.id;
+        });
+        if(!existingTransaction) {
+          cost = (parseFloat(Math.abs(transaction.amount/100).toFixed(2)));
+          merchant = transaction.merchant.name;
+          type = transaction.category;
+          monzoId = transaction.id;
+          createExpense();
+        }
+        // });
+
       }
+
     });
     console.log('spent array is', spentTodayArr);
     $scope.spentToday = spentTodayArr.reduce((a, b) => a + b, 0);
@@ -78,99 +102,33 @@ function ProfileShowCtrl($http, $scope, $state, $rootScope, $window) {
 
   }
 
-  // $scope.myConfig = {
-  //   type: 'hbar',
-  //   backgroundColor : 'none',
-  //   tooltip:{visible:false},
-  //   scaleX : {
-  //     lineColor : 'transparent',
-  //     tick : {
-  //       visible : false
-  //     },
-  //     labels : [ 'Dev', 'R&D', 'Testing'],
-  //     item : {
-  //       fontColor : '#e8e8e8',
-  //       fontSize : 16
-  //     }
-  //   },
-  //   scaleY :{
-  //     visible : false,
-  //     lineColor : 'transparent',
-  //     guide : {
-  //       visible : false
-  //     },
-  //     tick : {
-  //       visible : false
-  //     }
-  //   },
-  //   plotarea : {
-  //     marginLeft : '80',
-  //     marginTop : '30',
-  //     marginBottom : '30'
-  //   },
-  //   plot : {
-  //     stacked : true,
-  //     barsSpaceLeft : '20px',
-  //     barsSpaceRight : '20px',
-  //     valueBox : {
-  //       visible : true,
-  //       text : '%v0%',
-  //       fontColor : '#2A2B3A',
-  //       fontSize: 14
-  //     },
-  //     tooltip : {
-  //       borderWidth : 0,
-  //       borderRadius : 2
-  //     },
-  //     animation:{
-  //       effect:3,
-  //       sequence:3,
-  //       method:3
-  //     }
-  //   },
-  //   series : [
-  //     {
-  //       values : [3,2,6],
-  //       borderRadius : '50px 0px 0px 50px',
-  //       backgroundColor : '#E71D36',
-  //       rules : [
-  //         {
-  //           rule : '%i === 0',
-  //           backgroundColor : '#E71D36'
-  //         },
-  //         {
-  //           rule : '%i === 1',
-  //           backgroundColor : '#2EC4B6'
-  //         },
-  //         {
-  //           rule : '%i === 2',
-  //           backgroundColor : '#FF9F1C'
-  //         }
-  //       ]
-  //     },
-  //     {
-  //       values : [7,8,4],
-  //       borderRadius : '0px 50px 50px 0px',
-  //       backgroundColor : '#E71D36',
-  //       //alpha : 0.8,
-  //       rules : [
-  //         {
-  //           rule : '%i === 0',
-  //           backgroundColor : '#e85d6f'
-  //         },
-  //         {
-  //           rule : '%i === 1',
-  //           backgroundColor : '#90eae2'
-  //         },
-  //         {
-  //           rule : '%i === 2',
-  //           backgroundColor : '#f7be70'
-  //         }
-  //       ]
-  //     }
-  //   ]
-  // };
+  function createExpense() {
 
+    $http({
+      method: 'POST',
+      url: '/api/expenses',
+      createdBy: $scope.user,
+      data: { createdBy: $scope.user, cost: cost, merchant: merchant, type: type, monzoId: monzoId }
+    })
+      .then(() => $rootScope.$broadcast('flashMessage',
+        { type: 'success',
+          content: 'You created a new expense'
+        }));
+  }
+
+  function getExpenses() {
+    $http({
+      method: 'GET',
+      url: '/api/expenses'
+    })
+      .then(res => {
+        res.data.forEach(expense => {
+          if(expense.createdBy._id === $rootScope.user._id) userExpenses.push(expense);
+        });
+        $scope.expenses = userExpenses;
+        console.log('expenses are', $scope.expenses);
+      });
+  }
 
 }
 

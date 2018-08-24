@@ -38,7 +38,7 @@
 <div class="columns is-multiline monzoDetails">
   <div class="column" ng-if="monzoBalance">
   <h3 class="subtitle-text-green large">Today</h3>
-  <h3 class="show-detail-white">You've spent £{{ spentToday }}</h3>
+  <h3 class="show-detail-white">You've spent £{{ spentToday.toFixed(2) }}</h3>
   <h3 class="show-detail-white">Your balance is £{{ monzoBalance }}</h3>
     </div>
 
