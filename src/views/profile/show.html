@@ -36,10 +36,19 @@
 </div>
 
 <div class="columns is-multiline monzoDetails">
-  <h3 class="subtitle-text-green large">Savings</h3>
+  <div class="column" ng-if="monzoBalance">
+  <h3 class="subtitle-text-green large">Today</h3>
+  <h3 class="show-detail-white">You've spent £{{ spentToday }}</h3>
+  <h3 class="show-detail-white">Your balance is £{{ monzoBalance }}</h3>
+    </div>
+
+      <!-- <zingchart id="myChart2" zc-type="hbar" zc-height="325" zc-width="325" zc-json="myConfig"></zingchart> -->
+  <div class="column">
+  <h3 class="subtitle-text-green large" ng-if="monzoPots">Savings</h3>
   <div class="card potsCard" ng-repeat="pot in monzoPots">
     <div class="card-content" ng-if="!pot.deleted" ng-click="moveSavings($event)" id="{{ pot.id }}">
       {{ pot.name.toUpperCase() }} – £{{ (pot.balance/100).toFixed(2) }}
     </div>
   </div>
+    </div>
 </div>

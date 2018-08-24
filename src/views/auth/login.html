@@ -12,7 +12,7 @@
 
     <div class="field">
       <label class="form-input-text label" for="password">Password</label>
-      <input ng-model="user.password" class="input" type="password" name="password" placeholder="">
+      <input ng-model="user.password" class="input" type="password" name="password" ng-init="user.password=''">
     </div>
 
     <div class="login-buttons columns is-multiline is-mobile">

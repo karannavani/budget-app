@@ -37,6 +37,8 @@ import FoodCtrl from './controllers/food/index';
 import RestaurantCtrl from './controllers/food/show';
 
 import MonzoCtrl from './controllers/monzo/login';
+
+import MonzoAuthCtrl from './controllers/monzo/auth';
 // Directives (charts also in the html)
 import Map from './directives/map';
 
@@ -69,6 +71,9 @@ angular.module('Thrifty',
   .controller('RestaurantCtrl', RestaurantCtrl)
 
   .controller('MonzoCtrl', MonzoCtrl)
+  .controller('MonzoAuthCtrl', MonzoAuthCtrl)
+
+  // .controller('myController', MainCtrl)
 
   .config(Router)
   .config(function($authProvider) {

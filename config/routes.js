@@ -83,8 +83,8 @@ router.route('/pots')
 router.route('/movesavings')
   .get(monzoController.moveSavings);
 
-// router.route('/balance')
-//   .get(monzoController.balance);
+router.route('/balance')
+  .get(monzoController.balance);
 //
 
 

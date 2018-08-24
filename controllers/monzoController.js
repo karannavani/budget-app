@@ -8,7 +8,7 @@ const { redirectUri } = require('../config/environment');
 // const month = today.toLocaleString().slice(3,5);
 // const year = today.toLocaleString().slice(6,10);
 const date = (new Date()).toISOString().slice(0,10);
-const today = (new Date()).toISOString().slice(0,10)+'T00:00:00Z'
+const today = (new Date()).toISOString().slice(0,10)+'T00:00:00Z';
 
 const oauthDetails = {
   // clientId: 'oauth2client_00009ZwDIYexsmCFEpJO09',
@@ -50,6 +50,11 @@ function callback(req, res) {
   }, (err, response, body) => {
     accessToken = JSON.parse(body); // Populate access_token variable with token response
     console.log('callback access token is ===>', accessToken);
+    res.type('html');
+    res.status(200);
+    res.send(`<p>HELLO WORLD!</p>`);
+
+    // res.redirect('https://thriftyapp.herokuapp.com/#!/users/5b7b0e7b8e801f00331e1f0e')
     // res.redirect('/api/transactions'); // Send user to their accounts
   });
 
@@ -91,26 +96,26 @@ function transactions(req, res) {
   });
 }
 
-// function balance(req, res) {
-//   const qs = req.query;
-//   const { token_type, access_token } = accessToken;
-//   // const potsUrl = `https://api.monzo.com/pots/pot_00009UpCmbImvocgZL3UoL/deposit`;
-//
-//   rp({
-//     method: 'GET',
-//     url: `https://api.monzo.com/balance?account_id=acc_00009OPnV5jnOw9VsS0oKX`,
-//     headers: {
-//       Authorization: `${token_type} ${access_token}`
-//     }
-//   }, (req, response, body) => {
-//     console.log('res is', res);
-//     const { balance } = JSON.parse(body);
-//     console.log('balance is =======>', balance);
-//     // transactionsData = transactions;
-//     res.json(balance);
-//
-//   });
-// }
+function balance(req, res) {
+  const qs = req.query;
+  const { token_type, access_token } = accessToken;
+  // const potsUrl = `https://api.monzo.com/pots/pot_00009UpCmbImvocgZL3UoL/deposit`;
+
+  rp({
+    method: 'GET',
+    url: `https://api.monzo.com/balance?account_id=acc_00009OPnV5jnOw9VsS0oKX`,
+    headers: {
+      Authorization: `${token_type} ${access_token}`
+    }
+  }, (req, response, body) => {
+    console.log('res is', res);
+    const { balance } = JSON.parse(body);
+    console.log('balance is =======>', balance);
+    // transactionsData = transactions;
+    res.json(balance);
+
+  });
+}
 
 function pots(req, res) {
   const { token_type, access_token } = accessToken;
@@ -162,5 +167,6 @@ module.exports = {
   // accounts,
   transactions,
   pots,
-  moveSavings
+  moveSavings,
+  balance
 };
