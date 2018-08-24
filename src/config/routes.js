@@ -113,6 +113,10 @@ function Router($stateProvider, $urlRouterProvider) {
       templateUrl: './views/monzo/login.html',
       url: '/monzo',
       controller: 'MonzoCtrl'
+    })
+    .state('monzoAuth', {
+      url: '/callback',
+      controller: 'MonzoAuthCtrl'
     });
 
   $urlRouterProvider.otherwise('/login');
