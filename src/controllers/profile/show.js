@@ -81,16 +81,16 @@ function ProfileShowCtrl($http, $scope, $state, $rootScope, $window) {
         spentTodayArr.push(parseFloat(Math.abs(transaction.amount/100).toFixed(2)));
 
         // $scope.expenses.forEach(expense => {
-          const existingTransaction = $scope.expenses.find(function (existingTransaction) {
+        const existingTransaction = $scope.expenses.find(function (existingTransaction) {
           return existingTransaction.monzoId === transaction.id;
-          });
-          if(!existingTransaction) {
-            cost = (parseFloat(Math.abs(transaction.amount/100).toFixed(2)));
-            merchant = transaction.merchant.name;
-            type = transaction.category;
-            monzoId = transaction.id;
-            createExpense();
-          }
+        });
+        if(!existingTransaction) {
+          cost = (parseFloat(Math.abs(transaction.amount/100).toFixed(2)));
+          merchant = transaction.merchant.name;
+          type = transaction.category;
+          monzoId = transaction.id;
+          createExpense();
+        }
         // });
 
       }
