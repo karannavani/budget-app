@@ -31,7 +31,7 @@ describe('DELETE /goal/:id', () => {
       });
   });
 
-  xit('Returns a 401 without a token?', done => {
+  it('Returns a 401 without a token?', done => {
     api.delete(`/api/goals/${goalId}`)
       .end((err, res) => {
         expect(res.status).to.eq(401);
@@ -39,7 +39,7 @@ describe('DELETE /goal/:id', () => {
       });
   });
 
-  xit('Returns a 204 with a token?', done => {
+  it('Returns a 204 with a token?', done => {
     api.delete(`/api/goals/${goalId}`)
       .set('Authorization', `Bearer ${token}`)
       .end((err, res) => {
@@ -48,7 +48,7 @@ describe('DELETE /goal/:id', () => {
       });
   });
 
-  xit('Delete the goal?', done => {
+  it('Delete the goal?', done => {
     api.delete(`/api/goals/${goalId}`)
       .set('Authorization', `Bearer ${token}`)
       .then(() => Goal.find())

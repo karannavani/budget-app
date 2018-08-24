@@ -1,6 +1,10 @@
 /*global describe, expect, api, it, beforeEach */
 
 const Goal = require('../../models/goal');
+const User = require('../../models/user');
+const jwt = require('jsonwebtoken');
+const { secret } = require('../../config/environment');
+
 const goalData = [{
   name: 'Vespa SS 180',
   cost: 1200,
@@ -23,54 +27,78 @@ const goalData = [{
   websiteUrl: 'http://www.minresco.com/fulgurites/fulgurites.htm'
 }];
 
+const userData = { username: 'louis',
+  firstName: 'Louis',
+  lastName: 'Glick',
+  email: 'lg@hotmail.com',
+  password: 'pass',
+  passwordConfirmation: 'pass',
+  dailyBudget: 15,
+  weeklyBudget: 75,
+  profilePicUrl: 'https://upload.wikimedia.org/wikipedia/en/c/c5/Rincewind.png' };
+
+let token;
+
 describe('GET /goals', () => {
   beforeEach(done => {
+    User.remove({})
+      .then(() => User.create(userData))
+      .then(user => {
+        token = jwt.sign({ sub: user.id }, secret, { expiresIn: '1hr'} );
+      });
     Goal.remove({})
       .then(()=> Goal.create(goalData))
       .then(() => done());
   });
 
-  xit('returns a 200 responce?', done => {
+  it('returns a 200 response', done => {
     api.get('/api/goals')
+      .set('Authorization', `Bearer ${token}`)
+      .send(userData)
       .end((err, res) => {
         expect(res.status).to.eq(200);
         done();
       });
   });
 
-  xit('returns an array?', done => {
+  it('returns an array', done => {
     api.get('/api/goals')
+      .set('Authorization', `Bearer ${token}`)
+      .send(userData)
       .end((err, res) => {
         expect(res.body).to.be.an('array');
         done();
       });
   });
-  xit('returns an array of the correct?', done => {
+  it('returns an array of the correct length', done => {
     api.get('/api/goals')
+      .set('Authorization', `Bearer ${token}`)
+      .send(userData)
       .end((err, res) => {
         expect(res.body.length).to.eq(goalData.length);
         done();
       });
   });
 
-  xit('returns an array of objects?', done => {
+  it('returns an array of objects', done => {
     api.get('/api/goals')
+      .set('Authorization', `Bearer ${token}`)
+      .send(userData)
       .end((err, res) => {
         res.body.forEach(goal => expect(goal).to.be.an('object'));
         done();
       });
   });
 
-  xit('returns the correct data?', done => {
+  it('returns the correct data', done => {
     api.get('/api/goals')
+      .set('Authorization', `Bearer ${token}`)
+      .send(userData)
       .end((err, res) => {
         res.body.forEach((goal) => {
           const dataGoal = goalData.filter(gOAL => gOAL.name === goal.name) [0];
           expect(goal.name).to.eq(dataGoal.name);
           expect(goal.cost).to.eq(dataGoal.cost);
-          expect(goal.deadline).to.eq(dataGoal.deadline);
-          expect(goal.alreadySaved).to.eq(dataGoal.alreadySaved);
-          expect(goal.websiteUrl).to.eq(dataGoal.websiteUrl);
         });
         done();
       });

@@ -35,7 +35,7 @@ describe('PUT /goals/:id', () => {
       });
   });
 
-  xit('Returns a 401 without a token?', done => {
+  it('Returns a 401 without a token?', done => {
     api.put(`/api/goals/${goalId}`)
       .end((err, res) => {
         expect(res.status).to.eq(401);
@@ -43,7 +43,7 @@ describe('PUT /goals/:id', () => {
       });
   });
 
-  xit('Returns a 200 with a token?', done => {
+  it('Returns a 200 with a token?', done => {
     api.put(`/api/goals/${goalId}`)
       .set('Authorization', `Bearer ${token}`)
       .send(updateData)
@@ -53,7 +53,7 @@ describe('PUT /goals/:id', () => {
       });
   });
 
-  xit('Returns an object?', done => {
+  it('Returns an object?', done => {
     api.put(`/api/goals/${goalId}`)
       .set('Authorization', `Bearer ${token}`)
       .send(updateData)
@@ -63,7 +63,7 @@ describe('PUT /goals/:id', () => {
       });
   });
 
-  xit('Returns the updated data?', done => {
+  it('Returns the updated data?', done => {
     api.put(`/api/goals/${goalId}`)
       .set('Authorization', `Bearer ${token}`)
       .send(updateData)
