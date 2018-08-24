@@ -99,7 +99,39 @@ function DashboardCtrl($rootScope, $scope, $http) {
   // Graph logic
   $scope.$watch('spendData', () => {
 
+    let seriesConfig = [];
     if($scope.spendData){
+
+      if($scope.remainder < 0) {
+        seriesConfig = [{
+          'values': [$scope.spendData[1]],
+          'background-color': '#ff647a',
+          'border-color': '#282E3D',
+          'border-width': '0px',
+          'shadow': 0
+        }];
+      } else {
+        seriesConfig = [
+          {
+            'values': [$scope.spendData[0]],
+            'background-color': '#10f785',
+            'border-color': '#282E3D',
+            'border-width': '0px',
+            'shadow': 0
+          },
+          {
+            'values': [$scope.spendData[1]],
+            'background-color': '#ff647a',
+            'border-color': '#282E3D',
+            'border-width': '0px',
+            'shadow': 0
+          }
+
+        ];
+      }
+
+
+
       $scope.donutChartConfig = {
         'globals': {
           'font-family': 'Lato',
@@ -127,7 +159,7 @@ function DashboardCtrl($rootScope, $scope, $http) {
                 'type': 'first',
                 'connected': false,
                 'placement': 'center',
-                'text': `<span style='font-size:40px;'>You've spent</span><br><span>£${totalCost}</span><br><span style='font-size:25px;'>You've got £${$rootScope.remainder} left</span>`,
+                'text': `<span style='font-size:40px;'>You've spent</span><br><span>£${totalCost}</span><br><span style='font-size:25px;'>You've got £${$rootScope.remainder.toFixed(2)} left</span>`,
                 'rules': [
                   {
                     'rule': '%v > 50',
@@ -146,28 +178,13 @@ function DashboardCtrl($rootScope, $scope, $http) {
                 'sequence': '1'
               }
             },
-            'series': [
-              {
-                'values': [$scope.spendData[0]],
-                'background-color': '#10f785',
-                'border-color': '#282E3D',
-                'border-width': '0px',
-                'shadow': 0
-              },
-              {
-                'values': [$scope.spendData[1]],
-                'background-color': '#ff647a',
-                'border-color': '#282E3D',
-                'border-width': '0px',
-                'shadow': 0
-              }
-            ]
+            'series': seriesConfig
           }
         ]
 
       };
 
-    
+
     }
   });//something done to change the <strong> element into a text input
 }
