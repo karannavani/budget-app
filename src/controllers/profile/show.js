@@ -1,6 +1,8 @@
 let cost;
 let type;
 let merchant;
+let monzoId;
+const userExpenses = [];
 
 function ProfileShowCtrl($http, $scope, $state, $rootScope, $window) {
   $http({
@@ -11,6 +13,8 @@ function ProfileShowCtrl($http, $scope, $state, $rootScope, $window) {
       console.log('Found a user', res.data);
       $scope.user = res.data;
     });
+
+  getExpenses();
 
   // $rootScope.user.savingsArray.forEach
   $rootScope.mySavings = $rootScope.user.savingsArray.reduce( (accumulator, currentValue) => accumulator + currentValue, 0);
@@ -72,13 +76,25 @@ function ProfileShowCtrl($http, $scope, $state, $rootScope, $window) {
     const spentTodayArr = [];
     $scope.monzoTransactions.forEach(transaction => {
       // console.log(Math.abs(transaction.amount/100).toFixed(2));
+
       if(transaction.scheme !== 'uk_retail_pot') {
         spentTodayArr.push(parseFloat(Math.abs(transaction.amount/100).toFixed(2)));
-        cost = (parseFloat(Math.abs(transaction.amount/100).toFixed(2)));
-        merchant = transaction.merchant.name;
-        type = transaction.category;
-        createExpense();
+
+        // $scope.expenses.forEach(expense => {
+          const existingTransaction = $scope.expenses.find(function (existingTransaction) {
+          return existingTransaction.monzoId === transaction.id;
+          });
+          if(!existingTransaction) {
+            cost = (parseFloat(Math.abs(transaction.amount/100).toFixed(2)));
+            merchant = transaction.merchant.name;
+            type = transaction.category;
+            monzoId = transaction.id;
+            createExpense();
+          }
+        // });
+
       }
+
     });
     console.log('spent array is', spentTodayArr);
     $scope.spentToday = spentTodayArr.reduce((a, b) => a + b, 0);
@@ -92,7 +108,7 @@ function ProfileShowCtrl($http, $scope, $state, $rootScope, $window) {
       method: 'POST',
       url: '/api/expenses',
       createdBy: $scope.user,
-      data: { createdBy: $scope.user, cost: cost, merchant: merchant, type: type }
+      data: { createdBy: $scope.user, cost: cost, merchant: merchant, type: type, monzoId: monzoId }
     })
       .then(() => $rootScope.$broadcast('flashMessage',
         { type: 'success',
@@ -100,6 +116,19 @@ function ProfileShowCtrl($http, $scope, $state, $rootScope, $window) {
         }));
   }
 
+  function getExpenses() {
+    $http({
+      method: 'GET',
+      url: '/api/expenses'
+    })
+      .then(res => {
+        res.data.forEach(expense => {
+          if(expense.createdBy._id === $rootScope.user._id) userExpenses.push(expense);
+        });
+        $scope.expenses = userExpenses;
+        console.log('expenses are', $scope.expenses);
+      });
+  }
 
 }
 
