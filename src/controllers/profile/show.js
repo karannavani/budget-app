@@ -27,32 +27,47 @@ function ProfileShowCtrl($http, $scope, $state, $rootScope, $window) {
   $scope.fetchMonzo = function() {
     $http({
       method: 'GET',
-      url: '/api/transactions',
+      url: '/api/accounts',
       skipAuthorization: true
     })
       .then(res => {
-        console.log('transactions is', res.data);
-        $scope.monzoTransactions = res.data;
-        calculateSpending();
+        console.log('account id is', res.data);
+        $scope.accountId = true;
       });
-    $http({
-      method: 'GET',
-      url: '/api/pots',
-      skipAuthorization: true
-    })
-      .then(res => {
-        console.log('pots is', res.data);
-        $scope.monzoPots = res.data;
-      });
-    $http({
-      method: 'GET',
-      url: '/api/balance',
-      skipAuthorization: true
-    })
-      .then(res => {
-        console.log('balance is', res.data);
-        $scope.monzoBalance = (res.data/100).toFixed(2);
-      });
+
+    $scope.$watch('accountId', () => {
+      if ($scope.accountId) {
+
+        $http({
+          method: 'GET',
+          url: '/api/transactions',
+          skipAuthorization: true
+        })
+          .then(res => {
+            console.log('transactions is', res.data);
+            $scope.monzoTransactions = res.data;
+            calculateSpending();
+          });
+        $http({
+          method: 'GET',
+          url: '/api/pots',
+          skipAuthorization: true
+        })
+          .then(res => {
+            console.log('pots is', res.data);
+            $scope.monzoPots = res.data;
+          });
+        $http({
+          method: 'GET',
+          url: '/api/balance',
+          skipAuthorization: true
+        })
+          .then(res => {
+            console.log('balance is', res.data);
+            $scope.monzoBalance = (res.data/100).toFixed(2);
+          });
+      }
+    });
 
   };
 

@@ -3,31 +3,24 @@ const request = require('request');
 const { clientId } = require('../config/environment');
 const { clientSecret } = require('../config/environment');
 const { redirectUri } = require('../config/environment');
-// const today = new Date;
-// const date = today.toLocaleString().slice(0,2);
-// const month = today.toLocaleString().slice(3,5);
-// const year = today.toLocaleString().slice(6,10);
+
 const date = (new Date()).toISOString().slice(0,10);
-// const today = (new Date()).toISOString().slice(0,10)+'T00:00:00Z';
-const today = '2018-08-23T00:00:00Z';
+const today = (new Date()).toISOString().slice(0,10)+'T00:00:00Z';
 
 const oauthDetails = {
-  // clientId: 'oauth2client_00009ZwDIYexsmCFEpJO09',
-  // clientSecret: 'mnzpub.nLYRcNz2lKr9XsltNdJXbUygVSci/He9xp3REApCNyfGwPaqNoVQdJN/Z/KMRXlBxip7dSUFcQaZrjkzYWYH',
-  // redirectUri: 'http://localhost:4000/api/oauth/callback'
+
   clientId,
   clientSecret,
   redirectUri
 };
 
 let accessToken = null;
+let accountId = null;
 let transactionsData = [];
 
 
 function login(req, res) {
   const { clientId, redirectUri } = oauthDetails;
-  // const monzoAuthUrl = 'https://auth.monzo.com';
-  // const qs = req.query;
 
   res.redirect(`https://auth.monzo.com/?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code`);
 }
@@ -53,7 +46,7 @@ function callback(req, res) {
     console.log('callback access token is ===>', accessToken);
     res.type('html');
     res.status(200);
-    res.send(`<p>HELLO WORLD!</p>`);
+    res.send('<p>Authenticated – please go back to the profile tab</p>');
 
     // res.redirect('https://thriftyapp.herokuapp.com/#!/users/5b7b0e7b8e801f00331e1f0e')
     // res.redirect('/api/transactions'); // Send user to their accounts
@@ -76,6 +69,8 @@ function accounts(req, res) {
     // console.log('body is', body);
     console.log('accounts is =======>', accounts);
     console.log('account id is ===>', accounts[0].id);
+    accountId = accounts[0].id;
+    res.json('accountId is here');
   });
 
 }
@@ -83,7 +78,7 @@ function accounts(req, res) {
 function transactions(req, res) {
   console.log('today looks like', today);
   const { token_type, access_token } = accessToken;
-  const transactionsUrl = `https://api.monzo.com/transactions?expand[]=merchant&account_id=acc_00009OPnV5jnOw9VsS0oKX&since=${today}&limit=100`;
+  const transactionsUrl = `https://api.monzo.com/transactions?expand[]=merchant&account_id=${accountId}&since=${today}&limit=100`;
 
   request.get(transactionsUrl, {
     headers: {
@@ -105,7 +100,7 @@ function balance(req, res) {
 
   rp({
     method: 'GET',
-    url: `https://api.monzo.com/balance?account_id=acc_00009OPnV5jnOw9VsS0oKX`,
+    url: `https://api.monzo.com/balance?account_id=${accountId}`,
     headers: {
       Authorization: `${token_type} ${access_token}`
     }
