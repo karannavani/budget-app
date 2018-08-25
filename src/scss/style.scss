@@ -171,10 +171,6 @@ hr {
 }
 
 
-
-
-
-
 .expense-title {
   color: #ffb942;
 }
@@ -281,6 +277,9 @@ hr {
   z-index: 0;
 }
 
+.transport {
+  margin-right: 20px;
+}
 
 @media screen and (max-width: 768px) {
   .content-body{

@@ -4,7 +4,6 @@ const { clientId } = require('../config/environment');
 const { clientSecret } = require('../config/environment');
 const { redirectUri } = require('../config/environment');
 
-const date = (new Date()).toISOString().slice(0,10);
 const today = (new Date()).toISOString().slice(0,10)+'T00:00:00Z';
 
 const oauthDetails = {

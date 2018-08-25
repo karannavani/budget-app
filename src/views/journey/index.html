@@ -16,32 +16,32 @@
   <div class="button is-loading loadingButton"></div>
 </div>
 
+<h4 class="subtitle-text-green topmargin">Your options are:</h4>
 <div class="columns" ng-if="uberXDuration && uberPoolDuration && busDuration && bikeDuration && tubeDuration">
-  <h4 class="subtitle-text-green topmargin">Your options are:</h4>
   <hr>
   <!-- <div class="busDiv" ng-click="deductJourney($event)"> -->
-  <div class="columns is-multiline is-mobile">
+  <div class="columns transport is-mobile">
     <div class="show-detail-white column is-4 bus" ng-click="deductJourney($event)">Bus</div>
     <div class="show-detail-orange column has-text-centered is-4 bus" ng-click="deductJourney($event)">£{{ busCost }}</div>
     <div class="show-detail-orange column has-text-centered is-4 bus" ng-click="deductJourney($event)">{{ busDuration }} mins</div>
   </div>
   <!-- </div> -->
-  <div class="columns is-multiline is-mobile">
+  <div class="columns transport is-mobile">
     <div class="show-detail-white column is-4 bike" ng-click="deductJourney($event)">Bike</div>
     <div class="show-detail-orange column has-text-centered is-4 bike" ng-click="deductJourney($event)">£{{ bikeCost }}</div>
     <div class="show-detail-orange column has-text-centered is-4 bike" ng-click="deductJourney($event)">{{ bikeDuration }} mins</div>
   </div>
-  <div class="columns is-multiline is-mobile">
+  <div class="columns transport is-mobile">
     <div class="show-detail-white column is-4 tube" ng-click="deductJourney($event)">Tube</div>
     <div class="show-detail-orange column has-text-centered is-4 tube" ng-click="deductJourney($event)">£{{ tubeCost }}</div>
     <div class="show-detail-orange column has-text-centered is-4 tube" ng-click="deductJourney($event)">{{ tubeDuration }} mins</div>
   </div>
-  <div class="columns is-multiline is-mobile">
+  <div class="columns transport is-mobile">
     <div class="show-detail-white column is-4 uberPool" ng-click="deductJourney($event)">UberPool</div>
     <div class="show-detail-orange column has-text-centered is-4 uberPool" ng-click="deductJourney($event)">£{{ uberPoolCost }}</div>
     <div class="show-detail-orange column has-text-centered is-4 uberPool" ng-click="deductJourney($event)">{{ uberPoolDuration }} mins</div>
   </div>
-  <div class="columns is-multiline is-mobile">
+  <div class="columns transport is-mobile">
     <div class="show-detail-white column is-4 uberX" ng-click="deductJourney($event)">UberX</div>
     <div class="show-detail-orange column has-text-centered is-4 uberX" ng-click="deductJourney($event)">£{{ uberXCost }}</div>
     <div class="show-detail-orange column has-text-centered is-4 uberX" ng-click="deductJourney($event)">{{ uberXDuration }} mins</div>
