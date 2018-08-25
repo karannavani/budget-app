@@ -85,6 +85,9 @@ router.route('/movesavings')
 
 router.route('/balance')
   .get(monzoController.balance);
+
+router.route('/accounts')
+  .get(monzoController.accounts);
 //
 
 

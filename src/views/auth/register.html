@@ -1,14 +1,14 @@
-<h2 id="state-title">Get Thrifty...</h2>
+<h2 class="state-title">Get Thrifty...</h2>
 
 <form ng-submit="register()" name="form" novalidate>
   <div class="field">
     <label class="form-input-text label" for="username">Username</label>
-    <input required minlength="2" ng-model="user.username" class="input" type="text" name="username" placeholder="">
+    <input required minlength="2" ng-model="user.username" class="input" type="text" name="username" ng-init="user.username=''">
   </div>
 
   <div class="field">
     <label class="form-input-text label" for="firstName">First name</label>
-    <input required minlength="2" ng-model="user.firstName" class="input" type="text" name="firstName" placeholder="">
+    <input required minlength="2" ng-model="user.firstName" class="input" type="text" name="firstName" ng-init="user.firstName=''">
   </div>
 
   <div ng-messages="form.firstName.$error" ng-if="form.firstName.$dirty">
@@ -18,12 +18,12 @@
 
   <div class="field">
     <label class="form-input-text label" for="lastName">Last name</label>
-    <input ng-model="user.lastName" class="input" type="text" name="lastName" placeholder="">
+    <input ng-model="user.lastName" class="input" type="text" name="lastName" ng-init="user.lastName=''">
   </div>
 
   <div class="field">
     <label class="form-input-text label" for="passwordConfirmation">Profile Picture (url)</label>
-    <input ng-model="user.profilePicUrl" class="input" type="text" name="profilePicUrl" placeholder="">
+    <input ng-model="user.profilePicUrl" class="input" type="text" name="profilePicUrl" ng-init="user.profilePicUrl=''">
 </div>
 
   <div class="field">
@@ -33,11 +33,11 @@
 
   <div class="field">
     <label class="form-input-text label" for="password">Password</label>
-    <input ng-model="user.password" class="input" type="password" name="password" placeholder="">
+    <input ng-model="user.password" class="input" type="password" name="password" ng-init="user.password=''">
 
   <div class="field">
     <label class="form-input-text label" for="passwordConfirmation">Confirm your password</label>
-    <input ng-model="user.passwordConfirmation" class="input" type="password" name="passwordConfirmation" placeholder="">
+    <input ng-model="user.passwordConfirmation" class="input" type="password" name="passwordConfirmation" ng-init="user.passwordConfirmation=''">
 </div>
 
   <button class="button">Sign up</button>

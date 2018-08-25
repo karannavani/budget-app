@@ -12,15 +12,14 @@ function AuthLoginCtrl($http, $rootScope, $scope, $auth, $state) {
         user = res.data.find(function(user) {
           return user.email === $scope.user.email;
         });
-        $rootScope.user = user;
-        $scope.user = user;
-
-
-
       })
       // .find($scope.user.email)
 
-      .then(() => $state.go('dashboard'))
+      .then(() => {
+        $rootScope.user = user;
+        $scope.user = user;
+        $state.go('dashboard');
+      })
       .catch(err => console.log('There was an error', err));
   };
 

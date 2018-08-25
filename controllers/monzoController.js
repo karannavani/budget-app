@@ -61,23 +61,24 @@ function callback(req, res) {
 
 }
 
-// function accounts(req, res) {
-//   console.log('accounts access token is ===>', accessToken);
-//
-//   const { token_type, access_token } = accessToken;
-//   const accountsUrl = 'https://api.monzo.com/accounts';
-//
-//   request.get(accountsUrl, {
-//     headers: {
-//       Authorization: `${token_type} ${access_token}`
-//     }
-//   }, (req, response, body) => {
-//     const { accounts } = JSON.parse(body);
-//     // console.log('body is', body);
-//     console.log('accounts is =======>', accounts);
-//   });
-//
-// }
+function accounts(req, res) {
+  console.log('accounts access token is ===>', accessToken);
+
+  const { token_type, access_token } = accessToken;
+  const accountsUrl = 'https://api.monzo.com/accounts?account_type=uk_retail';
+
+  request.get(accountsUrl, {
+    headers: {
+      Authorization: `${token_type} ${access_token}`
+    }
+  }, (req, response, body) => {
+    const { accounts } = JSON.parse(body);
+    // console.log('body is', body);
+    console.log('accounts is =======>', accounts);
+    console.log('account id is ===>', accounts[0].id);
+  });
+
+}
 
 function transactions(req, res) {
   console.log('today looks like', today);
@@ -165,7 +166,7 @@ function moveSavings(req, res) {
 module.exports = {
   login,
   callback,
-  // accounts,
+  accounts,
   transactions,
   pots,
   moveSavings,
