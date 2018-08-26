@@ -25,28 +25,30 @@ To design and collaboratively build a MEAN stack app that consumes our own API (
 ---
 # Approach Taken
 We kicked off the project by drawing up wireframes which helped clarify what we were working towards and served as a reference point throughout the project.
-![](https://i.imgur.com/38kqAG9.png)
-![](https://i.imgur.com/zsC9MiJ.png)
+
+<p align="center"><img src="https://i.imgur.com/38kqAG9.png"></p>
+<p align="center"><img src="https://i.imgur.com/zsC9MiJ.png"></p>
 
 After we roughly had an idea of all the models we wanted to build – we created a backlog of tasks on Trello and assigned a member to each card.
 
-![](https://i.imgur.com/BojTg9B.jpg)
+<p align="center"><img src="https://i.imgur.com/BojTg9B.jpg"></p>
 
 ### Functionality
 
-[![](https://thumbs.gfycat.com/HotFavorableBushsqueaker-size_restricted.gif)](https://gfycat.com/gifs/detail/HotFavorableBushsqueaker)
+<p align="center"><img src="https://thumbs.gfycat.com/HotFavorableBushsqueaker-size_restricted.gif"></p>
 
 1. **Budget tracking** – Users can set daily budgets from the dashboard and the ring chart updates in real-time based on spending.
 
-[![](https://thumbs.gfycat.com/CluelessVigorousKite-size_restricted.gif)](https://gfycat.com/gifs/detail/CluelessVigorousKite)
+
+<p align="center"><img src="https://thumbs.gfycat.com/CluelessVigorousKite-size_restricted.gif"></p>
 
 2. **Journey Planner** – The user can find the most cost efficient mode of transport to get around London and tap on it to add it as an expense. The data is provided in real-time by Transport for London and Uber's API
 
-[![](https://thumbs.gfycat.com/EagerWetAmericanbadger-size_restricted.gif)](https://gfycat.com/gifs/detail/EagerWetAmericanbadger)
+<p align="center"><img src="https://thumbs.gfycat.com/EagerWetAmericanbadger-size_restricted.gif"></p>
 
 3. **Food finder** – We use Zomato's API to find the cheapest food options in a 300m radius around the user.
 
-[![](https://thumbs.gfycat.com/TepidAdmirableAyeaye-size_restricted.gif)](https://gfycat.com/gifs/detail/TepidAdmirableAyeaye)
+<p align="center"><img src="https://thumbs.gfycat.com/TepidAdmirableAyeaye-size_restricted.gif"></p>
  
 4. **Goals** – If a user is trying to save up for a future purchase, they can add these as goals and allocate an amount to it as they save money. A progress bar shows how close they are to achieving their target.
 
