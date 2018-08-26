@@ -63,7 +63,7 @@ After we roughly had an idea of all the models we wanted to build – we created
 # Wins
 * **Leveraging external APIs** – Integrating with external APIs allowed us to improve the user experience and usefulness of the app drastically.
 
- For this app we used the following APIs – TFL, Uber, Postcodes.io, Zomato, Leaflet and Monzo.
+	For this app we used the following APIs – TFL, Uber, Postcodes.io, 	Zomato, Leaflet and Monzo.
 
 * **Styling and user experience** – Our philosophy was to not only build something that was feature rich, but also something that was pleasing to use. Having a sleek user experience and design language helped make the product feel more complete.	
  
@@ -76,4 +76,5 @@ After we roughly had an idea of all the models we wanted to build – we created
 * **Better desktop and tablet experience** – We developed this product with a mobile-first perspective. While the app is still usable on desktops and tablets, there is scope to make better use of the increased real-estate.
 
 * **Deeper insights and analytics** – Providing more personalised recommendations and informed insights based on the user's spending patterns.
+
 * **Tracking recurring expenses** – Automatically detecting direct debits and subscriptions to alert the user beforehand.
