@@ -55,7 +55,7 @@ After we roughly had an idea of all the models we wanted to build – we created
 
 6. **Linking to Monzo bank accounts** – At the end of each day, the user's unspent budget is moved to their 'savings' in the Thrifty app.
 
- Using Monzo bank's API, we tapped into the user's savings in their actual bank account. We then added functionality to simply tap on a savings pot and move money from their Monzo bank account to their Monzo savings pot in real-time.
+ Using Monzo bank's API, we tapped into the user's savings in their actual bank account. We then added functionality to simply 	tap on a savings pot and move money from their Monzo bank account to their Monzo savings pot in real-time.
 
 <p align="center"><img src="https://thumbs.gfycat.com/NauticalTangibleIguana-size_restricted.gif"></p>
 
