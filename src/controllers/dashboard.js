@@ -1,5 +1,5 @@
 function DashboardCtrl($rootScope, $scope, $http) {
-  console.log('user is', $rootScope.user);
+  // console.log('user is', $rootScope.user);
   $scope.user = $rootScope.user;
   $scope.mode = 'notEdit';
   const today = new Date;
@@ -49,11 +49,11 @@ function DashboardCtrl($rootScope, $scope, $http) {
       });
 
       $rootScope.displayTotal= totalCost;
-      console.log('User expense is ===>', userExpenses);
+      // console.log('User expense is ===>', userExpenses);
       $scope.expenses = userExpenses;
       $rootScope.remainder = $rootScope.user.dailyBudget - $rootScope.displayTotal;
       $scope.spendData = [$rootScope.remainder, $rootScope.displayTotal];
-      console.log('this is scope data', $scope.spendData);
+      // console.log('this is scope data', $scope.spendData);
     });
 
 

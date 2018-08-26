@@ -7,7 +7,7 @@ function MainCtrl($rootScope, $scope, $auth, $state, $timeout, $http) {
     url: '/api/users'
   })
     .then(users => {
-      console.log('users are', users);
+      // console.log('users are', users);
       users.data.forEach(user => {
         if (user._id === $scope.getPayload().sub) {
           $scope.user = user;

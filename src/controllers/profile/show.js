@@ -10,7 +10,7 @@ function ProfileShowCtrl($http, $scope, $state, $rootScope, $window) {
     url: `/api/users/${$state.params.id}`
   })
     .then(res => {
-      console.log('Found a user', res.data);
+      // console.log('Found a user', res.data);
       $scope.user = res.data;
     });
 
@@ -141,7 +141,7 @@ function ProfileShowCtrl($http, $scope, $state, $rootScope, $window) {
           if(expense.createdBy._id === $rootScope.user._id) userExpenses.push(expense);
         });
         $scope.expenses = userExpenses;
-        console.log('expenses are', $scope.expenses);
+        // console.log('expenses are', $scope.expenses);
       });
   }
 
