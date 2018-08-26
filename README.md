@@ -52,7 +52,7 @@ After we roughly had an idea of all the models we wanted to build – we created
 
 5. **Expense Tracking** – Users can manually add expenses in the app or connect their Monzo bank account and the expenses for that day would be updated automatically and deducted from their daily budget. 
 
-	[![](https://thumbs.gfycat.com/NauticalTangibleIguana-size_restricted.gif)](https://gfycat.com/gifs/detail/NauticalTangibleIguana)
+<p align="center"><img src="https://thumbs.gfycat.com/NauticalTangibleIguana-size_restricted.gif"></p>
 
 6. **Linking to Monzo bank accounts** – At the end of each day, the user's unspent budget is moved to their 'savings' in the Thrifty app.
 
