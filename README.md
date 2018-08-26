@@ -1,82 +1,79 @@
-# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Project #3: A MEAN Stack App
+![](https://i.imgur.com/IwxlQTx.png)
 
-## Overview
+> **[Visit Thrifty](https://thriftyapp.herokuapp.com)**
 
-Your instructors will partner you with other classmates to design and collaboratively build a MEAN stack app of your own design.
+# Goal
+To design and collaboratively build a MEAN stack app that consumes our own API (as a team of 3 people in 7 days).
 
-- **M**ongo - For the database
-- **E**xpress - For the web-framework
-- **A**ngular - Angular(1) for the client-side framework
-- **N**ode - For the server-side language
+# Technologies Used
+* HTML5
+* SCSS
+* JavaScript (ES6)
+* AngularJS
+* Mocha
+* Chai
+* Node.js
+* MongoDB
+* Mongoose
+* Express
+* Heroku
+* Github
+* Git
+* Bulma
 
-This is the _most realistic_ stack that you have worked on during the course and will prepare you for working in the industry where the MEAN stack setup is still very popular.
-
-**This is meant to push you both technically and collaboratively.** It is a lot harder to work in a team than to work by yourself. However, it is very likely thank you are going to find yourself working in a teams throughout your development careers so **it's important to learn how to work together.**
-
-Make it work, and make it awesome.
-
----
-
-## Technical Requirements
-
-* **Carefully plan wireframes** as a team _before starting to code_
-* **Carefully plan Model schemas*** as a team _before starting to code_
-* **Manage team contributions and collaboration** using a Git on Github
-* **Deploy your application online** so it's publicly accessible
-
-### Server-side
-
-Your app must:
-
-* **Use Mongo, Node & Express** to build a server-side API
-* **Your API must have at least 2 related models**, one of which should be a user
-* Your API should include **all RESTFUL actions** for at least one of those models
-* Include **authentication** to restrict access to appropriate users
-* **Include at least one referenced or embedded sub-document**, however don't go crazy! You need to manage your time effectively...
-* **Include automated tests** for at least one resource
-
-### Client-side
-
-* **Use Angular** to build a front-end that consumes your API
-* **Use SCSS instead of CSS**
-* **Use Webpack & Yarn** to manage your dependencies and compile your source code
 
 ---
+# Approach Taken
+We kicked off the project by drawing up wireframes which helped clarify what we were working towards and served as a reference point throughout the project.
+![](https://i.imgur.com/38kqAG9.png)
+![](https://i.imgur.com/zsC9MiJ.png)
 
-## Necessary Deliverables
+After we roughly had an idea of all the models we wanted to build – we created a backlog of tasks on Trello and assigned a member to each card.
 
-* A **working API, built by the whole team**, hosted somewhere on the internet
-* A handmade Angular front-end **that consumes your own API**, hosted somewhere on the internet
-* A **link to your hosted working app** in the URL section of your Github repo
-* A **team git repository hosted on Github**, with a link to your hosted project, and frequent commits from _every_ team member dating back to the _very beginning_ of the project
-* **A `readme.md` file** with:
-	* Explanations of the **technologies** used
-   	* A couple of paragraphs about the **general approach you took**
-   	* **Installation instructions** for any dependencies
-   	* Link to your **wireframes** – sketches of major views / interfaces in your application
-   * Descriptions of any **unsolved problems** or **major hurdles** your team had to overcome
+![](https://i.imgur.com/BojTg9B.jpg)
+
+### Functionality
+
+[![](https://thumbs.gfycat.com/HotFavorableBushsqueaker-size_restricted.gif)](https://gfycat.com/gifs/detail/HotFavorableBushsqueaker)
+
+1. **Budget tracking** – Users can set daily budgets from the dashboard and the ring chart updates in real-time based on spending.
+
+[![](https://thumbs.gfycat.com/CluelessVigorousKite-size_restricted.gif)](https://gfycat.com/gifs/detail/CluelessVigorousKite)
+
+2. **Journey Planner** – The user can find the most cost efficient mode of transport to get around London and tap on it to add it as an expense. The data is provided in real-time by Transport for London and Uber's API
+
+[![](https://thumbs.gfycat.com/EagerWetAmericanbadger-size_restricted.gif)](https://gfycat.com/gifs/detail/EagerWetAmericanbadger)
+
+3. **Food finder** – We use Zomato's API to find the cheapest food options in a 300m radius around the user.
+
+[![](https://thumbs.gfycat.com/TepidAdmirableAyeaye-size_restricted.gif)](https://gfycat.com/gifs/detail/TepidAdmirableAyeaye)
+ 
+4. **Goals** – If a user is trying to save up for a future purchase, they can add these as goals and allocate an amount to it as they save money. A progress bar shows how close they are to achieving their target.
+
+5. **Expense Tracking** – Users can manually add expenses in the app or connect their Monzo bank account and the expenses for that day would be updated automatically and deducted from their daily budget. 
+
+	[![](https://thumbs.gfycat.com/NauticalTangibleIguana-size_restricted.gif)](https://gfycat.com/gifs/detail/NauticalTangibleIguana)
+
+6. **Linking to Monzo bank accounts** – At the end of each day, the user's unspent budget is moved to their 'savings' in the Thrifty app.
+
+Using Monzo bank's API, we tapped into the user's savings in their actual bank account. We then added functionality to simply tap on a savings pot and move money from their Monzo bank account to their Monzo savings pot in real-time.
+
 
 ---
+# Wins
+* **Leveraging external APIs** – Integrating with external APIs allowed us to improve the user experience and usefulness of the app drastically.
 
-## Suggested Ways to Get Started
+For this app we used the following APIs – TFL, Uber, Postcodes.io, Zomato, Leaflet and Monzo.
 
-* **Don’t hesitate to write throwaway code** to solve short term problems.
-* **Read the docs for whatever technologies / frameworks / API’s you use**.
-* **Write your code DRY** and **build your APIs RESTful**.
-* **Be consistent with your code style.** You're working in teams, but you're only making one app per team. Make sure it looks like a unified effort.
-* **Commit early, commit often.** Don’t be afraid to break something because you can always go back in time to a previous version.
-* **Keep user stories small and well-defined**, and remember – user stories focus on what a user needs, not what development tasks need accomplishing.
-* **Write code another developer wouldn't have to ask you about**. Do your naming conventions make sense? Would another developer be able to look at your app and understand what everything is?
-* **Make it all well-formatted.** Are you indenting, consistently? Can we find the start and end of every div, curly brace, etc?
-* **Comment your code.** Will someone understand what is going on in each block or function? Even if it's obvious, explaining the what & why means someone else can pick it up and get it.
-* **Write pseudocode before you write actual code.** Thinking through the logic of something helps.
+* **Styling and user experience** – Our philosophy was to not only build something that was feature rich, but also something that was pleasing to use. Having a sleek user experience and design language helped make the product feel more complete.	
+ 
+---
+# Blockers
+* **Proxy Requests** – For the MVP, we started off by making API requests from the front-end. We ran into CORS issues because of this and had to move the API calls to our backend. This led to a lot of moving parts which slowed us down.
 
 ---
+# Future Features
+* **Better desktop and tablet experience** – We developed this product with a mobile-first perspective. While the app is still usable on desktops and tablets, there is scope to make better use of the increased real-estate.
 
-## Useful Resources
-
-* **[MongoDB](https://www.mongodb.org/)**
-* **[Express JS](http://expressjs.com/)**
-* **[Getting Started with Node.js on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs)**
-
----
+* **Deeper insights and analytics** – Providing more personalised recommendations and informed insights based on the user's spending patterns.
+* **Tracking recurring expenses** – Automatically detecting direct debits and subscriptions to alert the user beforehand.
