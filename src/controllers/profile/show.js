@@ -88,6 +88,7 @@ function ProfileShowCtrl($http, $scope, $state, $rootScope, $window) {
   };
 
   function calculateSpending() {
+    getExpenses();
     const spentTodayArr = [];
     $scope.monzoTransactions.forEach(transaction => {
       // console.log(Math.abs(transaction.amount/100).toFixed(2));
