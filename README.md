@@ -35,31 +35,29 @@ After we roughly had an idea of all the models we wanted to build – we created
 
 ### Functionality
 
-<p align="center"><img src="https://thumbs.gfycat.com/HotFavorableBushsqueaker-size_restricted.gif"></p>
-
 1. **Budget tracking** – Users can set daily budgets from the dashboard and the ring chart updates in real-time based on spending.
 
-
-<p align="center"><img src="https://thumbs.gfycat.com/CluelessVigorousKite-size_restricted.gif"></p>
+<p align="center"><img src="https://thumbs.gfycat.com/HotFavorableBushsqueaker-size_restricted.gif"></p>
 
 2. **Journey Planner** – The user can find the most cost efficient mode of transport to get around London and tap on it to add it as an expense. The data is provided in real-time by Transport for London and Uber's API
 
-<p align="center"><img src="https://thumbs.gfycat.com/EagerWetAmericanbadger-size_restricted.gif"></p>
+<p align="center"><img src="https://thumbs.gfycat.com/CluelessVigorousKite-size_restricted.gif"></p>
 
 3. **Food finder** – We use Zomato's API to find the cheapest food options in a 300m radius around the user.
 
-<p align="center"><img src="https://thumbs.gfycat.com/TepidAdmirableAyeaye-size_restricted.gif"></p>
+<p align="center"><img src="https://thumbs.gfycat.com/EagerWetAmericanbadger-size_restricted.gif"></p>
  
 4. **Goals** – If a user is trying to save up for a future purchase, they can add these as goals and allocate an amount to it as they save money. A progress bar shows how close they are to achieving their target.
 
-5. **Expense Tracking** – Users can manually add expenses in the app or connect their Monzo bank account and the expenses for that day would be updated automatically and deducted from their daily budget. 
+<p align="center"><img src="https://thumbs.gfycat.com/TepidAdmirableAyeaye-size_restricted.gif"></p>
 
-<p align="center"><img src="https://thumbs.gfycat.com/NauticalTangibleIguana-size_restricted.gif"></p>
+5. **Expense Tracking** – Users can manually add expenses in the app or connect their Monzo bank account and the expenses for that day would be updated automatically and deducted from their daily budget. 
 
 6. **Linking to Monzo bank accounts** – At the end of each day, the user's unspent budget is moved to their 'savings' in the Thrifty app.
 
 Using Monzo bank's API, we tapped into the user's savings in their actual bank account. We then added functionality to simply tap on a savings pot and move money from their Monzo bank account to their Monzo savings pot in real-time.
 
+<p align="center"><img src="https://thumbs.gfycat.com/NauticalTangibleIguana-size_restricted.gif"></p>
 
 ---
 # Wins
