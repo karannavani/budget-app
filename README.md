@@ -1,5 +1,7 @@
 ![](https://i.imgur.com/IwxlQTx.png)
 
+A place to plan your daily spend, look for money saving suggestions and keep track of your financial goals.
+
 > **[Visit Thrifty](https://thriftyapp.herokuapp.com)**
 
 # Goal
