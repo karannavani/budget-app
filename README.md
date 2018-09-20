@@ -19,8 +19,6 @@ To design and collaboratively build a MEAN stack app that consumes our own API (
 * Mongoose
 * Express
 * Heroku
-* Github
-* Git
 * Bulma
 
 
