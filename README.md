@@ -58,18 +58,18 @@ After we roughly had an idea of all the models we wanted to build – we created
  Using Monzo bank's API, we tapped into the user's savings in their actual bank account. We then added functionality to simply 	tap on a savings pot and move money from their Monzo bank account to their Monzo savings pot in real-time.
 
 <p align="center"><img src="https://thumbs.gfycat.com/NauticalTangibleIguana-size_restricted.gif"></p>
+ 
+---
+# Blockers
+* **Proxy Requests** – For the MVP, we started off by making API requests from the front-end. We ran into CORS issues because of this and had to move the API calls to our backend. This led to a lot of moving parts which slowed us down.
 
 ---
 # Wins
 * **Leveraging external APIs** – Integrating with external APIs allowed us to improve the user experience and usefulness of the app drastically.
 
-	For this app we used the following APIs – TFL, Uber, Postcodes.io, 	Zomato, Leaflet and Monzo.
+	For this app we used the following APIs – TFL, Uber, Postcodes.io, Zomato, Leaflet and Monzo.
 
 * **Styling and user experience** – Our philosophy was to not only build something that was feature rich, but also something that was pleasing to use. Having a sleek user experience and design language helped make the product feel more complete.	
- 
----
-# Blockers
-* **Proxy Requests** – For the MVP, we started off by making API requests from the front-end. We ran into CORS issues because of this and had to move the API calls to our backend. This led to a lot of moving parts which slowed us down.
 
 ---
 # Future Features
