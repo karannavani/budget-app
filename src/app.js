@@ -73,7 +73,7 @@ angular.module('Thrifty',
   .controller('MonzoCtrl', MonzoCtrl)
   .controller('MonzoAuthCtrl', MonzoAuthCtrl)
 
-  // .controller('myController', MainCtrl)
+//.controller('myController', MainCtrl)
 
   .config(Router)
   .config(function($authProvider) {
