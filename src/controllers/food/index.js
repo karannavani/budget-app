@@ -1,4 +1,4 @@
-let resPic;
+// let resPic;
 
 function FoodCtrl($scope, $http, $rootScope) {
   navigator.geolocation.getCurrentPosition(userPosition => {
